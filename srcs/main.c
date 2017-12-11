@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/11 20:51:33 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/12/11 20:51:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-**
-*/
-
-int		ft_printf(const char *restrict format, ...)
+int		main(int ac, char **av)
 {
-	int			i;
-	va_list		va_ptr;
-
-	va_start(va_ptr, ft_count_args(format));
-	i = -1;
-	while (format[++i])
-	{
-		if (format[i] == '%')
-			ft_print_arg(format, va_ptr,  &i);
-		if (format[i] == '{')
-			ft_print_color(format, va_ptr, &i);
-		if (format[i])
-			ft_putchar(format[i]);
-	}
-	va_end(va_ptr);
+	ft_printf("defrhyjuik");
 	return (0);
 }
