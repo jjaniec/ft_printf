@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/11 20:51:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/11 21:04:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		main(int ac, char **av)
 {
-	ft_printf("defrhyjuik");
+	ft_printf("defrhyjuik", 12);
 	return (0);
 }
