@@ -6,15 +6,15 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/12 13:35:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/12 13:39:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Return 0 if $c, or $c$c2 is a flag of printf, otherwise
-** returns 1
+** Return 1 if $c, if a flag or the begin of a flag of printf
+** returns 0
 */
 
 int		ft_is_flag_c1(char c)
@@ -48,7 +48,7 @@ int		ft_is_flag_c1(char c)
 }
 
 /*
-**
+** Returns 1 if $c1$c2 is a flag of printf, otherwise returns 0
 */
 
 int		ft_is_flag_c2(char c1, char c2)
@@ -61,7 +61,7 @@ int		ft_is_flag_c2(char c1, char c2)
 }
 
 /*
-**
+** Check if letters behind '%' in format[*pos] is a flag of printf
 */
 
 char	*ft_get_flag(const char *restrict format, int *pos)
