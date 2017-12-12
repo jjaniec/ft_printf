@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:41:46 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/11 21:53:29 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/12 13:10:56 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 
 void	ft_print_arg(const char *restrict format, va_list va_ptr, int *pos)
 {
-	char	flag[2];
+	char	*flag;
 
-	flag[0] = format[*pos + 1];
-	if (format[*pos + 2] && ft_is_flag_c2(format[*pos + 2])
-		flag[1] = format[*pos + 2];
+	flag = ft_get_flag(format, pos);
+	printf("Found flag : %s\n", flag);
 
-
-	*pos += 1;
+	*pos += ft_strlen(flag);
 }
