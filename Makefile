@@ -6,7 +6,7 @@
 #    By: gde-pass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by gde-pass          #+#    #+#              #
-#    Updated: 2017/12/11 20:52:34 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/12/12 13:22:40 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_NAME = ft_count_args.c \
 		   ft_print_arg.c \
 		   ft_print_color.c \
 		   ft_printf.c \
+		   ft_get_flag.c \
 		   main.c
 
 SRC_DIR = ./srcs/

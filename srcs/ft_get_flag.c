@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/12 13:11:57 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/12 13:35:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int		ft_is_flag_c1(char c)
 			c == 'l' || \
 			c == 'j' || \
 			c == 'z')
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 /*
@@ -54,10 +54,10 @@ int		ft_is_flag_c1(char c)
 int		ft_is_flag_c2(char c1, char c2)
 {
 	if (c1 == '\0')
-		return (1);
-	if (c1 == 'l' && c2 == 'u')
 		return (0);
-	return (1);
+	if (c1 == 'l' && c2 == 'u')
+		return (1);
+	return (0);
 }
 
 /*
@@ -66,12 +66,13 @@ int		ft_is_flag_c2(char c1, char c2)
 
 char	*ft_get_flag(const char *restrict format, int *pos)
 {
-	char	flag[3];
+	char	*flag;
 
+	flag = (char *)malloc(sizeof(char) * 3);
 	if (ft_is_flag_c1(format[*pos + 1]))
 	{
 		flag[0] = format[*pos + 1];
-		if (format[*pos + 2] && ft_is_flag_c2(format[*pos + 2]))
+		if (format[*pos + 2] && ft_is_flag_c2(flag[0], format[*pos + 2]))
 			flag[1] = format[*pos + 2];
 		else
 			flag[1] = '\0';
