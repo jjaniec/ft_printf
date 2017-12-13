@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/13 19:56:14 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 21:06:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		ft_printf(const char *restrict format, ...);
 
 int		ft_count_args(const char *restrict format);
 
-void	ft_print_arg(const char *restrict format, va_list va_ptr, int *i);
+void	ft_print_arg(const char *restrict format, va_list va_ptr,\
+		int *i, char *flag);
 
 void	ft_print_color(const char *restrict format, va_list va_ptr, int *i);
 
@@ -31,7 +32,7 @@ int		ft_is_modifier(char c, char c2);
 
 char	*ft_get_flag(const char *restrict format, int pos);
 
-char	*ft_convert_arg(va_list va_arg, char *flag);
+char	*ft_convert_arg_no_modifiers(va_list va_arg, char *flag);
 
 #endif
 
