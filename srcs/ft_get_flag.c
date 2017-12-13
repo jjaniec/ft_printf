@@ -6,11 +6,31 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/12 13:39:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 19:05:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Returns if $c$c2 is an output modifier
+*/
+
+int		ft_is_modifier(char c, char c2)
+{
+	if (c != 0 && c2 != 0)
+		if ((c == 'h' && c2 == 'h') || \
+				(c == 'l' && c2 == 'l'))
+			return (1);
+	if (c != 0 && c2 == 0)
+		if (\
+				c == 'h' || \
+				c == 'l' || \
+				c == 'j' || \
+				c == 'z')
+			return (1);
+	return (0);
+}
 
 /*
 ** Return 1 if $c, if a flag or the begin of a flag of printf
@@ -22,15 +42,11 @@ int		ft_is_flag_c1(char c)
 	if (c == 's' || \
 			c == 'S' || \
 			c == 'p' || \
-			c == 'd' || \
+			c == 'd' || c == 'i' \
 			c == 'D' || \
-			c == 'i' || \
-			c == 'o' || \
+			c == 'o' || c == 'u' || c == 'x' || c == 'X' \
 			c == 'O' || \
-			c == 'u' || \
 			c == 'U' || \
-			c == 'x' || \
-			c == 'X' || \
 			c == 'c' || \
 			c == 'C' || \
 			c == '%' || \
@@ -55,7 +71,8 @@ int		ft_is_flag_c2(char c1, char c2)
 {
 	if (c1 == '\0')
 		return (0);
-	if (c1 == 'l' && c2 == 'u')
+	if (c1 == 'l' && c2 == 's' || \
+			c1 == '' && )
 		return (1);
 	return (0);
 }

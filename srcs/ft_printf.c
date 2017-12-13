@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/12 13:28:57 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 19:01:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ int		ft_printf(const char *restrict format, ...)
 	while (format[++i])
 	{
 		if (format[i] == '%' && format[i + 1] && ft_is_flag_c1(format[i + 1]))
-			ft_print_arg(format, va_ptr,  &i);
+		{
+			flag = ft_get_flag(format, &i);
+			if (ft_strlen(flag) == 1)
+				ft_print_arg(format, va_ptr,  &i);
+		}
 		if (format[i] == '{' && format[i + 1])
 			ft_print_color(format, va_ptr, &i);
 		if (format[i])
