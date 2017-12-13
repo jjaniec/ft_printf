@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/13 19:05:45 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 20:20:07 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 
 int		ft_is_modifier(char c, char c2)
 {
-	if (c != 0 && c2 != 0)
-		if ((c == 'h' && c2 == 'h') || \
-				(c == 'l' && c2 == 'l'))
-			return (1);
-	if (c != 0 && c2 == 0)
-		if (\
+	if (c != 0)
+	{
+		if ((\
 				c == 'h' || \
 				c == 'l' || \
 				c == 'j' || \
-				c == 'z')
+				c == 'z') && \
+				c2 == 0)
 			return (1);
+		if ((c == 'h' && c2 == 'h') || \
+			(c == 'l' && c2 == 'l'))
+			return (1);
+	}
 	return (0);
 }
 
@@ -37,14 +39,14 @@ int		ft_is_modifier(char c, char c2)
 ** returns 0
 */
 
-int		ft_is_flag_c1(char c)
+int		ft_is_flag_c(char c)
 {
 	if (c == 's' || \
 			c == 'S' || \
 			c == 'p' || \
-			c == 'd' || c == 'i' \
+			c == 'd' || c == 'i' || \
 			c == 'D' || \
-			c == 'o' || c == 'u' || c == 'x' || c == 'X' \
+			c == 'o' || c == 'u' || c == 'x' || c == 'X' || \
 			c == 'O' || \
 			c == 'U' || \
 			c == 'c' || \
@@ -54,25 +56,7 @@ int		ft_is_flag_c1(char c)
 			c == '0' || \
 			c == '-' || \
 			c == '+' || \
-			c == ' ' || \
-			c == 'h' || \
-			c == 'l' || \
-			c == 'j' || \
-			c == 'z')
-		return (1);
-	return (0);
-}
-
-/*
-** Returns 1 if $c1$c2 is a flag of printf, otherwise returns 0
-*/
-
-int		ft_is_flag_c2(char c1, char c2)
-{
-	if (c1 == '\0')
-		return (0);
-	if (c1 == 'l' && c2 == 's' || \
-			c1 == '' && )
+			c == ' ')
 		return (1);
 	return (0);
 }
@@ -81,25 +65,33 @@ int		ft_is_flag_c2(char c1, char c2)
 ** Check if letters behind '%' in format[*pos] is a flag of printf
 */
 
-char	*ft_get_flag(const char *restrict format, int *pos)
+char	*ft_get_flag(const char *restrict format, int pos)
 {
 	char	*flag;
+	int		mod_len;
 
-	flag = (char *)malloc(sizeof(char) * 3);
-	if (ft_is_flag_c1(format[*pos + 1]))
+	mod_len = 0;
+	flag = (char *)malloc(sizeof(char) * 4);
+	if (ft_is_modifier(format[pos + 1], 0))
 	{
-		flag[0] = format[*pos + 1];
-		if (format[*pos + 2] && ft_is_flag_c2(flag[0], format[*pos + 2]))
-			flag[1] = format[*pos + 2];
-		else
-			flag[1] = '\0';
+		flag[mod_len] = format[pos + 1];
+		mod_len++;
+		if (format[pos + 2] && ft_is_modifier(format[pos + 1], format[pos + 2]))
+		{
+			flag[mod_len] = format[pos + 2];
+			mod_len++;
+		}
 	}
-	else
+	//printf("flag : %s - mod_len : %d - pos : %d - charpos : %c\n", flag, mod_len, pos, format[pos + 1 + mod_len]);
+	if (ft_is_flag_c(format[pos + 1 + mod_len]))
 	{
-		flag[0] = '\0';
-		flag[1] = '\0';
+		flag[mod_len] = format[pos + 1 + mod_len];
+		mod_len += 1;
+		while (mod_len < 4)
+			flag[mod_len++] = '\0';
+		//printf("\nreturnning flag : %s\n", flag);
+		return (flag);
 	}
-	flag[2] = '\0';
-	*pos += ft_strlen(flag);
-	return (flag);
+	free(flag);
+	return (ft_strnew(1));
 }

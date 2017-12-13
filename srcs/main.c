@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/13 18:46:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 20:19:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@
 
 int		main(int ac, char **av)
 {
-	char *s;
+	char	*s;
+	int		i;
 
-	s = "ye%wgfheus%wfh%diufheus%lufeufih%rojirg";
+	i = 0;
+	s = "yegfheusfh%diufhe%sus%lufeufi%whoj%hhuirg";
 	ft_printf(s, 12);
+	
+	printf("\n%d", ft_is_modifier('l', 0));
+	printf("\n%s", ft_get_flag(s, i));
 	//printf(s, 12);
 	return (0);
 }
