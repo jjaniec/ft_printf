@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/12 14:37:29 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/13 18:38:34 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 char	*ft_convert_arg(va_list va_ptr, char *flag)
 {
 	char	*s;
-	char	(*f[30])(void *);
+	char	*(*f[30])(void *);
 
-	f[0] = ft_itoa;
+	f[0] = &ft_itoa;
 	if (!strcmp(flag, "d"))
-		return ((*f[0])(va_arg(va_ptr, int)));
+		return ((*f[0])((int)va_arg(va_ptr, int)));
 	return (NULL);
 }
