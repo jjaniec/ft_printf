@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_char_to_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/15 19:42:15 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/12/15 19:11:55 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/12/15 19:12:53 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/*
-** Test main
-*/
-
-int		main(int ac, char **av)
+char	*ft_char_to_str(char c)
 {
 	char	*s;
-	int		i;
 
-	i = 0;
-	s = "ye  |%c|  |%d|ih|%s|us|%lu|fefoj|%hhu|irg";
-	ft_printf(s, 'X', 12, "dwdiaji");
-	
-	return (0);
+	s = malloc(sizeof(char) * 2);
+	s[0] = c;
+	s[1] = '\0';
+	return (s);
 }
