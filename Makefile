@@ -6,7 +6,7 @@
 #    By: gde-pass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by gde-pass          #+#    #+#              #
-#    Updated: 2017/12/15 19:13:44 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/12/15 21:25:33 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = ft_count_args.c \
 		   ft_get_flag.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_char_to_str.c \
+		   ft_uint_to_str.c \
 		   main.c
 
 SRC_DIR = ./srcs/

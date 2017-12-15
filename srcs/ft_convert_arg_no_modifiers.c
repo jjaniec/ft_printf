@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/15 19:45:35 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/15 21:32:24 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 	f[('i' - 'A')] = &ft_itoa;
 	//f[('o' - 'A')] = &ft_uint_to_octal_to_str;
 	//f[('O' - 'A')] = ???
-	//f[('u' - 'A')] = &ft_uint_to_str;
+	f[('u' - 'A')] = &ft_uint_to_str;
 	//f[('U' - 'A')] = &ft_
 	//f[('x' - 'A')] = &ft_uint_to_hex;
 	//f[('X' - 'A')] = &ft_uint_to_hex;
@@ -39,19 +39,23 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 ** Convert argument of any type in a string to be printed
 */
 
-char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *flag)
+char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 {
 	char	*s;
 	char	*(*f[100])(void *);
 
 	ft_fill_function_pointers_tab(f);
-	if (ft_strlen(flag) == 1)
-		if (flag[0] == 's')
+	if (ft_strlen(fl) == 1)
+		if (*fl == 's')
 			return (va_arg(va_ptr, char *));
-		else if (flag[0] == 'c')
-			return ((*f[flag[0] - 'A'])((char)va_arg(va_ptr, char)));
-		else if (flag[0] == 'd')
-			return ((*f[flag[0] - 'A'])((int)va_arg(va_ptr, int)));
+		else if (*fl == 'c')
+			return ((*f[*fl - 'A'])((char)va_arg(va_ptr, char)));
+		else if (*fl == 'd')
+			return ((*f[*fl - 'A'])((int)va_arg(va_ptr, int)));
+		else if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
+			return ((*f[*fl - 'A'])((unsigned int)va_arg(va_ptr, unsigned int)));
+		else if (*fl == 'p')
+			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, void *)));
 	else
 		return (NULL);
 }
