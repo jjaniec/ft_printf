@@ -6,11 +6,22 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 16:30:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 17:10:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:29:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Return the hexadecimal char for value of $x
+*/
+
+static char				ft_get_hexchar(short x)
+{
+	if (x >= 0 && x <= 9)
+		return (x + '0');
+	return (x - 10 + 'A');
+}
 
 /*
 ** Get len of string to store hexadecimal version of $n
@@ -28,9 +39,13 @@ static unsigned int		ft_get_pwr_tohex(unsigned int n)
 		div *= 16;
 		i++;
 	}
-	ft_printf("Ret_pwrhex : %d\n", i);
 	return (i);
 }
+
+/*
+** Convert unsigned in $n in his hexadecimal version,
+** stored in a string and returned
+*/
 
 char					*ft_uint_to_hex(unsigned int n)
 {
@@ -49,8 +64,7 @@ char					*ft_uint_to_hex(unsigned int n)
 		div *= 16;
 	while (i != buf_len - 0)
 	{
-		buf[i++] = n % (div * 16) / div + '0';
-		//printf("buf%d = %d\n", i, n % (div * 16) / div);
+		buf[i++] = ft_get_hexchar(((n % (div * 16)) / div));
 		div /= 16;
 	}
 	buf[i] = '\0';
