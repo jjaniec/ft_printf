@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/13 20:32:29 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 18:58:09 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		ft_is_flag_c(char c)
 			c == 'U' || \
 			c == 'c' || \
 			c == 'C' || \
-			c == '%' || \
 			c == '#' || \
 			c == '0' || \
 			c == '-' || \
@@ -82,14 +81,12 @@ char	*ft_get_flag(const char *restrict format, int pos)
 			mod_len++;
 		}
 	}
-	//printf("flag : %s - mod_len : %d - pos : %d - charpos : %c\n", flag, mod_len, pos, format[pos + 1 + mod_len]);
 	if (ft_is_flag_c(format[pos + 1 + mod_len]))
 	{
 		flag[mod_len] = format[pos + 1 + mod_len];
 		mod_len += 1;
 		while (mod_len < 4)
 			flag[mod_len++] = '\0';
-		//printf("\nreturnning flag : %s\n", flag);
 		return (flag);
 	}
 	free(flag);

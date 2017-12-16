@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/13 20:34:38 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 19:03:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int		ft_printf(const char *restrict format, ...)
 		}
 		if (format[i] == '{' && format[i + 1])
 			ft_print_color(format, va_ptr, &i);
-		if (format[i])
-			ft_putchar(format[i]);
+		if (format[i] != '%' || (format[i] == '%' && format[i + 1] == '%'))
+			ft_putchar(format[((format[i] == '%' && format[i + 1] == '%') ? (i++) : (i))]);
 	}
 	va_end(va_ptr);
 	return (0);
