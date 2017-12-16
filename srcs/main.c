@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/15 21:12:27 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:12:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int		main(int ac, char **av)
 	int		i;
 
 	i = 0;
-	s = "ye  |%c|  |%d|ih|%s|us|%lu|fefoj|%hhu|irg";
+	s = "ye  |%c|  |%d|ih|%s|us|%lu|fe%wfoj|%hhu|irg";
 	ft_printf(s, 'X', 12, "dwdiaji");
-	
-	printf("%s", ft_uint_to_str(12));
+
+	ft_printf("\nRslt uinttohex: %s\n", ft_uint_to_hex(255));
+
+	//printf("%s", ft_uint_to_str(4294967296));
 	return (0);
 }
