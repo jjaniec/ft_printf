@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 16:36:26 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:41:39 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*ft_char_to_str(char c);
 char	*ft_uint_to_str(unsigned int x);
 
 char	*ft_uint_to_hex(unsigned int n);
+
+char	*ft_uint_to_hex_caps(unsigned int n);
 
 #endif
 

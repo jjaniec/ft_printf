@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 14:23:12 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:37:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 	//f[('O' - 'A')] = &ft_long_int_to_unsignedoctal //alias lo
 	f[('u' - 'A')] = &ft_uint_to_str;
 	//f[('U' - 'A')] = &ft_long_int_to_unsigned_dec // alias lu
-	//f[('x' - 'A')] = &ft_uint_to_hex_to_str;
-	//f[('X' - 'A')] = &ft_uint_to_hex;
+	f[('x' - 'A')] = &ft_uint_to_hex;
+	f[('X' - 'A')] = &ft_uint_to_hex_caps;
 	f[('c' - 'A')] = &ft_char_to_str;
 	//f[('C' - 'A')] = &ft_wint_t_to_char // alias de lc
 }

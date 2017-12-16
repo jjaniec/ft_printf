@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 16:30:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 17:29:45 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:41:58 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char				ft_get_hexchar(short x)
 {
 	if (x >= 0 && x <= 9)
 		return (x + '0');
-	return (x - 10 + 'A');
+	return (x - 10 + 'a');
 }
 
 /*
@@ -45,6 +45,7 @@ static unsigned int		ft_get_pwr_tohex(unsigned int n)
 /*
 ** Convert unsigned in $n in his hexadecimal version,
 ** stored in a string and returned
+** used for 'x' flag of printf
 */
 
 char					*ft_uint_to_hex(unsigned int n)
@@ -69,4 +70,17 @@ char					*ft_uint_to_hex(unsigned int n)
 	}
 	buf[i] = '\0';
 	return (buf);
+}
+
+/*
+** ft_uint_to_hex with capitalization of letters
+** used for 'X' flag of printf
+*/
+
+char					*ft_uint_to_hex_caps(unsigned int n)
+{
+	char	*tmp;
+
+	tmp = ft_uint_to_hex(n);
+	return (ft_str_capitalize(tmp));
 }
