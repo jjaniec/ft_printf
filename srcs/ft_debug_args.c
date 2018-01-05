@@ -6,11 +6,15 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 18:49:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 19:03:39 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 19:11:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Cycle through arg structures to print their content
+*/
 
 void	ft_debug_args(t_arg *args)
 {
