@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/05 15:51:22 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/05 16:35:26 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = ft_printf
 SRC_NAME = ft_count_args.c \
 		   ft_create_arglist.c \
 		   ft_create_elem.c \
+		   ft_print_next_arg.c \
 		   ft_print_arg.c \
 		   ft_print_color.c \
 		   ft_printf.c \

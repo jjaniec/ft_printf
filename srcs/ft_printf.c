@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 15:58:22 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 16:41:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ int		ft_printf(const char *restrict format, ...)
 	c = ft_count_args(format);
 	va_start(va_ptr, c);
 	args = ft_create_arglist(va_ptr, format);
+	i = -1;
+	while (format[++i])
+	{
+		if (format[i] == '%' && format[i + 1] != '%' && ft_get_flag(format, i)[0])
+			ft_print_next_arg(&args);
+		//if (format[i] == '{' && ft_get_color(format, i)[0])
+		//	ft_print_color(ft_get_color(format, i), &i);
+	}
 	return (0);
 }
 

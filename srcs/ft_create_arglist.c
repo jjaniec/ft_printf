@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:55:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 16:15:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 16:41:09 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 {
 	t_arg	*li;
-	t_arg	**r;
+	t_arg	*r;
 	int		i;
 	int		c;
 
@@ -30,7 +30,6 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 	i = -1;
 	li = (t_arg *)malloc(sizeof(t_arg) * c);
 	li = NULL;
-	r = &li;
 	while (c > 1 && format[++i])
 	{
 		if (format[i] == '%' && ft_get_flag(format, i)[0])
@@ -43,10 +42,10 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 			else
 			{
 				li = ft_create_elem(va_ptr, ft_get_flag(format, i));
-				r = &li;
+				r = li;
 			}
 			c -= 1;
 		}
 	}
-	return (*r);
+	return (r);
 }
