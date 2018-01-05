@@ -3,16 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gde-pass <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/05 18:15:37 by gde-pass          #+#    #+#              #
-#    Updated: 2017/12/16 16:36:06 by jjaniec          ###   ########.fr        #
+#    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
+#    Updated: 2018/01/05 18:54:04 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_printf
 
 SRC_NAME = ft_count_args.c \
+		   ft_create_arglist.c \
+		   ft_create_elem.c \
+		   ft_debug_args.c \
+		   ft_print_next_arg.c \
 		   ft_print_arg.c \
 		   ft_print_color.c \
 		   ft_printf.c \
