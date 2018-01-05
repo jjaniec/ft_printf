@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 15:01:08 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 15:55:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct	s_arg
 int		ft_printf(const char *restrict format, ...);
 
 int		ft_count_args(const char *restrict format);
+
+t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format);
+
+t_arg	*ft_create_elem(va_list va_ptr, char *flag);
 
 void	ft_print_arg(const char *restrict format, va_list va_ptr,\
 		int *i, char *flag);

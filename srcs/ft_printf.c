@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 19:03:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 15:58:22 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@
 **
 */
 
+int		ft_printf(const char *restrict format, ...)
+{
+	int		i;
+	int		c;
+	va_list	va_ptr;
+	t_arg	*args;
+
+	c = ft_count_args(format);
+	va_start(va_ptr, c);
+	args = ft_create_arglist(va_ptr, format);
+	return (0);
+}
+
+/*
 int		ft_printf(const char *restrict format, ...)
 {
 	int			i;
@@ -42,4 +56,4 @@ int		ft_printf(const char *restrict format, ...)
 	}
 	va_end(va_ptr);
 	return (0);
-}
+}*/
