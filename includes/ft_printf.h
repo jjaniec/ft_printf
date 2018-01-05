@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 16:34:56 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/05 18:54:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		ft_count_args(const char *restrict format);
 t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format);
 
 t_arg	*ft_create_elem(va_list va_ptr, char *flag);
+
+void	ft_debug_args(t_arg *li);
 
 void	ft_print_next_arg(t_arg **li);
 
