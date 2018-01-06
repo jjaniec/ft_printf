@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 20:19:38 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 18:20:59 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/06 18:45:38 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,20 @@ void	ft_putwchar(wchar_t c)
 	{
 		ft_putchar((unsigned char)((c >> 6) | 0xC0));
 		ft_putchar((unsigned char)((c & 0x3F) | 0x80));
-	}/*
+	}
 	else if (c <= 0xFFFF)
 	{
-		
+		ft_putchar((unsigned char)((c >> 12) | 0xE0));
+		ft_putchar((unsigned char)(((c >> 6) & 0x3F) | 0x80));
+		ft_putchar((unsigned char)((c & 0x3F) | 0x80));
 	}
 	else if (c <= 0x1FFFFF)
 	{
-		
-	}*/
+		ft_putchar((unsigned char)(c >> 18) | 0xF0);
+		ft_putchar((unsigned char)((c >> 12) & 0x3F) | 0x80);
+		ft_putchar((unsigned char)((c >> 6) & 0x3F) | 0x80);
+		ft_putchar((unsigned char)((c >> 0) & 0x3F) | 0x80);
+	}
 }
 
 int		main()
@@ -36,17 +41,6 @@ int		main()
 	ft_putwchar('a');
 	ft_putwchar(0xA9);
 	ft_putwchar(0x851);
-	ft_putwchar(0xFFFFF);
-
-
-	unsigned char c;
-    c = 0xe1;
-    write(1, &c, 1);
-    c = 0x88;
-    write(1, &c, 1);
-    c = 0xb4;
-    write(1, &c, 1);
-    c = 0x0a;
-    write(1, &c, 1);
+	ft_putwchar(0x100D7);
 	return (0);
 }
