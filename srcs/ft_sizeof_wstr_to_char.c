@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wchar_t_to_str.c                                :+:      :+:    :+:   */
+/*   ft_sizeof_wstr_to_char.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 19:47:29 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/08 19:28:35 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/08 19:54:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Convert a string of unicode characters to a char pointer
+** Return the required space to store a wide char pointer in a char pointer
 */
 
-char	*ft_wchar_t_to_str(wchar_t *ws)
+int		ft_sizeof_wstr_to_char(wchar_t *ws)
 {
-	char				*r;
-	unsigned int		i;
-	unsigned int		j;
+	int		ret;
 
-
-	i = -1;
-	j = 1;
-	r = (char *)malloc(ft_sizeof_wstr_to_char(ws) + sizeof(char));
+	ret = 0;
 	while (*ws++)
-	{
-		while (ft_wchar_byte_to_char(ft_wchar_masklen(*ws), j, *ws))
-		{
-			r[++i] = ft_wchar_byte_to_char(ft_wchar_masklen(*ws), j, *ws);
-			j++;
-		}
-		j = 1;
-	}
-	r[i] = '\0';
-	return (r);
+		ret += ft_wchar_masklen(ws[0]);
+	//printf("ret size: %d\n", ret);
+	return (sizeof(char) * ret);
 }
+/*
+int		main()
+{
+	wchar_t s[5];
+
+	s[0] = 'a';
+	s[1] = 0xA9;
+	s[2] = 0x851;
+	s[3] = 0x100D7;
+	s[4] = '\0';
+	ft_sizeof_wstr_to_char(s);
+	return (0);
+}*/

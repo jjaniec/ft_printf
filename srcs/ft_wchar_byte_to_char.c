@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:25:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 19:17:38 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/08 19:51:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,4 @@ char	ft_wchar_byte_to_char(int w_char_len, int bytepos, wchar_t c)
 	if (bytepos == 3 && w_char_len == 4)
 		return ((((c >> 6) & 0x3F) | 0x80));
 	return ((((c >> 0) & 0x3F) | 0x80));
-}
-
-int		main()
-{
-	wchar_t a;
-
-	a = 0x100D7;
-
-	ft_putchar(ft_wchar_byte_to_char(ft_wchar_masklen(a), 1, a));
-	ft_putchar(ft_wchar_byte_to_char(ft_wchar_masklen(a), 2, a));
-	ft_putchar(ft_wchar_byte_to_char(ft_wchar_masklen(a), 3, a));
-	ft_putchar(ft_wchar_byte_to_char(ft_wchar_masklen(a), 4, a));
-	ft_putchar(ft_wchar_byte_to_char(ft_wchar_masklen(a), 5, a));
-	printf("retval %x\n", ft_wchar_byte_to_char(ft_wchar_masklen(a), 5, a));
 }
