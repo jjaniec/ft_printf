@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 13:22:48 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/08 19:15:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ char	*ft_uint_to_hex_caps(unsigned int n);
 void	ft_putwchar(wchar_t c);
 
 void	ft_putwstr(wchar_t *s);
+
+char	ft_wchar_byte_to_char(int w_char_len, int bytepos, wchar_t c);
+
+int		ft_wchar_masklen(wchar_t c);
 
 #endif
 

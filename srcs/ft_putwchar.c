@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 20:19:38 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 14:01:32 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/08 19:18:00 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 */
 
 void	ft_putwchar(wchar_t c)
-{/*
+{
 	int				i;
 	int				m;
 
@@ -42,33 +42,12 @@ void	ft_putwchar(wchar_t c)
 		m = 0xE0;
 	else if (i == 6)
 		m = 0xC0;
-	ft_putchar((unsigned char)(((c >> i) & ((i == 0) ? (0x7F) : (0x3F))) | ((i == 0) ? (0x00) : (m))));
+	ft_putchar((((c >> i) & ((i == 0) ? (0x7F) : (0x3F))) | \
+				((i == 0) ? (0x00) : (m))));
 	i -= 6;
-	printf("\ni: %d - m : %x\n", i, m);
 	while (i >= 0)
 	{
-		ft_putchar((unsigned char)((c >> i) & 0x3F) | 0x80);
+		ft_putchar(((c >> i) & 0x3F) | 0x80);
 		i -= 6;
-	}
-*/	
-	if (c <= 0x7F)
-		ft_putchar((unsigned char)(((c >> 0) & 0x7F) | 0x00));
-	else if (c <= 0x7FF)
-	{
-		ft_putchar((unsigned char)(((c >> 6) & 0x3F) | 0xC0));
-		ft_putchar((unsigned char)(((c >> 0) & 0x3F) | 0x80));
-	}
-	else if (c <= 0xFFFF)
-	{
-		ft_putchar((unsigned char)(((c >> 12) & 0x3F) | 0xE0));
-		ft_putchar((unsigned char)(((c >> 6) & 0x3F) | 0x80));
-		ft_putchar((unsigned char)(((c >> 0) & 0x3F) | 0x80));
-	}
-	else if (c <= 0x1FFFFF)
-	{
-		ft_putchar((unsigned char)((c >> 18) & 0x3F) | 0xF0);
-		ft_putchar((unsigned char)((c >> 12) & 0x3F) | 0x80);
-		ft_putchar((unsigned char)((c >> 6) & 0x3F) | 0x80);
-		ft_putchar((unsigned char)((c >> 0) & 0x3F) | 0x80);
 	}
 }
