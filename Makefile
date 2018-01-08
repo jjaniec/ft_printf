@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/05 18:54:04 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/08 13:49:21 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC_NAME = ft_count_args.c \
 		   ft_print_arg.c \
 		   ft_print_color.c \
 		   ft_printf.c \
+		   ft_putwchar.c \
+		   ft_putwstr.c \
 		   ft_get_flag.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_char_to_str.c \

@@ -6,11 +6,26 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 20:19:38 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 20:37:40 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/08 14:01:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Print a unicode character stored in an 'int' or 'wchar_t'
+**
+** We get the length in bytes of the character to know the mask to apply
+** to print the char
+** Then we need to move the content of each bytes to the last one
+** to fill our following masks,
+** for a 2 bytes char:
+**    110xxxxx 10xxxxxx
+** 3 bytes char:
+**    1110xxxx 10xxxxxx 10xxxxxx
+** 4:
+**    11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+*/
 
 void	ft_putwchar(wchar_t c)
 {/*
@@ -57,12 +72,3 @@ void	ft_putwchar(wchar_t c)
 		ft_putchar((unsigned char)((c >> 0) & 0x3F) | 0x80);
 	}
 }
-/*
-int		main()
-{
-	ft_putwchar('a');
-	ft_putwchar(0xA9);
-	ft_putwchar(0x851);
-	ft_putwchar(0x100D7);
-	return (0);
-}*/
