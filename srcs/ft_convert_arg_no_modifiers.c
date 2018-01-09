@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 18:51:01 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 16:16:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	ft_fill_function_pointers_tab(char *(**f)(void *))
 {
-	//f[('S' - 'A')] = ft_wchat_t_to_str//alias de ls
+	f[('S' - 'A')] = &ft_wchar_tptr_to_str;//alias de ls
 	//f[('p' - 'A')] = &ft_void_to_hex;
 	f[('d' - 'A')] = &ft_itoa;
 	//f[('D' - 'A')] = &ft_itoa(ft_longint_to_signedint()); //alias ld
@@ -32,7 +32,7 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 	f[('x' - 'A')] = &ft_uint_to_hex;
 	f[('X' - 'A')] = &ft_uint_to_hex_caps;
 	f[('c' - 'A')] = &ft_char_to_str;
-	//f[('C' - 'A')] = &ft_wint_t_to_char // alias de lc
+	f[('C' - 'A')] = &ft_wchar_t_to_str; // alias de lc
 }
 
 /*
@@ -54,6 +54,10 @@ char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 			return ((*f[*fl - 'A'])((int)va_arg(va_ptr, int)));
 		else if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
 			return ((*f[*fl - 'A'])((unsigned int)va_arg(va_ptr, unsigned int)));
+		else if (*fl == 'S' || (fl[0] == 'l' && fl[1] == 's'))
+			return ((*f[*fl - 'A'])((wchar_t *)va_arg(va_ptr, wchar_t *)));
+		else if (*fl == 'C' || (fl[0] == 'l' && fl[1] == 'c'))
+			return ((*f[*fl - 'A'])((wint_t)va_arg(va_ptr, wint_t)));
 		else if (*fl == 'p')
 			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, void *)));
 	return (NULL);

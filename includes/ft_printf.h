@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 18:54:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 16:10:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <wchar.h>
 
 typedef struct	s_arg
 {
@@ -57,6 +58,20 @@ char	*ft_uint_to_str(unsigned int x);
 char	*ft_uint_to_hex(unsigned int n);
 
 char	*ft_uint_to_hex_caps(unsigned int n);
+
+void	ft_putwchar(wchar_t c);
+
+void	ft_putwstr(wchar_t *s);
+
+char	ft_wchar_byte_to_char(int w_char_len, int bytepos, wchar_t c);
+
+int		ft_wchar_masklen(wchar_t c);
+
+int		ft_sizeof_wstr_to_char(wchar_t *ws);
+
+char	*ft_wchar_tptr_to_str(wchar_t *ws);
+
+char	*ft_wchar_t_to_str(wchar_t c);
 
 #endif
 
