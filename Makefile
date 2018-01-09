@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/09 15:11:54 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/09 16:10:35 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_uint_to_str.c \
 		   ft_wchar_byte_to_char.c \
 		   ft_wchar_masklen.c \
+		   ft_wchar_t_to_str.c \
 		   ft_wchar_tptr_to_str.c \
 		   main.c
 

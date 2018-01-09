@@ -30,12 +30,3 @@ char	*ft_wchar_t_to_str(wchar_t c)
 	s[i] = '\0';
 	return (s);
 }
-
-int		main()
-{
-	wchar_t s;
-
-	s = 0x100D7;
-	ft_putstr(ft_wchar_t_to_str(s));
-	return (0);
-}
