@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 16:16:27 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 16:55:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 
 char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 {
-	char	*s;
 	char	*(*f[100])(void *);
 
 	ft_fill_function_pointers_tab(f);
@@ -49,15 +48,15 @@ char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 		if (*fl == 's')
 			return (va_arg(va_ptr, char *));
 		else if (*fl == 'c')
-			return ((*f[*fl - 'A'])((char)va_arg(va_ptr, char)));
+			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
 		else if (*fl == 'd')
-			return ((*f[*fl - 'A'])((int)va_arg(va_ptr, int)));
+			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
 		else if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
-			return ((*f[*fl - 'A'])((unsigned int)va_arg(va_ptr, unsigned int)));
+			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, unsigned int)));
 		else if (*fl == 'S' || (fl[0] == 'l' && fl[1] == 's'))
-			return ((*f[*fl - 'A'])((wchar_t *)va_arg(va_ptr, wchar_t *)));
+			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, wchar_t *)));
 		else if (*fl == 'C' || (fl[0] == 'l' && fl[1] == 'c'))
-			return ((*f[*fl - 'A'])((wint_t)va_arg(va_ptr, wint_t)));
+			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, wint_t)));
 		else if (*fl == 'p')
 			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, void *)));
 	return (NULL);
