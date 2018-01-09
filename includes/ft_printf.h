@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 13:41:01 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 15:11:36 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		ft_wchar_masklen(wchar_t c);
 
 int		ft_sizeof_wstr_to_char(wchar_t *ws);
 
-char	*ft_wchar_t_to_str(wchar_t *ws);
+char	*ft_wchar_tptr_to_str(wchar_t *ws);
 
 #endif
 
