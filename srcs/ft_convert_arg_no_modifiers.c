@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 17:12:26 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 17:14:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,21 @@ char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 
 	ft_fill_function_pointers_tab(f);
 	if (ft_strlen(fl) == 1)
+	{
 		if (*fl == 's')
 			return (va_arg(va_ptr, char *));
-		else if (*fl == 'c')
+		if (*fl == 'c')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
-		else if (*fl == 'd')
+		if (*fl == 'd')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
-		else if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
+		if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, unsigned int)));
-		else if (*fl == 'S' || (fl[0] == 'l' && fl[1] == 's'))
+		if (*fl == 'S' || (fl[0] == 'l' && fl[1] == 's'))
 			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, wchar_t *)));
-		else if (*fl == 'C' || (fl[0] == 'l' && fl[1] == 'c'))
+		if (*fl == 'C' || (fl[0] == 'l' && fl[1] == 'c'))
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, wint_t)));
-		else if (*fl == 'p')
+		if (*fl == 'p')
 			return ((*f[*fl - 'A'])((void *)va_arg(va_ptr, void *)));
+	}
 	return (NULL);
 }
