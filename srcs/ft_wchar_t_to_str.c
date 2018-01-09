@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 19:47:29 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 13:39:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,26 @@ char	*ft_wchar_t_to_str(wchar_t *ws)
 	r = (char *)malloc(ft_sizeof_wstr_to_char(ws) + sizeof(char));
 	while (*ws++)
 	{
-		while (ft_wchar_byte_to_char(ft_wchar_masklen(*ws), j, *ws))
+		while (ft_wchar_byte_to_char(ft_wchar_masklen(ws[-1]), j, ws[-1]))
 		{
-			r[++i] = ft_wchar_byte_to_char(ft_wchar_masklen(*ws), j, *ws);
+			r[++i] = ft_wchar_byte_to_char(ft_wchar_masklen(ws[-1]), j, ws[-1]);
 			j++;
 		}
 		j = 1;
 	}
-	r[i] = '\0';
+	r[i + 1] = '\0';
 	return (r);
+}
+
+int		main()
+{
+	wchar_t		a = 0x100D7;
+	wchar_t		b = 0x100D7;
+	wchar_t		c = 0x100D7;
+	wchar_t ws[4];
+	ws[0] = a;
+	ws[1] = b;
+	ws[2] = c;
+	ws[3] = '\0';
+	ft_putstr(ft_wchar_t_to_str(ws));
 }
