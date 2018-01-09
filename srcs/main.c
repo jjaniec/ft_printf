@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 16:16:08 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 17:31:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Test main
 */
 
-int		main(int ac, char **av)
+int		main(void)
 {
 	char	*s;
 	int		i;
