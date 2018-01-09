@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/09 16:10:35 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/09 17:18:51 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_create_elem.c \
 		   ft_debug_args.c \
 		   ft_get_flag.c \
-		   ft_print_arg.c \
 		   ft_print_color.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
