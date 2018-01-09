@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 17:31:47 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:09:55 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		main(void)
 
 	ft_printf("\nRslt ui%dnttoh%%ex%S%C: %s\n", 12, &q[0], q[0], ft_uint_to_hex(1));
 
-	//printf("%s", ft_uint_to_str(4294967296));
+	ft_printf("\nnoargs + blank\n");
+
+	ft_printf("");
 	return (0);
 }
