@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wchar_t_to_str.c                                :+:      :+:    :+:   */
+/*   ft_wchar_tptr_to_str.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:13:19 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 15:19:26 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/09 15:12:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Convert a unicode character to a char *
+** Convert a string of unicode characters to a char pointer
 */
 
-char	*ft_wchar_t_to_str(wchar_t c)
+char	*ft_wchar_tptr_to_str(wchar_t *ws)
 {
-	char	*s;
-	int		i;
-	int		masklen;
+	char				*r;
+	unsigned int		i;
+	unsigned int		j;
 
-	masklen = ft_wchar_masklen(c);
+
 	i = -1;
-	s = (char *)malloc(masklen + 1);
-	while (++i <= masklen)
-		s[i] = ft_wchar_byte_to_char(masklen, (i + 1), c);
-	s[i] = '\0';
-	return (s);
+	j = 1;
+	r = (char *)malloc(ft_sizeof_wstr_to_char(ws) + sizeof(char));
+	while (*ws++)
+	{
+		while (ft_wchar_byte_to_char(ft_wchar_masklen(ws[-1]), j, ws[-1]))
+		{
+			r[++i] = ft_wchar_byte_to_char(ft_wchar_masklen(ws[-1]), j, ws[-1]);
+			j++;
+		}
+		j = 1;
+	}
+	r[i + 1] = '\0';
+	return (r);
 }
