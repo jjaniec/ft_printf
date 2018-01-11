@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 17:14:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/11 20:58:52 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 	f[('d' - 'A')] = (char *(*)(void *))&ft_itoa;
 	//f[('D' - 'A')] = &ft_itoa(ft_longint_to_signedint()); //alias ld
 	f[('i' - 'A')] = (char *(*)(void *))&ft_itoa;
-	//f[('o' - 'A')] = &ft_uint_to_octal;
+	f[('o' - 'A')] = (char *(*)(void *))&ft_uint_to_octal;
 	//f[('O' - 'A')] = &ft_long_int_to_unsignedoctal //alias lo
 	f[('u' - 'A')] = (char *(*)(void *))&ft_uint_to_str;
-	//f[('U' - 'A')] = &ft_long_int_to_unsigned_dec // alias lu
+	//f[('U' - 'A')] = &ft_long_int_to_str // alias lu
 	f[('x' - 'A')] = (char *(*)(void *))&ft_uint_to_hex;
 	f[('X' - 'A')] = (char *(*)(void *))&ft_uint_to_hex_caps;
 	f[('c' - 'A')] = (char *(*)(void *))&ft_char_to_str;

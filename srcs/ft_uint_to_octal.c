@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:12:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/11 20:56:40 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/11 20:57:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static unsigned int     ft_get_pwr_tooctal(const unsigned int n)
     printf("len %u", i);
     return (i);
 }
-
 
 /*
 ** Convert an unsigned int passed as parameter in it's octal form
@@ -60,11 +59,4 @@ char    *ft_uint_to_octal(const unsigned int n)
     }
     buf[i] = '\0';
     return (buf);
-}
-
-int     main()
-{
-    printf("%s", ft_uint_to_octal(8));
-    return (0);
-
 }
