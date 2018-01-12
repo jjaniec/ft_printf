@@ -20,6 +20,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_debug_args.c \
 		   ft_get_flag.c \
 		   ft_is_flag.c \
+		   ft_long_int_to_uoctal.c \
 		   ft_print_color.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
@@ -27,6 +28,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_putwstr.c \
 		   ft_sizeof_wstr_to_char.c \
 		   ft_uint_to_hex.c \
+		   ft_uint_to_octal.c \
 		   ft_uint_to_str.c \
 		   ft_wchar_byte_to_char.c \
 		   ft_wchar_masklen.c \
