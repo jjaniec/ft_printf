@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 16:30:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/16 18:38:21 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 20:03:07 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char					*ft_uint_to_hex(unsigned int n)
 	buf = (char *)malloc(sizeof(char) * buf_len + 1);
 	while (y-- != 1)
 		div *= 16;
-	while (i != buf_len - 0)
+	while (i != buf_len && buf_len != 0)
 	{
 		buf[i++] = ft_get_hexchar(((n % (div * 16)) / div));
 		div /= 16;
