@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 17:14:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 20:12:56 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Conversions to handle : sSpdDioOuUxXcC %%
 */
 
-void	ft_fill_function_pointers_tab(char *(**f)(void *))
+static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 {
 	f[('S' - 'A')] = (void *)&ft_wchar_tptr_to_str;//alias de ls
 	//f[('p' - 'A')] = &ft_void_to_hex;
@@ -39,7 +39,7 @@ void	ft_fill_function_pointers_tab(char *(**f)(void *))
 ** Convert argument of any type in a string to be printed
 */
 
-char	*ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
+char	    *ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 {
 	char	*(*f[100])(void *);
 

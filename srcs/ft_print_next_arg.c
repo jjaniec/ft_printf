@@ -6,14 +6,38 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 16:38:34 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:32:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_print_next_arg(t_arg **li)
+/*
+** Move forward in format until flag is skiped
+*/
+
+static void     ft_skip_flag(const char *restrict format, int *i, char *flag)
 {
-	ft_putstr((*li)->data_converted);
-	*li = (*li)->next;
+    int   j;
+
+    j = 0;
+    while (flag[j] == format[*i])
+    {
+        *i += 1;
+        j++;
+    }
+}
+
+/*
+** Print arg and move on to the next one ont the linked list
+*/
+
+void          	ft_print_next_arg(t_arg **li, const char *restrict format, int *i)
+{
+    t_arg *arg;
+
+    arg = *li;
+	ft_putstr(arg->data_converted);
+    ft_skip_flag(format, i, arg->flag);
+	*li = arg->next;
 }

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/09 17:19:04 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:14:20 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_arg	*ft_create_elem(va_list va_ptr, char *flag);
 
 void	ft_debug_args(t_arg *li);
 
-void	ft_print_next_arg(t_arg **li);
+void	ft_print_next_arg(t_arg **li, const char *restrict format, int *i);
 
 void	ft_print_color(const char *restrict format, va_list va_ptr, int *i);
 
