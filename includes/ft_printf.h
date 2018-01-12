@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 21:14:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 22:03:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int		ft_sizeof_wstr_to_char(wchar_t *ws);
 char	*ft_wchar_tptr_to_str(wchar_t *ws);
 
 char	*ft_wchar_t_to_str(wchar_t c);
+
+int     ft_is_flag(const char *restrict format, int i);
 
 #endif
 

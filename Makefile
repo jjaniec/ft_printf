@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/09 17:18:51 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/12 22:04:16 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_create_elem.c \
 		   ft_debug_args.c \
 		   ft_get_flag.c \
+		   ft_is_flag.c \
 		   ft_print_color.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
@@ -43,7 +44,7 @@ SRC = $(addprefix $(SRC_DIR), $(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
 
-CFLAGS = -Wall -Wextra -Werror
+C_FLAGS = -Wall -Wextra -Werror
 
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
 
@@ -55,11 +56,11 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	make -C ./libft/
-	gcc $(CFLAGS) $(LFLAGS) $(OBJ) -o $(NAME)
+	gcc $(C_FLAGS) $(LFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
-	gcc $(CFLAGS) -c $(IFLAGS) $^ -o $@
+	gcc $(C_FLAGS) -c $(IFLAGS) $^ -o $@
 
 clean:
 	rm -f $(OBJ)
