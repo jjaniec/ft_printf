@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/11 20:59:15 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 19:52:01 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	*ft_wchar_tptr_to_str(wchar_t *ws);
 char	*ft_wchar_t_to_str(wchar_t c);
 
 char    *ft_uint_to_octal(const unsigned int n);
+
+char    *ft_long_int_to_uoctal(const long int n);
 
 #endif
 
