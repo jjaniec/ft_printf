@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 21:25:35 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/12 21:51:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ int		ft_printf(const char *restrict format, ...)
 	i = -1;
 	while (format[++i])
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
+		if (format[i] == '%' && format[i + 1] != '%' && 
+            ft_get_flag(format, i)[0])
         {
 			ft_print_next_arg(&args, format, &i);
         }
-		else
-        {
-			i += (format[i] == '%') ? (1) : (0);
+	    i += (format[i] == '%' && format[i + 1] == '%') ? (1) : (0);
+        if (format[i])
             ft_putchar(format[i]);
-        }
 	}
 	printf("\n---END---\n");
 	return (0);
