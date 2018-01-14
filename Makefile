@@ -6,11 +6,9 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/12 22:04:16 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/14 14:48:40 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = ft_printf
 
 SRC_NAME = ft_char_to_str.c \
 		   ft_convert_arg_no_modifiers.c \
@@ -21,7 +19,6 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_get_flag.c \
 		   ft_is_flag.c \
 		   ft_long_int_to_uoctal.c \
-		   ft_print_color.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
 		   ft_putwchar.c \
@@ -33,44 +30,43 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_wchar_byte_to_char.c \
 		   ft_wchar_masklen.c \
 		   ft_wchar_t_to_str.c \
-		   ft_wchar_tptr_to_str.c \
-		   main.c
-
-SRC_DIR = ./srcs/
-
-INCLUDES_DIR = includes
-
-OBJ_DIR = ./obj/
-
-SRC = $(addprefix $(SRC_DIR), $(SRC_NAME))
-
-OBJ = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
-
+		   ft_wchar_tptr_to_str.c
+OBJS_NAMES = $(OBJS_NAMES:.c=.o)
+NAME = libftprintf.a
+CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
-
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
-
 LFLAGS = -L./libft/ -lft
+SRC_DIR = ./srcs/
+OBJ_DIR = ./obj/
+INCLUDES_DIR = ./includes/
+SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
+OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
 
 all : $(NAME)
 
-.PHONY : all clean
-
-$(NAME) : $(OBJ)
-	make -C ./libft/
-	gcc $(C_FLAGS) $(LFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : libft $(OBJS) 
+	@ar rcs $(NAME) $(OBJS) libft/objs/*.o
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	@mkdir -p $(OBJ_DIR)
-	gcc $(C_FLAGS) -c $(IFLAGS) $^ -o $@
+	@mkdir -p $(OBJ_DIR) 2> /dev/null || true
+	$(CC) $(C_FLAGS) $(IFLAGS) -c $^ -o $@
 
 clean:
-	rm -f $(OBJ)
-	rm -rf $(OBJ_DIR)
-	make clean -C libft/
+	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
+	@make clean -C libft/
 
 fclean: clean
-	make fclean -C libft/
-	rm -f $(NAME)
+	@make fclean -C libft/
+	@rm -f $(NAME)
 
 re: fclean all
+
+libft:
+	make -C ./libft/
+
+tests: 
+	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
+
+.PHONY : all clean re tests libft
