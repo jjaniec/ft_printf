@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 15:05:33 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 17:39:39 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		main(void)
 	q[2] = '\0';
   
 	i = 0;
+    ft_printf("%%");
 	s = "char - char uni|%c||%C|\ndec |%d||%i|\nrand+str -struni rokdrgopih|%s||%S|\n hex & hex caps |%x| |%X|\nrand+fake e%wfdwia%qjirg\noctal o|%o|\nuint |%u|";
 	ft_printf(s,\
         'X',
