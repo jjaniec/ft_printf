@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 18:53:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 19:16:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ char    *ft_long_int_to_uoctal(const long int n);
 int     ft_is_flag(const char *restrict format, int i);
 
 int     ft_printf_no_args(const char *restrict format);
+
+char    *ft_parse_attributes(const char *restrict format, int *pos);
 
 #endif
 
