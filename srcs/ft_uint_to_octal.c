@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:12:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/11 20:57:46 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:07:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static unsigned int     ft_get_pwr_tooctal(const unsigned int n)
         div *= 8;
         i++;
     }
-    printf("len %u", i);
     return (i);
 }
 

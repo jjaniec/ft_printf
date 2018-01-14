@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 20:12:56 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 14:59:55 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	    *ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 			return (va_arg(va_ptr, char *));
 		if (*fl == 'c')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
-		if (*fl == 'd')
+		if (*fl == 'd' || *fl == 'i')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
 		if (*fl == 'o' || *fl == 'u' || *fl == 'x' || *fl == 'X')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, unsigned int)));

@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/14 14:48:40 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/14 14:56:16 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_wchar_masklen.c \
 		   ft_wchar_t_to_str.c \
 		   ft_wchar_tptr_to_str.c
+
 OBJS_NAMES = $(OBJS_NAMES:.c=.o)
 NAME = libftprintf.a
 CC = gcc
