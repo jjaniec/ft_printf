@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 20:54:02 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/12/15 21:32:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:07:31 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	ft_uint_to_str_slen(unsigned int x)
 		x /= 10;
 		i++;
 	}
-	printf("size : %d\n", i);
 	return (i);
 }
 

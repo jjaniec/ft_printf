@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 21:28:59 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:05:33 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,29 @@
 int		main(void)
 {
 	char	*s;
-	/*int		i;
-	wchar_t q[2];
-    long int    lol = 42;
+	int		i;
+	wchar_t q[3];
 	q[0] = 0x100D7;
-	q[1] = '\0';
+	q[1] = 0x100D7;
+	q[2] = '\0';
   
 	i = 0;
-	s = "char |%c|\ndec |%d|\nrand+str rokdrgopih|%s|\n hex & hex caps |%x| |%X|\nrand+fake e%wfdwia%qjirg";
-	ft_printf(s, 'X', 12, "debug", 255, 255);
-	printf(s, 'X', 12, "debug", 255, 255);
+	s = "char - char uni|%c||%C|\ndec |%d||%i|\nrand+str -struni rokdrgopih|%s||%S|\n hex & hex caps |%x| |%X|\nrand+fake e%wfdwia%qjirg\noctal o|%o|\nuint |%u|";
+	ft_printf(s,\
+        'X',
+        q[0],
+        12,
+        12, 
+        "debug", 
+        q, 
+        255, 
+        255, 
+        255,
+        4242
+        );
+	printf(s, 'X', q[0], 12, 12, "debug", q, 255, 255, 255, 4242);
 
-	ft_printf("\nRslt ui%dnttoh%%ex%S%C: %s\n", 12, &q[0], q[0], ft_uint_to_hex(52));
-	printf("\nRslt ui%dnttohex%S%C: %s\n", 12, &q[0], q[0], ft_uint_to_hex(52));
-  
-	ft_printf("\nnoargs + blank\n");
-	printf("\nnoargs + blank\n");
+	//printf("\nnoargs + blank\n");
 
-	printf("%lu  %u   %u", lol, (unsigned int)-42, 42);
-	ft_printf("  %u   %u", (unsigned int)-42, 42);
-  
 	return (0);
 }
