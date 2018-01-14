@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 22:14:02 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:22:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_printf(const char *restrict format, ...)
 	t_arg	*args;
 
 	if (!ft_count_args(format))
-		return (write(1, format, ft_strlen(format)));
+		return (ft_printf_no_args(format));
 	va_start(va_ptr, format);
 	args = ft_create_arglist(va_ptr, format);
 	va_end(va_ptr);

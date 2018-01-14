@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/14 14:56:16 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/14 15:42:47 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_long_int_to_uoctal.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
+		   ft_printf_no_args.c \
 		   ft_putwchar.c \
 		   ft_putwstr.c \
 		   ft_sizeof_wstr_to_char.c \
