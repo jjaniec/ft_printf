@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 19:16:25 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 13:54:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ int     ft_is_flag(const char *restrict format, int i);
 int     ft_printf_no_args(const char *restrict format);
 
 char    *ft_parse_attributes(const char *restrict format, int *pos);
+
+int     ft_is_attribute(char c);
+
+int     ft_get_attributes_len(const char *restrict format, int pos);
 
 #endif
 
