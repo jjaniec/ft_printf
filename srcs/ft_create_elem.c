@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 19:19:15 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 17:48:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 	t_arg	*e;
 
 	e = (t_arg *)malloc(sizeof(t_arg));
-	e->precision = NULL;
     e->attributes = ft_parse_attributes(format, &pos);
+    e->width = NULL;
+    //e->width = ft_parse_width(format, &pos);
+	e->precision = NULL;
 	//e->precision = ft_get_precision(flag);
 	e->flag = ft_get_flag(format, pos);
 	e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag);

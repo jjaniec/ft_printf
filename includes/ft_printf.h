@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 13:54:16 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 17:42:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_arg
 {
 	char			*data_converted;
 	char			*flag;
+    char            *width;
 	char			*precision;
     char            *attributes;
 	struct s_arg	*next;
