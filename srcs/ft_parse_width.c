@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 18:03:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 18:10:13 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 18:17:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_parse_width(const char *restrict format, int *pos)
 	int		l;
 	int		x;
 	int		i;
-   
+
 	x = 0;
 	i = 0;
 	if (!(ft_isdigit(*(format + *pos + 1))))
@@ -53,15 +53,4 @@ char	*ft_parse_width(const char *restrict format, int *pos)
 	s[l] = '\0';
 	*pos += i;
 	return (s);
-}
-
-int		main()
-{
-	int		x;
-
-	x = 3;
-	printf("%s", ft_parse_width("fgh%198sgggr", &x));
-	printf(" - x %d", x);
-	return (0);
-
 }
