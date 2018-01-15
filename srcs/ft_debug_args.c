@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 18:49:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 19:24:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 17:54:38 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ void	ft_debug_args(t_arg *args)
 
 	li = args;
 	i = 1;
-	while (li->next)
+	while (li->next || li)
 	{
 		printf("Arg[%d]:\n\
 				\tdata_converted: [%s]\n\
 				\tflag: [%s]\n\
+                \t\t\twidth: [%s]\n\
 				\tprecision: [%s]\n\
-                \tattributes: [%s]\n", i, li->data_converted, li->flag, li->precision, li->attributes);
-		li = li->next;
+                \t\t\tattributes: [%s]\n", i, li->data_converted, li->flag, li->width, li->precision, li->attributes);
+        if (li && li->next)
+		    li = li->next;
+        else
+            break;
 		i++;
-	}
-	if (li)
-	{
-		printf("Arg[%d]:\n\
-				\tdata_converted: [%s]\n\
-				\tflag: [%s]\n\
-				\tprecision: [%s]\n\
-                \tattributes: [%s]\n", i, li->data_converted, li->flag, li->precision, li->attributes);
 	}
 }
