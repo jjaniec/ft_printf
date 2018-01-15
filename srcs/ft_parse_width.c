@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 18:03:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 18:17:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 18:40:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_parse_width(const char *restrict format, int *pos)
 	int		l;
 	int		x;
 	int		i;
-
+   
 	x = 0;
 	i = 0;
 	if (!(ft_isdigit(*(format + *pos + 1))))
@@ -46,8 +46,7 @@ char	*ft_parse_width(const char *restrict format, int *pos)
 	s = malloc(sizeof(char) * l + 1);
 	while (ft_isdigit(format[*pos + 1 + i]))
 	{
-		if (!(strchr(s, format[*pos + 1 + i])))
-			s[x++] = format[*pos + 1 + i];
+		s[x++] = format[*pos + 1 + i];
 		i++;
 	}
 	s[l] = '\0';

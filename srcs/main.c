@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:50:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 17:39:39 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 18:39:42 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		main(void)
   
 	i = 0;
     ft_printf("%%");
-	s = "char - char uni|%c||%C|\ndec |%d||%i|\nrand+str -struni rokdrgopih|%s||%S|\n hex & hex caps |%x| |%X|\nrand+fake e%wfdwia%qjirg\noctal o|%o|\nuint |%u|";
+	s = "char - char uni|%422c|%8754454C||\ndec |%d||%+++-01245i|\nrand+str -struni rokdrgopih|%+s||%-S|\n hex & hex caps |%+x| |% X|\nrand+fake e%wfdwia%qjirg\noctal o|%0 o|\nuint |%0##u|";
 	ft_printf(s,\
         'X',
         q[0],
@@ -41,7 +41,6 @@ int		main(void)
         4242
         );
 	printf(s, 'X', q[0], 12, 12, "debug", q, 255, 255, 255, 4242);
-
 	//printf("\nnoargs + blank\n");
 
 	return (0);
