@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 18:49:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/05 19:11:25 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/14 19:24:49 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_debug_args(t_arg *args)
 		printf("Arg[%d]:\n\
 				\tdata_converted: [%s]\n\
 				\tflag: [%s]\n\
-				\tprecision: [%s]\n", i, li->data_converted, li->flag, li->precision);
+				\tprecision: [%s]\n\
+                \tattributes: [%s]\n", i, li->data_converted, li->flag, li->precision, li->attributes);
 		li = li->next;
 		i++;
 	}
@@ -37,6 +38,7 @@ void	ft_debug_args(t_arg *args)
 		printf("Arg[%d]:\n\
 				\tdata_converted: [%s]\n\
 				\tflag: [%s]\n\
-				\tprecision: [%s]\n", i, li->data_converted, li->flag, li->precision);
+				\tprecision: [%s]\n\
+                \tattributes: [%s]\n", i, li->data_converted, li->flag, li->precision, li->attributes);
 	}
 }

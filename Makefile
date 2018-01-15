@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/14 15:42:47 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/14 19:21:03 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = ft_char_to_str.c \
 		   ft_get_flag.c \
 		   ft_is_flag.c \
 		   ft_long_int_to_uoctal.c \
+		   ft_parse_attributes.c \
 		   ft_print_next_arg.c \
 		   ft_printf.c \
 		   ft_printf_no_args.c \

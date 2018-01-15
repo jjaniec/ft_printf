@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 21:54:09 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/15 15:47:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ static void     ft_skip_flag(const char *restrict format, int *i, char *flag)
 }
 
 /*
+** Move forward in format until attributes of flag are skipped
+*/
+
+static void     ft_skip_attributes(const char *restrict format, 
+    int *i, char *attr)
+{
+    while (ft_strchr(attr, format[*i]) != NULL)
+        *i += 1;
+}
+
+/*
 ** Print arg and move on to the next one ont the linked list
 */
 
@@ -39,6 +50,11 @@ void          	ft_print_next_arg(t_arg **li, const char *restrict format, int *i
 
     arg = *li;
 	ft_putstr(arg->data_converted);
+    if (ft_is_attribute(format[*i + 1]))
+    {
+       *i += 1;
+        ft_skip_attributes(format, i, arg->attributes);
+    }
     ft_skip_flag(format, i, arg->flag);
 	*li = arg->next;
 }
