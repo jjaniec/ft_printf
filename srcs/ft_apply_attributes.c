@@ -33,18 +33,20 @@ void 	ft_apply_attributes(t_arg **e)
 	if (ft_strchr((*e)->attributes, '-'))
 		ft_apply_attr_minus(e);
 }
-
+/*
 int 	main()
 {
 	t_arg *a;
 
-	a->data_converted = ft_strdup("45)";
+	a->data_converted = ft_strdup("45");
 	a->width = ft_strdup("5");
 	a->attributes = ft_strdup("-");
 	a->precision = ft_strdup("2");
 	a->flag = ft_strdup("d");
 	a->next = NULL;
 	ft_apply_options(&a);
+	printf("%s", a->data_converted);
 	return (0);
 }
 
+*/
