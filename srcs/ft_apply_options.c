@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_args.c                                    :+:      :+:    :+:   */
+/*   ft_apply_options.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 16:21:54 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 17:27:45 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/16 14:43:43 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/16 17:01:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Counts args passed in printf function by counting number of '%'
+** Apply attributes, width, precision on argument
 */
 
-int		ft_count_args(const char *restrict format)
+void    ft_apply_options(t_arg **e)
 {
-	int		i;
-	int		t;
-
-	t = 0;
-	i = -1;
-	while (format[++i])
-		if (format[i] == '%' && format[i + 1] != '%')
-			t += ft_is_flag(format, i);
-	return (t);
+    if ((*e)->attributes)
+        ft_apply_attributes(e);
 }

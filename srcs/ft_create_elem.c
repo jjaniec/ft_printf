@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 19:18:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 14:47:31 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 	    e->precision = NULL;
 	e->flag = ft_get_flag(format, pos);
 	e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag);
+    ft_apply_options(&e);
 	e->next = NULL;
-	//printf("Created elem with: \n   data_converted: %s\n   flag: %s\n   precision:%s\n---\n", e->data_converted, e->flag, e->precision);
 	return (e);
 }

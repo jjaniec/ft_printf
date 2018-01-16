@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 20:35:55 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 21:10:51 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format);
 
 t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos);
 
-void	ft_debug_args(t_arg *li);
+void	ft_debug_args(const char *restrict format, t_arg *li);
 
 void	ft_print_next_arg(t_arg **li, const char *restrict format, int *i);
 
@@ -92,6 +92,20 @@ char    *ft_parse_width(const char *restrict format, int *pos);
 int     ft_get_width_len(const char *restrict format);
 
 char    *ft_parse_precision(const char *restrict format, int *pos);
+
+void    ft_apply_options(t_arg **e);
+
+void    ft_apply_attributes(t_arg **e);
+
+void    ft_apply_attr_minus(t_arg **e);
+
+void    ft_apply_attr_plus(t_arg **e);
+
+void    ft_apply_attr_space(t_arg **e);
+
+void    ft_apply_attr_zero(t_arg **e);
+
+char    *ft_generate_width(t_arg **e, char c);
 
 #endif
 

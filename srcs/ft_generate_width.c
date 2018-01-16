@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_args.c                                    :+:      :+:    :+:   */
+/*   ft_generate_width.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 16:21:54 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 17:27:45 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/16 16:37:39 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/16 21:07:02 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Counts args passed in printf function by counting number of '%'
+** Generate a string to be concatenated with the content of the argument
 */
 
-int		ft_count_args(const char *restrict format)
+char    *ft_generate_width(t_arg **e, char c)
 {
-	int		i;
-	int		t;
+    char    *s;
+    int     l;
+    int     i;
 
-	t = 0;
-	i = -1;
-	while (format[++i])
-		if (format[i] == '%' && format[i + 1] != '%')
-			t += ft_is_flag(format, i);
-	return (t);
+    i = -1;
+    l = ft_atoi((*e)->width) - (ft_strlen((*e)->data_converted));
+    if (!(l > 0))
+        return (NULL);
+    s = malloc(sizeof(char) * l + 1);
+    while (++i != l)
+        s[i] = c;
+    s[l] = '\0';
+    return (s);
 }
