@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 19:03:46 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 21:12:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@
 
 void    ft_apply_attr_zero(t_arg **e)
 {
-    
+    char    *s;
 
+    if ((*e)->width && ((*e)->flag[0] == 'd' || (*e)->flag[0] == 'i'))
+    {
+        s = ft_strjoin_free((*e)->data_converted, ft_generate_width(e, '0'));
+        if (s)
+            (*e)->data_converted = s;
+    }
 }
 
 /*
@@ -76,12 +82,9 @@ void	ft_apply_attr_minus(t_arg **e)
 
 	if ((*e)->width)
 	{
-		s = ft_strjoin_free((*e)->data_converted, ft_generate_width(e));
-		if (s != NULL)
-		{
-			//free((*e)->data_converted);
+		s = ft_strjoin_free((*e)->data_converted, ft_generate_width(e, ' '));
+		if (s)
 			(*e)->data_converted = s;
-		}
 	}
 }
 
