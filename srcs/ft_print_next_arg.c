@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 21:42:33 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 14:15:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void     ft_skip_flag(const char *restrict format, int *i, char *flag)
 
     j = 0;
     *i += 1;
+    if (format[*i] == '.')
+        *i += 1;
     while (flag[j] && flag[j] == format[*i])
     {
         j++;
@@ -69,10 +71,9 @@ static void     ft_skip_precision(const char *restrict format,
     int     j;
 
     j = 0;
-    if (ft_isdigit(format[*i + 1]))
+    if (precision && format[*i] == '.' && ft_isdigit(format[*i + 1]))
     {
         *i += 1;
-        //printf("skip precision begchar %c\n\n", format[*i]);
         while (precision[j] && format[*i] == precision[j])
         {
             *i += 1;

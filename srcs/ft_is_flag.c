@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 21:58:27 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 19:12:42 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 14:26:56 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int     ft_is_flag(const char *restrict format, int i)
     a = i;
     if (!(format[i] == '%' && format[i + 1] != '%'))
         return (0);
-    if (ft_get_flag(format, i)[0])
+    if (ft_get_flag(format, i)[0] || \
+        (format[i + 1] == '.' && ft_get_flag(format, i + 1)[0]))
         return (1);
     if (ft_is_attribute(format[i + 1]) || ft_isdigit(format[i + 1]))
     {
