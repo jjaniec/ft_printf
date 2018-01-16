@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:20:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 15:43:23 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 21:10:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void 	ft_apply_attributes(t_arg **e)
 {
 	if (ft_strchr((*e)->attributes, ' ') && !ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_space(e);
+	if (ft_strchr((*e)->attributes, '0') && !ft_strchr((*e)->attributes, '-'))
+		ft_apply_attr_zero(e);
 	if (ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_plus(e);
 	if (ft_strchr((*e)->attributes, '-'))
