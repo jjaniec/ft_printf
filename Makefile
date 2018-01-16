@@ -6,11 +6,12 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/15 18:56:33 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/16 14:45:58 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = ft_char_to_str.c \
+SRC_NAME = ft_apply_options.c \
+		   ft_char_to_str.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_count_args.c \
 		   ft_create_arglist.c \

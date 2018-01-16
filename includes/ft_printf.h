@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 20:35:55 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 14:47:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char    *ft_parse_width(const char *restrict format, int *pos);
 int     ft_get_width_len(const char *restrict format);
 
 char    *ft_parse_precision(const char *restrict format, int *pos);
+
+void    ft_apply_options(t_arg **e);
 
 #endif
 
