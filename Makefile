@@ -6,17 +6,20 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/16 14:45:58 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/16 17:15:16 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = ft_apply_options.c \
+SRC_NAME = ft_apply_attr_.c \
+		   ft_apply_attributes.c \
+		   ft_apply_options.c \
 		   ft_char_to_str.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_count_args.c \
 		   ft_create_arglist.c \
 		   ft_create_elem.c \
 		   ft_debug_args.c \
+		   ft_generate_width.c \
 		   ft_get_flag.c \
 		   ft_is_flag.c \
 		   ft_long_int_to_uoctal.c \

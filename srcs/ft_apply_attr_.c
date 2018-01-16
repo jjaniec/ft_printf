@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_args.c                                    :+:      :+:    :+:   */
+/*   ft_apply_minus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 16:21:54 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 17:27:45 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/16 17:24:21 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Counts args passed in printf function by counting number of '%'
+** Apply minus attribute on content of arg $e
 */
 
-int		ft_count_args(const char *restrict format)
+void    ft_apply_attr_minus(t_arg **e)
 {
-	int		i;
-	int		t;
+    char    *s;
 
-	t = 0;
-	i = -1;
-	while (format[++i])
-		if (format[i] == '%' && format[i + 1] != '%')
-			t += ft_is_flag(format, i);
-	return (t);
+    if ((*e)->width)
+    {
+        s = ft_strjoin_free((*e)->data_converted, ft_generate_width(e));
+        if (s != NULL)
+        {
+            free((*e)->data_converted);
+            (*e)->data_converted = s;
+        }
+    }
 }
+

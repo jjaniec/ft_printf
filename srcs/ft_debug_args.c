@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 18:49:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 17:54:38 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 17:29:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 ** Cycle through arg structures to print their content
 */
 
-void	ft_debug_args(t_arg *args)
+void	ft_debug_args(const char *restrict format, t_arg *args)
 {
 	int		i;
 	t_arg	*li;
 
 	li = args;
 	i = 1;
+    printf("Args count : %d\n", ft_count_args(format));
 	while (li->next || li)
 	{
 		printf("Arg[%d]:\n\

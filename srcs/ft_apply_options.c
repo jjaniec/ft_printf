@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 14:43:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 14:46:48 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 17:01:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 
 void    ft_apply_options(t_arg **e)
 {
-    e = NULL;
+    if ((*e)->attributes)
+        ft_apply_attributes(e);
 }
