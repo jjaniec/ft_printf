@@ -99,6 +99,8 @@ void    ft_apply_attributes(t_arg **e);
 
 void    ft_apply_attr_minus(t_arg **e);
 
+void    ft_apply_attr_plus(t_arg **e);
+
 void    ft_apply_attr_space(t_arg **e);
 
 char    *ft_generate_width(t_arg **e);
