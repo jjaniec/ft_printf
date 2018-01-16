@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/16 17:28:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/16 18:01:41 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void    ft_apply_options(t_arg **e);
 void    ft_apply_attributes(t_arg **e);
 
 void    ft_apply_attr_minus(t_arg **e);
+
+void    ft_apply_attr_plus(t_arg **e);
 
 char    *ft_generate_width(t_arg **e);
 
