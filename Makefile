@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/16 17:15:16 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/17 22:19:17 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_create_arglist.c \
 		   ft_create_elem.c \
 		   ft_debug_args.c \
+		   ft_free_elem.c \
 		   ft_generate_width.c \
 		   ft_get_flag.c \
 		   ft_is_flag.c \
