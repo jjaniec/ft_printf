@@ -13,6 +13,7 @@
 SRC_NAME = ft_apply_attr_.c \
 		   ft_apply_attributes.c \
 		   ft_apply_options.c \
+		   ft_apply_width.c \
 		   ft_char_to_str.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_count_args.c \
