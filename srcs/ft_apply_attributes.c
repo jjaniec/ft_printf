@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:20:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 16:18:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/17 18:10:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,8 @@ void 	ft_apply_attributes(t_arg **e)
 {
 	if (ft_strchr((*e)->attributes, ' ') && !ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_space(e);
-	if (ft_strchr((*e)->attributes, '0') || ft_strchr((*e)->attributes, '-'))
-		ft_apply_attr_minus_zero(e);
 	if (ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_plus(e);
+	/*if (ft_strchr((*e)->attributes, '0') || ft_strchr((*e)->attributes, '-'))
+		ft_apply_attr_minus_zero(e);*/
 }
-
-/*
-int 	main()
-{
-	t_arg *a;
-
-	a->data_converted = ft_strdup("45");
-	a->width = ft_strdup("5");
-	a->attributes = ft_strdup("-");
-	a->precision = ft_strdup("2");
-	a->flag = ft_strdup("d");
-	a->next = NULL;
-	ft_apply_options(&a);
-	printf("%s", a->data_converted);
-	return (0);
-}
-
-*/

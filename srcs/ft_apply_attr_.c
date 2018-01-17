@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 16:19:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/17 18:09:49 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Apply attributes zero or minus on content of arg $e
 */
-
+/*
 void    ft_apply_attr_minus_zero(t_arg **e)
 {
     char    *s;
@@ -29,7 +29,7 @@ void    ft_apply_attr_minus_zero(t_arg **e)
         if (s)
             (*e)->data_converted = s;
     }
-}
+}*/
 
 /*
 ** Apply attribute space on content of arg $e
