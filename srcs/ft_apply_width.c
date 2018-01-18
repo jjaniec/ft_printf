@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 20:08:55 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 18:46:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			ft_apply_width(t_arg **e)
 		else
 			s = ft_strjoin_free(ft_generate_width(l, c), (*e)->data_converted);
 		(*e)->data_converted = s;
-		if (cx)
+		if (cx && ft_strchr((*e)->attributes, '0'))
 			ft_byte_swap(ft_strchr((*e)->data_converted, cx), \
 				&(*e)->data_converted[0]);
 	}
