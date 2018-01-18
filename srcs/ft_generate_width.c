@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:37:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 18:18:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 21:06:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char    *ft_generate_width(int l, char c)
 
     i = -1;
     s = malloc(sizeof(char) * l + 1);
-    while (++i < l - 1)
+    while (++i < l)
         s[i] = c;
     s[l] = '\0';
     return (s);
