@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 22:15:40 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 14:28:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void     ft_skip_flag(const char *restrict format, int *i, char *flag)
     int   j;
 
     j = 0;
+    if (format[*i] == '%')
+        *i += 1;
     while (format[*i] != flag[j])
         *i += 1;
     while (flag[j] && flag[j] == format[*i])
