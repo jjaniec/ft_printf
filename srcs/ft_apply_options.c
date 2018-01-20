@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 14:43:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 15:02:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 16:49:38 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void    ft_apply_options(t_arg **e)
 {
-    if ((*e)->precision)
+    if ((*e)->precision && (*e)->flag[0] != 'c')
         ft_apply_precision(e);
     if ((*e)->attributes)
         ft_apply_attributes(e);
