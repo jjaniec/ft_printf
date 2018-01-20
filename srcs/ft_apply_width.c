@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 18:43:23 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 19:40:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void		ft_byte_swap(char *a, char *b)
 }
 
 /*
-** Resize the char * of the data converted of $e as specified in width option
+** Resize the char * with '0' or ' ' of the data converted of $e
+** as specified in width option
 */
 
 void			ft_apply_width(t_arg **e)
@@ -44,13 +45,13 @@ void			ft_apply_width(t_arg **e)
 	l = ft_atoi((*e)->width) - ft_strlen((*e)->data_converted) + 1;
 	if (l >= 2)
 	{
-		if ((*e)->data_converted[0] == '-' || (*e)->data_converted[0] == '+')
-			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '0') && \
-			!ft_strchr((*e)->attributes, '-'))
+			!ft_strchr((*e)->attributes, '-') && !(ft_is_conv_numeric(e) && (*e)->precision))
 			c = '0';
 		else
 			c = ' ';
+		if (((*e)->data_converted[0] == '-' || (*e)->data_converted[0] == '+') && c == '0')
+			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '-'))
 			s = ft_strjoin_free((*e)->data_converted, ft_generate_width(l, c));
 		else
