@@ -6,13 +6,14 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/20 14:09:04 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/20 14:42:59 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_NAME = ft_apply_attr_.c \
 		   ft_apply_attributes.c \
 		   ft_apply_options.c \
+		   ft_apply_precision.c \
 		   ft_apply_width.c \
 		   ft_char_to_str.c \
 		   ft_convert_arg_no_modifiers.c \
