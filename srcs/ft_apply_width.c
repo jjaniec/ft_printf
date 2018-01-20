@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 18:46:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 17:27:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** right before it
 */
 
-static void		ft_byte_swap(char *a, char *b)
+void		ft_byte_swap(char *a, char *b)
 {
 	char	t;
 
