@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 18:00:10 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/15 18:12:00 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 20:59:03 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_parse_attributes(const char *restrict format, int *pos)
 	if (!(ft_is_attribute(format[*pos + 1])))
 		return (NULL);
 	l = ft_get_attributes_len((format + *pos + 1), 0);
-	s = malloc(sizeof(char) * l + 1);
+	s = ft_strnew(l);
 	while (x < l && ft_is_attribute(format[*pos + i + 1]))
 	{
 		s[x + 1] = '\0';

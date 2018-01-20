@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wchar_t_to_str.c                                :+:      :+:    :+:   */
+/*   ft_printf_str_arg.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:13:19 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 13:44:32 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/18 22:20:42 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/18 22:22:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Convert a unicode character to a char *
+** Malloc string passed as parameter or return "(null)"
 */
 
-char	*ft_wchar_t_to_str(wchar_t c)
+char    *ft_printf_str_arg(char *a)
 {
-	char	*s;
-	int		i;
-	int		masklen;
+    char    *s;
 
-	masklen = ft_wchar_masklen(c);
-	i = -1;
-	s = (char *)malloc(masklen + 1);
-	while (++i < masklen)
-		s[i] = ft_wchar_byte_to_char(masklen, (i + 1), c);
-	s[masklen] = '\0';
-	return (s);
+    if (!a)
+        s = ft_strdup("(null)");
+    else
+        s = ft_strdup(a);
+    return (s);
 }

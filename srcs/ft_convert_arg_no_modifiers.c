@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 19:16:12 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 22:26:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 {
+	f[('s' - 'A')] = (void *)&ft_printf_str_arg;
 	f[('S' - 'A')] = (void *)&ft_wchar_tptr_to_str;//alias de ls
 	//f[('p' - 'A')] = &ft_void_to_hex;
 	f[('d' - 'A')] = (char *(*)(void *))&ft_itoa;
@@ -47,7 +48,7 @@ char	    *ft_convert_arg_no_modifiers(va_list va_ptr, char *fl)
 	if (ft_strlen(fl) == 1)
 	{
 		if (*fl == 's')
-			return (ft_strdup(va_arg(va_ptr, char *)));
+			return ((*f[*fl - 'A'])((va_arg(va_ptr, char *))));
 		if (*fl == 'c')
 			return ((*f[*fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
 		if (*fl == 'd' || *fl == 'i')
