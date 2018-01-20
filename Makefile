@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/18 22:24:27 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/20 14:09:04 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_NAME = ft_apply_attr_.c \
 
 OBJS_NAMES = $(OBJS_NAMES:.c=.o)
 NAME = libftprintf.a
+LIBFT = libft/libft.a
 CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
@@ -58,7 +59,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
 
 all : $(NAME)
 
-$(NAME) : libft $(OBJS) 
+$(NAME) : $(LIBFT) $(OBJS) 
 	@ar rcs $(NAME) $(OBJS) libft/objs/*.o
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
@@ -73,13 +74,20 @@ clean:
 fclean: clean
 	@make fclean -C libft/
 	@rm -f $(NAME)
+	@rm -rf curqui_test
 
 re: fclean all
 
-libft:
+$(LIBFT):
 	make -C ./libft/
 
 tests: 
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
 
-.PHONY : all clean re tests libft
+curqui_test: $(NAME)
+	git clone https://github.com/curquiza/curqui_test.git
+	cp $(NAME) curqui_test
+	make -C curqui_test
+	./curqui_test/ft_printf_tests
+
+.PHONY : all clean re tests libft curqui_test

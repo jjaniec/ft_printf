@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_apply_options.c                                 :+:      :+:    :+:   */
+/*   ft_apply_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/16 14:43:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 14:18:44 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/20 14:17:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Apply attributes, width, precision on argument
+** Apply precision on converted element
 */
 
-void    ft_apply_options(t_arg **e)
+void    ft_apply_precision(t_arg **e)
 {
-    if ((*e)->attributes)
-        ft_apply_attributes(e);
-    if ((*e)->width)
-        ft_apply_width(e);/*
-    if ((*e)->precision)
-        ft_apply_precision(e);*/
+
 }
