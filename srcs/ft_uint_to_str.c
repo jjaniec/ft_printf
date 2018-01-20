@@ -6,11 +6,15 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 20:54:02 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 15:07:31 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 18:50:07 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Calculate len required to store x in a string
+*/
 
 static int	ft_uint_to_str_slen(unsigned int x)
 {
@@ -24,6 +28,10 @@ static int	ft_uint_to_str_slen(unsigned int x)
 	}
 	return (i);
 }
+
+/*
+** Convert x as a string
+*/
 
 char	*ft_uint_to_str(unsigned int x)
 {
