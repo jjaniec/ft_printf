@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 17:25:03 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 19:16:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ void    ft_putchar_printf(char c, int *r);
 char    *ft_printf_str_arg(char *a);
 
 void    ft_apply_precision(t_arg **e);
+
+int     ft_is_conv_numeric(t_arg **e);
 
 #endif
 
