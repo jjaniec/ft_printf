@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/21 14:27:32 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/21 16:13:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_is_modifier(char c, char c2);
 
 char	*ft_get_flag(const char *restrict format, int pos);
 
-char	*ft_convert_arg_no_modifiers(va_list va_arg, char *flag);
+char	*ft_convert_arg_no_modifiers(va_list va_arg, char flag);
 
 char	*ft_char_to_str(char c);
 
@@ -121,6 +121,10 @@ void    ft_apply_precision(t_arg **e);
 int     ft_is_conv_numeric(t_arg **e);
 
 char    *ft_parse_modifiers(const char *restrict format, int *pos);
+
+char    *ft_convert_arg_modifiers(va_list va_ptr, t_arg **e);
+
+char    *ft_imax_toa(intmax_t n);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/21 14:43:51 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/21 16:39:20 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 	else
 		e->modifiers = NULL;
 	e->flag = ft_get_flag(format, pos);
-	/*
-	if (!e->modifiers)*/
-		e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag);/*
+	if (e->modifiers)
+		e->data_converted = ft_convert_arg_modifiers(va_ptr, &e);
 	else
-		ft_convert_arg_modifiers(va_ptr, e->flag);*/
+		e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag[0]);
 	ft_apply_options(&e);
 	e->next = NULL;
 	return (e);
