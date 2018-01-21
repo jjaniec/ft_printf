@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 19:16:46 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/21 14:27:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_arg
 {
 	char			*data_converted;
 	char			*flag;
+    char            *modifiers;
     char            *width;
 	char			*precision;
     char            *attributes;
@@ -118,6 +119,8 @@ char    *ft_printf_str_arg(char *a);
 void    ft_apply_precision(t_arg **e);
 
 int     ft_is_conv_numeric(t_arg **e);
+
+char    *ft_parse_modifiers(const char *restrict format, int *pos);
 
 #endif
 

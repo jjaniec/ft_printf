@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/20 19:17:08 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/21 14:29:13 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_is_flag.c \
 		   ft_long_int_to_uoctal.c \
 		   ft_parse_attributes.c \
+		   ft_parse_modifiers.c \
 		   ft_parse_precision.c \
 		   ft_parse_width.c \
 		   ft_print_next_arg.c \
