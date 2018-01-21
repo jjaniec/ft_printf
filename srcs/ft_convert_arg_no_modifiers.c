@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/21 16:43:42 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/21 16:59:20 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 ** Convert argument if conversion identifier is >= 'A' && <= 'Z'
 */
 
-	//f[('U' - 'A')] = &ft_long_int_to_str // alias lu
 char        *ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
 {
 	if (fl == 'S')
@@ -47,6 +46,8 @@ char        *ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
         return (ft_long_int_to_uoctal(va_arg(va_ptr, long int)));
     if (fl == 'X')
         return (ft_uint_to_hex_caps(va_arg(va_ptr, unsigned int)));
+    if (fl == 'U')
+        return (ft_imax_toa(va_arg(va_ptr, unsigned long int)));
     return (NULL);
 }
 
