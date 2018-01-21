@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 22:23:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 19:16:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,17 @@ char    *ft_generate_width(int l, char c);
 
 void    ft_apply_width(t_arg **e);
 
+void    ft_byte_swap(char *a, char *b);
+
 void    ft_free_elem(t_arg *e);
 
 void    ft_putchar_printf(char c, int *r);
 
 char    *ft_printf_str_arg(char *a);
+
+void    ft_apply_precision(t_arg **e);
+
+int     ft_is_conv_numeric(t_arg **e);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 18:46:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 19:40:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,21 @@
 ** right before it
 */
 
-static void		ft_byte_swap(char *a, char *b)
+void		ft_byte_swap(char *a, char *b)
 {
 	char	t;
 
-	t = *b;
-	*b = *a;
-	*a = t;
+    if (a && b)
+    {
+	    t = *b;
+    	*b = *a;
+    	*a = t;
+    }
 }
 
 /*
-** Resize the char * of the data converted of $e as specified in width option
+** Resize the char * with '0' or ' ' of the data converted of $e
+** as specified in width option
 */
 
 void			ft_apply_width(t_arg **e)
@@ -41,19 +45,19 @@ void			ft_apply_width(t_arg **e)
 	l = ft_atoi((*e)->width) - ft_strlen((*e)->data_converted) + 1;
 	if (l >= 2)
 	{
-		if ((*e)->data_converted[0] == '-' || (*e)->data_converted[0] == '+')
-			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '0') && \
-			!ft_strchr((*e)->attributes, '-'))
+			!ft_strchr((*e)->attributes, '-') && !(ft_is_conv_numeric(e) && (*e)->precision))
 			c = '0';
 		else
 			c = ' ';
+		if (((*e)->data_converted[0] == '-' || (*e)->data_converted[0] == '+') && c == '0')
+			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '-'))
 			s = ft_strjoin_free((*e)->data_converted, ft_generate_width(l, c));
 		else
 			s = ft_strjoin_free(ft_generate_width(l, c), (*e)->data_converted);
 		(*e)->data_converted = s;
-		if (cx && ft_strchr((*e)->attributes, '0'))
+		if (cx && (*e)->attributes && ft_strchr((*e)->attributes, '0'))
 			ft_byte_swap(ft_strchr((*e)->data_converted, cx), \
 				&(*e)->data_converted[0]);
 	}
