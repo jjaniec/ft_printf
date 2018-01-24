@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/21 16:14:29 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/24 16:10:26 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_uint_to_hex.c \
 		   ft_uint_to_octal.c \
 		   ft_uint_to_str.c \
+		   ft_voidptr_to_hex.c \
 		   ft_wchar_byte_to_char.c \
 		   ft_wchar_masklen.c \
 		   ft_wchar_t_to_str.c \

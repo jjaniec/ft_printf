@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 19:34:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:54:21 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    ft_apply_precision(t_arg **e)
             (*e)->data_converted, 0, ft_atoi((*e)->precision));
     if (ft_strchr((*e)->flag, 'd') || ft_strchr((*e)->flag, 'i') || ft_strchr((*e)->flag, 'u'))
     {
-        if (ft_strchr((*e)->precision, '.') && strcmp((*e)->data_converted, "0") == 0)
+        if (ft_strchr((*e)->precision, '.') && ft_strcmp((*e)->data_converted, "0") == 0)
         {
             free((*e)->data_converted);
             (*e)->data_converted = ft_strdup("");
