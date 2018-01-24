@@ -1,4 +1,6 @@
 language: c
+before_install:
+    - git clone https://github.com/jjaniec/libft.git
 matrix:
     include:
         - os: osx
