@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 19:28:35 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 19:54:45 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 14:53:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,3 @@ int		ft_sizeof_wstr_to_char(wchar_t *ws)
 	//printf("ret size: %d\n", ret);
 	return (sizeof(char) * ret);
 }
-/*
-int		main()
-{
-	wchar_t s[5];
-
-	s[0] = 'a';
-	s[1] = 0xA9;
-	s[2] = 0x851;
-	s[3] = 0x100D7;
-	s[4] = '\0';
-	ft_sizeof_wstr_to_char(s);
-	return (0);
-}*/
