@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 18:07:02 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 15:31:58 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,13 @@ void          	ft_print_next_arg(t_arg **li, const char *restrict format, int *i
     t_arg *arg;
 
     arg = *li;
-	ft_putstr(arg->data_converted);
-    *r += ft_strlen(arg->data_converted);
+    if (*arg->data_converted)
+    {
+	    ft_putstr(arg->data_converted);
+        *r += ft_strlen(arg->data_converted);
+    }
+    else
+        *r += 1;
     ft_skip_flag(format, i, arg->flag);
 	*li = arg->next;
     if (arg)
