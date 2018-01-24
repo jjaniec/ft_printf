@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/20 19:17:08 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/21 16:14:29 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_apply_precision.c \
 		   ft_apply_width.c \
 		   ft_char_to_str.c \
+		   ft_convert_arg_modifiers.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_count_args.c \
 		   ft_create_arglist.c \
@@ -24,10 +25,12 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_free_elem.c \
 		   ft_generate_width.c \
 		   ft_get_flag.c \
+		   ft_imax_toa.c \
 		   ft_is_conv_numeric.c \
 		   ft_is_flag.c \
 		   ft_long_int_to_uoctal.c \
 		   ft_parse_attributes.c \
+		   ft_parse_modifiers.c \
 		   ft_parse_precision.c \
 		   ft_parse_width.c \
 		   ft_print_next_arg.c \
@@ -87,7 +90,7 @@ tests:
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
 
 curqui_test: $(NAME)
-	git clone https://github.com/curquiza/curqui_test.git
+	git clone https://github.com/jobailla/curqui_test.git
 	cp $(NAME) curqui_test
 	make -C curqui_test
 	./curqui_test/ft_printf_tests

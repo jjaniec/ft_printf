@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 16:30:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/12 20:03:07 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 13:17:33 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static char				ft_get_hexchar(short x)
 ** Get len of string to store hexadecimal version of $n
 */
 
-static unsigned int		ft_get_pwr_tohex(unsigned int n)
+static uintmax_t		ft_get_pwr_tohex(uintmax_t n)
 {
-	unsigned int	i;
-	unsigned int	div;
+	uintmax_t	i;
+	uintmax_t	div;
 
 	i = 1;
 	div = 16;
@@ -43,18 +43,18 @@ static unsigned int		ft_get_pwr_tohex(unsigned int n)
 }
 
 /*
-** Convert unsigned in $n in his hexadecimal version,
+** Convert unsigned int max $n in his hexadecimal version,
 ** stored in a string and returned
-** used for 'x' flag of printf
+** used for 'x' flag of printmax_tf
 */
 
-char					*ft_uint_to_hex(unsigned int n)
+char					*ft_uint_to_hex(uintmax_t n)
 {
-	int		i;
-	char	*buf;
-	int		buf_len;
-	int		y;
-	int		div;
+	intmax_t		i;
+	char	        *buf;
+	intmax_t		buf_len;
+	intmax_t		y;
+	intmax_t		div;
 
 	div = 1;
 	i = 0;
@@ -74,10 +74,10 @@ char					*ft_uint_to_hex(unsigned int n)
 
 /*
 ** ft_uint_to_hex with capitalization of letters
-** used for 'X' flag of printf
+** used for 'X' flag of printmax_tf
 */
 
-char					*ft_uint_to_hex_caps(unsigned int n)
+char					*ft_uint_to_hex_caps(uintmax_t n)
 {
 	char	*tmp;
 
