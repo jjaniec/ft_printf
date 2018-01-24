@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/21 16:59:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:09:09 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 {
 	f[('s' - 'A')] = (void *)&ft_printf_str_arg;
-	//f[('p' - 'A')] = &ft_void_to_hex;
+	f[('p' - 'A')] = (char *(*)(void *))&ft_voidptr_to_hex;
 	f[('d' - 'A')] = (char *(*)(void *))&ft_imax_toa;
 	f[('i' - 'A')] = (char *(*)(void *))&ft_imax_toa;
 	f[('o' - 'A')] = (char *(*)(void *))&ft_uint_to_octal;

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 13:07:43 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:09:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ char    *ft_parse_modifiers(const char *restrict format, int *pos);
 char    *ft_convert_arg_modifiers(va_list va_ptr, t_arg **e);
 
 char    *ft_imax_toa(intmax_t n);
+
+char    *ft_voidptr_to_hex(void *data);
 
 #endif
 
