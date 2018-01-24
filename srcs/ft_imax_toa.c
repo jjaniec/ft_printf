@@ -6,11 +6,15 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 16:02:40 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/21 16:39:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 13:20:33 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Calculate len of string to store n in a char *
+*/
 
 static intmax_t	ft_itoa_slen(intmax_t n)
 {
@@ -31,6 +35,10 @@ static intmax_t	ft_itoa_slen(intmax_t n)
 	}
 	return (i);
 }
+
+/*
+** Store n in a char *
+*/
 
 char		    *ft_imax_toa(intmax_t n)
 {
