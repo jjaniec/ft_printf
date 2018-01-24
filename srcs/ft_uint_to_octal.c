@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:12:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:29 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:29:41 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static uintmax_t	 ft_get_pwr_tooctal(const uintmax_t n)
 
 char	*ft_uint_to_octal(const uintmax_t n)
 {
-	int		i;
-	char	*buf;
-	int		buf_len;
-	int		y;
-	int		div;
+	intmax_t		i;
+	char	        *buf;
+	intmax_t		buf_len;
+	intmax_t		y;
+	intmax_t		div;
 
 	div = 1;
 	i = 0;
