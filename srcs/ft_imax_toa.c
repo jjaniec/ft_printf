@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 16:02:40 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 13:20:33 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:24 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static intmax_t	ft_itoa_slen(intmax_t n)
 ** Store n in a char *
 */
 
-char		    *ft_imax_toa(intmax_t n)
+char			*ft_imax_toa(intmax_t n)
 {
 	intmax_t	i;
-	char	    *s;
+	char		*s;
 
 	i = ft_itoa_slen(n) - 1;
 	if (!(s = (char *)malloc(sizeof(char) * i + 2)))

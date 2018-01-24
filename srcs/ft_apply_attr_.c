@@ -6,30 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/17 18:09:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-/*
-** Apply attributes zero or minus on content of arg $e
-*/
-/*
-void    ft_apply_attr_minus_zero(t_arg **e)
-{
-    char    *s;
-
-    if ((*e)->width && ((*e)->flag[0] == 'd' || (*e)->flag[0] == 'i'))
-    {
-        if (ft_strchr((*e)->attributes, '0') && !ft_strchr((*e)->attributes, '-'))
-            s = ft_strjoin_free(ft_generate_width(e), (*e)->data_converted);
-        else
-            s = ft_strjoin_free((*e)->data_converted, ft_generate_width(e));
-        if (s)
-            (*e)->data_converted = s;
-    }
-}*/
 
 /*
 ** Apply attribute space on content of arg $e

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:09:09 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,28 @@ static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 ** Convert argument if conversion identifier is >= 'A' && <= 'Z'
 */
 
-char        *ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
+char		*ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
 {
 	if (fl == 'S')
-        return (ft_wchar_tptr_to_str(va_arg(va_ptr, wchar_t *)));
+		return (ft_wchar_tptr_to_str(va_arg(va_ptr, wchar_t *)));
 	if (fl == 'C')
 		return (ft_wchar_t_to_str(va_arg(va_ptr, wint_t)));
-    if (fl == 'D')
-        return (ft_imax_toa(va_arg(va_ptr, intmax_t)));
-    if (fl == 'O')
-        return (ft_long_int_to_uoctal(va_arg(va_ptr, long int)));
-    if (fl == 'X')
-        return (ft_uint_to_hex_caps(va_arg(va_ptr, unsigned int)));
-    if (fl == 'U')
-        return (ft_imax_toa(va_arg(va_ptr, unsigned long int)));
-    return (NULL);
+	if (fl == 'D')
+		return (ft_imax_toa(va_arg(va_ptr, intmax_t)));
+	if (fl == 'O')
+		return (ft_long_int_to_uoctal(va_arg(va_ptr, long int)));
+	if (fl == 'X')
+		return (ft_uint_to_hex_caps(va_arg(va_ptr, unsigned int)));
+	if (fl == 'U')
+		return (ft_imax_toa(va_arg(va_ptr, unsigned long int)));
+	return (NULL);
 }
 
 /*
 ** Convert argument of any type in a string to be printed
 */
 
-char	    *ft_convert_arg_no_modifiers(va_list va_ptr, char fl)
+char		*ft_convert_arg_no_modifiers(va_list va_ptr, char fl)
 {
 	char	*(*f[100])(void *);
 
@@ -69,8 +69,8 @@ char	    *ft_convert_arg_no_modifiers(va_list va_ptr, char fl)
 	if (fl == 'o' || fl == 'u' || fl == 'x')
 		return ((*f[fl - 'A'])((void *)(size_t)va_arg(va_ptr, unsigned int)));
 	if (fl == 'p')
-        return ((*f[fl - 'A'])((void *)va_arg(va_ptr, void *)));
-    if (fl >= 'A' && fl <= 'Z')
-        return (ft_convert_arg_no_modifiers_caps(va_ptr, fl));
+		return ((*f[fl - 'A'])((void *)va_arg(va_ptr, void *)));
+	if (fl >= 'A' && fl <= 'Z')
+		return (ft_convert_arg_no_modifiers_caps(va_ptr, fl));
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 19:12:46 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/20 19:16:21 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:24 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 ** return 1, otherwise return 0
 */
 
-int     ft_is_conv_numeric(t_arg **e)
+int		ft_is_conv_numeric(t_arg **e)
 {
-    if (!ft_strchr((*e)->flag, 'd') && \
-        !ft_strchr((*e)->flag, 'i') && \
-        !ft_strchr((*e)->flag, 'o') && \
-        !ft_strchr((*e)->flag, 'u') && \
-        !ft_strchr((*e)->flag, 'x') && \
-        !ft_strchr((*e)->flag, 'X'))
-      return (0);
-    return (1);
+	if (!ft_strchr((*e)->flag, 'd') && \
+		!ft_strchr((*e)->flag, 'i') && \
+		!ft_strchr((*e)->flag, 'o') && \
+		!ft_strchr((*e)->flag, 'u') && \
+		!ft_strchr((*e)->flag, 'x') && \
+		!ft_strchr((*e)->flag, 'X'))
+	  return (0);
+	return (1);
 }

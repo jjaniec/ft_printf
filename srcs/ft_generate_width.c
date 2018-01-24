@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:37:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 22:33:10 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 ** Generate a string to be concatenated with the content of the argument
 */
 
-char    *ft_generate_width(int l, char c)
+char	*ft_generate_width(int l, char c)
 {
-    char    *s;
-    int     i;
+	char	*s;
+	int		i;
 
-    i = 0;
-    s = ft_strnew(l - 1);
-    while (i < l - 1)
-        s[i++] = c;
-    s[l - 1] = '\0';
-    return (s);
+	i = 0;
+	s = ft_strnew(l - 1);
+	while (i < l - 1)
+		s[i++] = c;
+	s[l - 1] = '\0';
+	return (s);
 }

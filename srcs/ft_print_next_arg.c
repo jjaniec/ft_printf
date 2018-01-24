@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 15:31:58 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,40 @@
 ** Move forward in format until flag is skiped
 */
 
-static void     ft_skip_flag(const char *restrict format, int *i, char *flag)
+static void		ft_skip_flag(const char *restrict format, int *i, char *flag)
 {
-    int   j;
+	int   j;
 
-    j = 0;
-    if (format[*i] == '%')
-        *i += 1;
-    while (format[*i] != flag[j])
-        *i += 1;
-    while (flag[j] && flag[j] == format[*i])
-    {
-        j++;
-        *i += 1;
-    }
+	j = 0;
+	if (format[*i] == '%')
+		*i += 1;
+	while (format[*i] != flag[j])
+		*i += 1;
+	while (flag[j] && flag[j] == format[*i])
+	{
+		j++;
+		*i += 1;
+	}
 }
 
 /*
 ** Print data as a string of current argument and move on to the next one
 */
 
-void          	ft_print_next_arg(t_arg **li, const char *restrict format, int *i, int *r)
+void			ft_print_next_arg(t_arg **li, const char *restrict format, int *i, int *r)
 {
-    t_arg *arg;
+	t_arg *arg;
 
-    arg = *li;
-    if (*arg->data_converted)
-    {
-	    ft_putstr(arg->data_converted);
-        *r += ft_strlen(arg->data_converted);
-    }
-    else
-        *r += 1;
-    ft_skip_flag(format, i, arg->flag);
+	arg = *li;
+	if (*arg->data_converted)
+	{
+		ft_putstr(arg->data_converted);
+		*r += ft_strlen(arg->data_converted);
+	}
+	else
+		*r += 1;
+	ft_skip_flag(format, i, arg->flag);
 	*li = arg->next;
-    if (arg)
-        ft_free_elem(arg);
+	if (arg)
+		ft_free_elem(arg);
 }

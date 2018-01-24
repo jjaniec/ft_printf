@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 16:30:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 13:17:33 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static uintmax_t		ft_get_pwr_tohex(uintmax_t n)
 char					*ft_uint_to_hex(uintmax_t n)
 {
 	intmax_t		i;
-	char	        *buf;
+	char			*buf;
 	intmax_t		buf_len;
 	intmax_t		y;
 	intmax_t		div;

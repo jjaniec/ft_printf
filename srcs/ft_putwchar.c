@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 20:19:38 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/08 19:18:00 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 ** Then we need to move the content of each bytes to the last one
 ** to fill our following masks,
 ** for a 2 bytes char:
-**    110xxxxx 10xxxxxx
+**	  110xxxxx 10xxxxxx
 ** 3 bytes char:
-**    1110xxxx 10xxxxxx 10xxxxxx
+**	  1110xxxx 10xxxxxx 10xxxxxx
 ** 4:
-**    11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+**	  11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 */
 
 void	ft_putwchar(wchar_t c)

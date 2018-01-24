@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:12:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 13:07:59 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 ** Get len of string to store $n in its octal form
 */
 
-static uintmax_t     ft_get_pwr_tooctal(const uintmax_t n)
+static uintmax_t	 ft_get_pwr_tooctal(const uintmax_t n)
 {
-    uintmax_t    i;
-    uintmax_t    div;
+	uintmax_t	 i;
+	uintmax_t	 div;
 
-    i = 1;
-    div = 8;
-    while (n / div > 0)
-    {
-        div *= 8;
-        i++;
-    }
-    return (i);
+	i = 1;
+	div = 8;
+	while (n / div > 0)
+	{
+		div *= 8;
+		i++;
+	}
+	return (i);
 }
 
 /*
@@ -36,26 +36,26 @@ static uintmax_t     ft_get_pwr_tooctal(const uintmax_t n)
 ** stored in a char *
 */
 
-char    *ft_uint_to_octal(const uintmax_t n)
+char	*ft_uint_to_octal(const uintmax_t n)
 {
-    int     i;
-    char    *buf;
-    int     buf_len;
-    int     y;
-    int     div;
+	int		i;
+	char	*buf;
+	int		buf_len;
+	int		y;
+	int		div;
 
-    div = 1;
-    i = 0;
-    buf_len = ft_get_pwr_tooctal(n);
-    y = buf_len;
-    buf = (char *)malloc(sizeof(char) * buf_len + 1);
-    while (y-- != 1)
-      div *= 8;
-    while (i != buf_len - 0)
-    {
-        buf[i++] = ((n % (div * 8)) / div) + '0';
-        div /= 8;
-    }
-    buf[i] = '\0';
-    return (buf);
+	div = 1;
+	i = 0;
+	buf_len = ft_get_pwr_tooctal(n);
+	y = buf_len;
+	buf = (char *)malloc(sizeof(char) * buf_len + 1);
+	while (y-- != 1)
+	  div *= 8;
+	while (i != buf_len - 0)
+	{
+		buf[i++] = ((n % (div * 8)) / div) + '0';
+		div /= 8;
+	}
+	buf[i] = '\0';
+	return (buf);
 }

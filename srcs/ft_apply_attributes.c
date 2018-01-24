@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:20:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 18:28:51 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ** For x or X, "0x" or "0X" will be prefixed to a non-zero result.
 */
 
-void 	ft_apply_attributes(t_arg **e)
+void	ft_apply_attributes(t_arg **e)
 {
 	if (ft_strchr((*e)->attributes, ' ') && !ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_space(e);
