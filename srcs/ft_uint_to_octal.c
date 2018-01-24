@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:12:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/14 15:07:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 13:07:59 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** Get len of string to store $n in its octal form
 */
 
-static unsigned int     ft_get_pwr_tooctal(const unsigned int n)
+static uintmax_t     ft_get_pwr_tooctal(const uintmax_t n)
 {
-    unsigned int    i;
-    unsigned int    div;
+    uintmax_t    i;
+    uintmax_t    div;
 
     i = 1;
     div = 8;
@@ -32,11 +32,11 @@ static unsigned int     ft_get_pwr_tooctal(const unsigned int n)
 }
 
 /*
-** Convert an unsigned int passed as parameter in it's octal form
+** Convert an uintmax_t passed as parameter in it's octal form
 ** stored in a char *
 */
 
-char    *ft_uint_to_octal(const unsigned int n)
+char    *ft_uint_to_octal(const uintmax_t n)
 {
     int     i;
     char    *buf;
