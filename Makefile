@@ -90,7 +90,7 @@ tests:
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
 
 curqui_test: $(NAME)
-	git clone https://github.com/curquiza/curqui_test.git
+	git clone https://github.com/jobailla/curqui_test.git
 	cp $(NAME) curqui_test
 	make -C curqui_test
 	./curqui_test/ft_printf_tests
