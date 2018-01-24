@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 18:54:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:26 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 19:08:22 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_parse_precision(const char *restrict format, int *pos)
 	x = *pos;
 	s = ft_parse_width(format, &x);
 	*pos = x;
-	if (!s)
+	if (!s || (*s == '0' && !(s[1])))
 	{
 		free(s);
 		return (ft_strdup("."));
