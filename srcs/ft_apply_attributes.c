@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:20:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:52:31 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	ft_apply_attributes(t_arg **e)
 		ft_apply_attr_space(e);
 	if (ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_plus(e);
+    if (ft_strchr((*e)->attributes, '#'))
+        ft_apply_attr_hashtag(e);
 }

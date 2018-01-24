@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:18 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/24 17:57:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,25 @@ void	ft_apply_attr_plus(t_arg **e)
 		s = ft_strjoin_free(a, (*e)->data_converted);
 		(*e)->data_converted = s;
 	}
+}
+
+/*
+** Apply hashtag attribute on content of arg $e
+*/
+
+void    ft_apply_attr_hashtag(t_arg **e)
+{
+    char    *s;
+
+    s = NULL;
+    if (*((*e)->flag) == 'o')
+        s = ft_strdup("0");
+    else if (*((*e)->flag) == 'x')
+        s = ft_strdup("0x");
+    else if (*((*e)->flag) == 'X')
+        s = ft_strdup("0X");
+    if (s)
+    {
+        (*e)->data_converted = ft_strjoin_free(s, (*e)->data_converted);
+    }
 }
