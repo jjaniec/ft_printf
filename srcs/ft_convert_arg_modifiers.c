@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 15:08:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 17:57:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("l", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa(va_arg(va_ptr, unsigned long int)));
+				return (ft_uimax_toa(va_arg(va_ptr, unsigned long int)));
 			if (c == 'o')
 				return (ft_uint_to_octal(va_arg(va_ptr, unsigned long int)));
 			if (c == 'x')
@@ -44,7 +44,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("h", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa((unsigned short int)va_arg(va_ptr, int)));
+				return (ft_uimax_toa((unsigned short int)va_arg(va_ptr, int)));
 			if (c == 'o')
 				return (ft_uint_to_octal((unsigned short int)va_arg(va_ptr, int)));
 			if (c == 'x')
@@ -57,7 +57,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("ll", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa(va_arg(va_ptr, unsigned long long int)));
+				return (ft_uimax_toa(va_arg(va_ptr, unsigned long long)));
 			if (c == 'o')
 				return (ft_uint_to_octal(va_arg(va_ptr, unsigned long long int)));
 			if (c == 'x')
@@ -70,7 +70,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("hh", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa((unsigned char)va_arg(va_ptr, int)));
+				return (ft_uimax_toa((unsigned char)va_arg(va_ptr, int)));
 			if (c == 'o')
 				return (ft_uint_to_octal((unsigned char)va_arg(va_ptr, int)));
 			if (c == 'x')
@@ -83,7 +83,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("j", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa(va_arg(va_ptr, uintmax_t)));
+				return (ft_uimax_toa(va_arg(va_ptr, uintmax_t)));
 			if (c == 'o')
 				return (ft_uint_to_octal(va_arg(va_ptr, uintmax_t)));
 			if (c == 'x')
@@ -96,7 +96,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("z", (*e)->modifiers) == 0)
 		{
 			if (c == 'u')
-				return (ft_imax_toa(va_arg(va_ptr, size_t)));
+				return (ft_uimax_toa(va_arg(va_ptr, size_t)));
 			if (c == 'o')
 				return (ft_uint_to_octal(va_arg(va_ptr, size_t)));
 			if (c == 'x')
@@ -104,7 +104,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 			if (c == 'X')
 				return (ft_uint_to_hex_caps(va_arg(va_ptr, size_t)));
 			if (c == 'd' || c == 'i')
-				return (ft_imax_toa(va_arg(va_ptr, size_t)));
+				return (ft_uimax_toa(va_arg(va_ptr, size_t)));
 		}
 	}
 	return ((c) ? (ft_convert_arg_no_modifiers(va_ptr, c)) : (NULL));

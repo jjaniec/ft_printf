@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/24 16:10:26 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/25 19:13:04 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_apply_options.c \
 		   ft_apply_precision.c \
 		   ft_apply_width.c \
+		   ft_atoi_hex.c \
 		   ft_char_to_str.c \
 		   ft_convert_arg_modifiers.c \
 		   ft_convert_arg_no_modifiers.c \
@@ -41,6 +42,8 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_putwchar.c \
 		   ft_putwstr.c \
 		   ft_sizeof_wstr_to_char.c \
+		   ft_strnotchr.c \
+		   ft_uimax_toa.c \
 		   ft_uint_to_hex.c \
 		   ft_uint_to_octal.c \
 		   ft_uint_to_str.c \
