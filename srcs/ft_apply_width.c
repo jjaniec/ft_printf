@@ -6,18 +6,37 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 14:29:35 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
+** Verify data_converted of $e
+*/
+
+static void		   ft_verify_string(t_arg **e)
+{
+	char	*x;
+	char	*y;
+
+	if ((*e)->attributes && ft_strchr((*e)->attributes, ' ') && \
+		ft_is_conv_numeric(e))
+	{
+		x = ft_strchr((*e)->data_converted, ' ');
+		y = ft_strchr((*e)->data_converted, '0');
+		if (x && y && (x > y))
+			ft_byte_swap(x, y);
+	}
+}
+
+/*
 ** Swap bytes of the postive or negative char before the number and the behind
 ** right before it
 */
 
-void		ft_byte_swap(char *a, char *b)
+void				ft_byte_swap(char *a, char *b)
 {
 	char	t;
 
@@ -34,7 +53,7 @@ void		ft_byte_swap(char *a, char *b)
 ** as specified in width option
 */
 
-void			ft_apply_width(t_arg **e)
+void				ft_apply_width(t_arg **e)
 {
 	char	c;
 	char	cx;
@@ -60,5 +79,6 @@ void			ft_apply_width(t_arg **e)
 		if (cx && (*e)->attributes && ft_strchr((*e)->attributes, '0'))
 			ft_byte_swap(ft_strchr((*e)->data_converted, cx), \
 				&(*e)->data_converted[0]);
+		ft_verify_string(e);
 	}
 }
