@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 19:19:46 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 19:28:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void    ft_apply_attr_hashtag(t_arg **e)
             if (c && (unsigned int)c >= (unsigned int)(*e)->data_converted)
                 *(c - 2) = '0';
         }
-        else if (*((*e)->data_converted) == '0' && (*e)->data_converted[1] == '0')
+        else if (*((*e)->data_converted) == '0' && (*e)->data_converted[1] == '0' && !(*e)->precision)
         {
             (*e)->data_converted[1] = *((*e)->flag);
         }
