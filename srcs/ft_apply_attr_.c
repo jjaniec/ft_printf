@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 14:29:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 14:39:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void    ft_apply_attr_hashtag(t_arg **e)
     char    *s;
 
     s = NULL;
-    if (*((*e)->flag) == 'o')
+    if (*((*e)->flag) == 'o' && ft_atoi((*e)->data_converted) != 0)
         s = ft_strdup("0");
     else if (*((*e)->flag) == 'x')
         s = ft_strdup("0x");
