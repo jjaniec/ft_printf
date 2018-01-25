@@ -6,17 +6,26 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 19:05:55 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 15:18:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+static int		ft_can_ret_0(t_arg **e)
+{
+	if ((*((*e)->flag) == 'o' || \
+		*((*e)->flag) == 'O') && ft_strchr((*e)->attributes, '#'))
+		return (0);
+	return (1);
+
+}
+
 /*
 ** Apply precision on converted element
 */
 
-void	ft_apply_precision(t_arg **e)
+void			ft_apply_precision(t_arg **e)
 {
 	int		x;
 	int		y;
@@ -28,7 +37,8 @@ void	ft_apply_precision(t_arg **e)
 			(*e)->data_converted, 0, ft_atoi((*e)->precision));
 	if (ft_is_conv_numeric(e))
 	{
-		if (ft_strchr((*e)->precision, '.') && ft_strcmp((*e)->data_converted, "0") == 0)
+		if (ft_strchr((*e)->precision, '.') && \
+			ft_strcmp((*e)->data_converted, "0") == 0 && ft_can_ret_0(e))
 		{
 			free((*e)->data_converted);
 			(*e)->data_converted = ft_strdup("");

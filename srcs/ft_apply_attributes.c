@@ -34,6 +34,4 @@ void	ft_apply_attributes(t_arg **e)
 		ft_apply_attr_space(e);
 	if (ft_strchr((*e)->attributes, '+'))
 		ft_apply_attr_plus(e);
-    if (ft_strchr((*e)->attributes, '#'))
-        ft_apply_attr_hashtag(e);
 }
