@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 19:11:09 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:22:04 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ int     ft_atoi_hex(char *s);
 char    *ft_uimax_toa(uintmax_t n);
 
 char    *ft_strnotchr(const char *s, char c);
+
+char    *ft_uitoa_base(uintmax_t n, uint8_t b);
 
 #endif
 

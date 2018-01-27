@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 15:08:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 17:57:10 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:22:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 			if (c == 'u')
 				return (ft_uimax_toa(va_arg(va_ptr, unsigned long long)));
 			if (c == 'o')
-				return (ft_uint_to_octal(va_arg(va_ptr, unsigned long long int)));
+				return (ft_uitoa_base(va_arg(va_ptr, unsigned long long int), 8));
 			if (c == 'x')
 				return (ft_uint_to_hex(va_arg(va_ptr, unsigned long long int)));
 			if (c == 'X')
