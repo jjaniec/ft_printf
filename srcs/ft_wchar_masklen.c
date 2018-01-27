@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 16:45:41 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 17:14:57 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 ** Finds the len in bytes of a wide char converted in a char *
 */
 
-int		ft_wchar_masklen(wchar_t c)
+int		ft_wchar_masklen(wint_t c)
 {
+    if (c < 0x0)
+        return (-1);
 	if (c <= 0x7F)
 		return (1);
 	if (c <= 0x7FF)

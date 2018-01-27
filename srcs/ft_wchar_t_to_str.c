@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 15:13:19 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 16:46:00 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 17:14:58 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Convert a unicode character to a char *
 */
 
-char	*ft_wchar_t_to_str(wchar_t c)
+char	*ft_wchar_t_to_str(wint_t c)
 {
 	char	*s;
 	int		i;
