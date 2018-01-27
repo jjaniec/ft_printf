@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/27 14:23:06 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/27 15:09:38 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_imax_toa.c \
 		   ft_is_conv_numeric.c \
 		   ft_is_flag.c \
-		   ft_long_int_to_uoctal.c \
 		   ft_parse_attributes.c \
 		   ft_parse_modifiers.c \
 		   ft_parse_precision.c \
@@ -43,10 +42,6 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_putwstr.c \
 		   ft_sizeof_wstr_to_char.c \
 		   ft_strnotchr.c \
-		   ft_uimax_toa.c \
-		   ft_uint_to_hex.c \
-		   ft_uint_to_octal.c \
-		   ft_uint_to_str.c \
 		   ft_uitoa_base.c \
 		   ft_voidptr_to_hex.c \
 		   ft_wchar_byte_to_char.c \
