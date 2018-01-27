@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 15:01:55 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/25 19:28:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,29 @@ void	ft_apply_attr_plus(t_arg **e)
 
 void    ft_apply_attr_hashtag(t_arg **e)
 {
-    char    *s;
+    char    *c;
+    char    *t;
 
-    s = NULL;
     if ((*((*e)->flag) == 'o' || *((*e)->flag) == 'O') && \
         ft_atoi((*e)->data_converted) != 0)
-        s = ft_strdup("0");
-    else if (*((*e)->flag) == 'x')
-        s = ft_strdup("0x");
-    else if (*((*e)->flag) == 'X')
-        s = ft_strdup("0X");
-    if (s)
-        (*e)->data_converted = ft_strjoin_free(s, (*e)->data_converted);
+        (*e)->data_converted = ft_strjoin_free(ft_strdup("0"), (*e)->data_converted);
+    else if ((*((*e)->flag) == 'x' || *((*e)->flag) == 'X') && ft_atoi_hex((*e)->data_converted) != 0)
+    {
+        t = ft_strdup("0x");
+        t[1] = *((*e)->flag);
+        if (*((*e)->data_converted) == ' ')
+        {
+            c = ft_strnotchr((*e)->data_converted, ' ');
+            if (c && (unsigned int)c > (unsigned int)(*e)->data_converted)
+                *(c - 1) = *((*e)->flag);
+            if (c && (unsigned int)c >= (unsigned int)(*e)->data_converted)
+                *(c - 2) = '0';
+        }
+        else if (*((*e)->data_converted) == '0' && (*e)->data_converted[1] == '0' && !(*e)->precision)
+        {
+            (*e)->data_converted[1] = *((*e)->flag);
+        }
+        else
+            (*e)->data_converted = ft_strjoin_free(t, (*e)->data_converted);
+    }
 }

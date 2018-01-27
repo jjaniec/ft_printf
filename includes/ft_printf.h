@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 17:52:56 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 15:09:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,6 @@ char	*ft_convert_arg_no_modifiers(va_list va_arg, char flag);
 
 char	*ft_char_to_str(char c);
 
-char	*ft_uint_to_str(unsigned int x);
-
-char	*ft_uint_to_hex(uintmax_t n);
-
-char	*ft_uint_to_hex_caps(uintmax_t n);
-
 void	ft_putwchar(wchar_t c);
 
 void	ft_putwstr(wchar_t *s);
@@ -73,10 +67,6 @@ int		ft_sizeof_wstr_to_char(wchar_t *ws);
 char	*ft_wchar_tptr_to_str(wchar_t *ws);
 
 char	*ft_wchar_t_to_str(wchar_t c);
-
-char    *ft_uint_to_octal(const uintmax_t n);
-
-char    *ft_long_int_to_uoctal(const long int n);
 
 int     ft_is_flag(const char *restrict format, int i);
 
@@ -129,6 +119,12 @@ char    *ft_imax_toa(intmax_t n);
 char    *ft_voidptr_to_hex(void *data);
 
 void    ft_apply_attr_hashtag(t_arg **e);
+
+int     ft_atoi_hex(char *s);
+
+char    *ft_strnotchr(const char *s, char c);
+
+char    *ft_uitoa_base(uintmax_t n, uint8_t b);
 
 #endif
 

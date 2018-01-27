@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_voidptr_to_hex.c                                :+:      :+:    :+:   */
+/*   ft_atoi_hex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 18:59:35 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 15:07:41 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/01/25 16:04:35 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/01/25 16:14:49 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Converts raw data to a char * of hex values
+** Converts an hexadecimal string to a int
 */
 
-char	*ft_voidptr_to_hex(void *data)
+int     ft_atoi_hex(char *s)
 {
-	uintmax_t	x;
-	char		*s;
-	char		*prefix;
+    int     i;
 
-	x = (uintmax_t)data;
-	s = ft_uitoa_base(x, 16);
-	prefix = ft_strdup("0x");
-	return (ft_strjoin_free(prefix, s));
+    i = 0;
+    while ((*s))
+    {
+        i *= 16;
+        if (*s >= 'A' && *s <= 'F')
+            i += (*s - ('A' - 10));
+        else if (*s >= 'a' && *s <= 'f')
+            i += (*s - ('a' - 10));
+        else
+            i += *s - '0';
+        s = s + sizeof(char);
+    }
+    return (i);
 }
