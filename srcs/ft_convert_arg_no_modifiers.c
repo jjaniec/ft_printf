@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 14:45:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ static void	ft_fill_function_pointers_tab(char *(**f)(void *))
 	f[('p' - 'A')] = (char *(*)(void *))&ft_voidptr_to_hex;
 	f[('d' - 'A')] = (char *(*)(void *))&ft_imax_toa;
 	f[('i' - 'A')] = (char *(*)(void *))&ft_imax_toa;
-	f[('o' - 'A')] = (char *(*)(void *))&ft_uint_to_octal;
-	f[('u' - 'A')] = (char *(*)(void *))&ft_uint_to_str;
-	f[('x' - 'A')] = (char *(*)(void *))&ft_uint_to_hex;
 	f[('c' - 'A')] = (char *(*)(void *))&ft_char_to_str;
 }
 
@@ -43,11 +40,11 @@ char		*ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
 	if (fl == 'D')
 		return (ft_imax_toa(va_arg(va_ptr, intmax_t)));
 	if (fl == 'O')
-		return (ft_long_int_to_uoctal(va_arg(va_ptr, long int)));
+		return (ft_uitoa_base(va_arg(va_ptr, long int), 8));
 	if (fl == 'X')
-		return (ft_uint_to_hex_caps(va_arg(va_ptr, unsigned int)));
+		return (ft_str_capitalize(ft_uitoa_base(va_arg(va_ptr, unsigned int), 16)));
 	if (fl == 'U')
-		return (ft_imax_toa(va_arg(va_ptr, unsigned long int)));
+		return (ft_uitoa_base(va_arg(va_ptr, unsigned long int), 10));
 	return (NULL);
 }
 
@@ -66,8 +63,12 @@ char		*ft_convert_arg_no_modifiers(va_list va_ptr, char fl)
 		return ((*f[fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
 	if (fl == 'd' || fl == 'i')
 		return ((*f[fl - 'A'])((void *)(size_t)va_arg(va_ptr, int)));
-	if (fl == 'o' || fl == 'u' || fl == 'x')
-		return ((*f[fl - 'A'])((void *)(size_t)va_arg(va_ptr, unsigned int)));
+	if (fl == 'x')
+		return (ft_uitoa_base((size_t)va_arg(va_ptr, unsigned int), 16));
+	if (fl == 'u')
+		return (ft_uitoa_base((size_t)va_arg(va_ptr, unsigned int), 10));
+	if (fl == 'o')
+		return (ft_uitoa_base((size_t)va_arg(va_ptr, unsigned int), 8));
 	if (fl == 'p')
 		return ((*f[fl - 'A'])((void *)va_arg(va_ptr, void *)));
 	if (fl >= 'A' && fl <= 'Z')
