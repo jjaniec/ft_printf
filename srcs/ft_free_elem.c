@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 21:18:50 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:44 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 16:50:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Free all elements of a t_arg structure
 */
 
-void	ft_free_elem(t_arg *e)
+void	*ft_free_elem(t_arg *e)
 {
 	if (e->data_converted)
 		free(e->data_converted);
@@ -29,4 +29,5 @@ void	ft_free_elem(t_arg *e)
 	if (e->attributes)
 		free(e->attributes);
 	free(e);
+    return (NULL);
 }

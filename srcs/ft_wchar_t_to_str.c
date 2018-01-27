@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 15:13:19 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 16:22:27 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 16:46:00 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_wchar_t_to_str(wchar_t c)
     if (!c)
         return (ft_strdup("\0"));
 	masklen = ft_wchar_masklen(c);
+    if (masklen == -1)
+        return (NULL);
 	i = -1;
 	s = (char *)malloc(masklen + 1);
 	while (++i < masklen)

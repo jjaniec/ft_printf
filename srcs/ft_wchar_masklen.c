@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 16:45:41 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int		ft_wchar_masklen(wchar_t c)
 		return (2);
 	if (c <= 0xFFFF)
 		return (3);
+    if (c >= 0x110000)
+        return (-1);
 	return (4);
 }
