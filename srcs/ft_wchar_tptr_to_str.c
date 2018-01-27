@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 15:44:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_wchar_tptr_to_str(wchar_t *ws)
 	unsigned int		i;
 	unsigned int		j;
 
-
+    if (!ws)
+        return (ft_strdup("(null)"));
 	i = -1;
 	j = 1;
 	r = (char *)malloc(ft_sizeof_wstr_to_char(ws) + sizeof(char));

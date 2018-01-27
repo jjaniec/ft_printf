@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 15:09:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 15:55:52 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <wchar.h>
 # include <locale.h>
+# include <limits.h>
 
 typedef struct	s_arg
 {
