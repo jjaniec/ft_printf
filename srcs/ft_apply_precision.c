@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 15:18:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/29 21:51:09 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static int		ft_can_ret_0(t_arg **e)
 {
 	if ((*((*e)->flag) == 'o' || \
-		*((*e)->flag) == 'O') && ft_strchr((*e)->attributes, '#'))
+		*((*e)->flag) == 'O') && (*e)->attributes && \
+        ft_strchr((*e)->attributes, '#'))
 		return (0);
 	return (1);
 
