@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 19:11:55 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 15:58:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_char_to_str(char c)
 {
 	char	*s;
 
+    if (!c)
+        return (ft_strdup(""));
 	s = malloc(sizeof(char) * 2);
 	s[0] = c;
 	s[1] = '\0';

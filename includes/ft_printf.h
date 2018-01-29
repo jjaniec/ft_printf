@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/29 16:55:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/27 17:14:54 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <wchar.h>
 # include <locale.h>
+# include <limits.h>
 
 typedef struct	s_arg
 {
@@ -60,13 +61,13 @@ void	ft_putwstr(wchar_t *s);
 
 char	ft_wchar_byte_to_char(int w_char_len, int bytepos, wchar_t c);
 
-int		ft_wchar_masklen(wchar_t c);
+int		ft_wchar_masklen(wint_t c);
 
 int		ft_sizeof_wstr_to_char(wchar_t *ws);
 
 char	*ft_wchar_tptr_to_str(wchar_t *ws);
 
-char	*ft_wchar_t_to_str(wchar_t c);
+char	*ft_wchar_t_to_str(wint_t c);
 
 int     ft_is_flag(const char *restrict format, int i);
 
@@ -100,7 +101,7 @@ void    ft_apply_width(t_arg **e);
 
 void    ft_byte_swap(char *a, char *b);
 
-void    ft_free_elem(t_arg *e);
+void    *ft_free_elem(t_arg *e);
 
 void    ft_putchar_printf(char c, int *r);
 
