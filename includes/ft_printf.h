@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 15:09:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/29 16:55:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ int     ft_atoi_hex(char *s);
 char    *ft_strnotchr(const char *s, char c);
 
 char    *ft_uitoa_base(uintmax_t n, uint8_t b);
+
+void    ft_printf_percent(const char *restrict format, int *pos, int *r);
 
 #endif
 
