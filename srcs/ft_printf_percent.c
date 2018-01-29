@@ -6,11 +6,27 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:43:59 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/29 17:35:08 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/29 18:54:56 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static int      ft_skip_to_char(const char *restrict format, int *pos)
+{
+    int     a;
+
+    a = *pos + 1;
+    while (ft_is_attribute(format[a]))
+        a++;
+    while (ft_isdigit(format[a]))
+        a++;
+    if (format[a] == '.')
+        a++;
+    while (ft_isdigit(format[a]))
+        a++;
+    return (a);
+}
 
 static t_arg    *ft_create_temp_elem(const char *restrict format, int *pos)
 {
@@ -29,26 +45,11 @@ static t_arg    *ft_create_temp_elem(const char *restrict format, int *pos)
 	else
 	    e->modifiers = NULL;
     e->flag = ft_strdup(" ");
-    e->flag[1] = '\0';
     e->data_converted = ft_strdup(e->flag);
+    e->data_converted[0] = format[ft_skip_to_char(format, pos)];
 	ft_apply_options(&e);
 	e->next = NULL;
     return (e);
-}
-
-
-static int      ft_skip_to_char(const char *restrict format, int *pos)
-{
-    int     a;
-
-    a = *pos;
-    while (ft_isdigit(format[a]))
-        a += 1;
-    if (format[a] == '.')
-        a += 1;
-    while (ft_isdigit(format[a]))
-        a += 1;
-    return (a);
 }
 
 void    ft_printf_percent(const char *restrict format, int *pos, int *r)
@@ -67,11 +68,9 @@ void    ft_printf_percent(const char *restrict format, int *pos, int *r)
     {
         a = ft_skip_to_char(format, pos);
         e = ft_create_temp_elem(format, pos);
-        e->flag[0] = format[a];
 	    ft_putstr(e->data_converted);
-        *pos += 1;
         *r += ft_strlen(e->data_converted);
-        while (format[*pos] != e->flag[0])
+        while (format[*pos] != format[a])
             *pos += 1;
         *pos += 1;
     }
