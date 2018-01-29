@@ -24,8 +24,6 @@ int		ft_printf(const char *restrict format, ...)
 	va_list	va_ptr;
 	t_arg	*args;
 
-	if (!ft_count_args(format))
-		return (ft_printf_no_args(format));
 	va_start(va_ptr, format);
 	args = ft_create_arglist(va_ptr, format);
     if (!args)
@@ -41,8 +39,8 @@ int		ft_printf(const char *restrict format, ...)
 			ft_print_next_arg(&args, format, &i, &r);
 		if (format[i])
 		{
-			if (format[i] == '%' && format[i + 1] == '%')
-				i++;
+            if (format[i] == '%')
+				ft_printf_percent(format, &i, &r);
 			ft_putchar_printf(format[i], &r);
 		}
 		i++;

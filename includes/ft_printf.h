@@ -127,5 +127,7 @@ char    *ft_strnotchr(const char *s, char c);
 
 char    *ft_uitoa_base(uintmax_t n, uint8_t b);
 
+void    ft_printf_percent(const char *restrict format, int *pos, int *r);
+
 #endif
 
