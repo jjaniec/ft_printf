@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 16:32:42 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/30 16:13:59 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/30 16:22:35 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ static void		ft_skip_flag(const char *restrict format, int *i, char *flag)
 }
 
 /*
+** Print 0 character to fit real printf in some cases
+*/
+
+static void     ft_print_0(int *r)
+{
+    ft_putchar(0);
+    *r += 1;
+}
+
+/*
 ** Print data as a string of current argument and move on to the next one
 */
 
@@ -46,13 +56,10 @@ void			ft_print_next_arg(t_arg **li, const char *restrict format, int *i, int *r
 		ft_putstr(arg->data_converted);
 		*r += ft_strlen(arg->data_converted);
         if (*(arg->flag) == 'c' && (arg->width) && ft_atoi(arg->data_converted) == 0)
-        {
-            *r += 1;
-            ft_putchar(0);
-        }
+            ft_print_0(r);
 	}
 	else if (*(arg->flag) == 'c' || *(arg->flag) == 'C')
-		*r += 1;
+        ft_print_0(r);
 	ft_skip_flag(format, i, arg->flag);
 	*li = arg->next;
 	if (arg)
