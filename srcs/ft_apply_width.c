@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/30 16:07:08 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/30 16:34:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ static void		   ft_verify_string(t_arg **e)
 		if (x && y && (x > y))
 			ft_byte_swap(x, y);
 	}
+    if (*(*e)->flag == 'p' && (*e)->attributes && ft_strchr((*e)->attributes, '0'))
+    {
+        x = ft_strchr((*e)->data_converted, 'x');
+        ft_byte_swap(x, &((*e)->data_converted[1]));
+    }
+}
+
+/*
+** 
+*/
+
+static char         ft_get_fill_char(t_arg **e)
+{
+	if ((*e)->attributes && ft_strchr((*e)->attributes, '0') && \
+		!ft_strchr((*e)->attributes, '-') && !(ft_is_conv_numeric(e) && (*e)->precision))
+        return ('0');
+    return (' ');
 }
 
 /*
@@ -65,11 +82,7 @@ void				ft_apply_width(t_arg **e)
     l -= (!(*(*e)->data_converted) && *(*e)->flag == 'c') ? (1) : (0);
 	if (l >= 2)
 	{
-		if ((*e)->attributes && ft_strchr((*e)->attributes, '0') && \
-			!ft_strchr((*e)->attributes, '-') && !(ft_is_conv_numeric(e) && (*e)->precision))
-			c = '0';
-		else
-			c = ' ';
+		c = ft_get_fill_char(e);
 		if (((*e)->data_converted[0] == '-' || (*e)->data_converted[0] == '+') && c == '0')
 			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '-'))
