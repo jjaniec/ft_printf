@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 14:29:35 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/30 16:07:08 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void				ft_apply_width(t_arg **e)
 
 	cx = 0;
 	l = ft_atoi((*e)->width) - ft_strlen((*e)->data_converted) + 1;
+    l -= (!(*(*e)->data_converted) && *(*e)->flag == 'c') ? (1) : (0);
 	if (l >= 2)
 	{
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '0') && \
