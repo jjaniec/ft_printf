@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 18:09:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 13:31:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 void	ft_putchar_printf(char c, int *r)
 {
-	ft_putchar(c);
 	if (c)
+    {
+        ft_putchar(c);
 		*r += 1;
+    }
 }
