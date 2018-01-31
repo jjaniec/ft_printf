@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 21:58:27 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:26:18 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 19:29:40 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,18 @@
 ** Free ptr if ptr != NULL
 */
 
-static int		ft_free_ptr(void *p, int r)
+static int		ft_free_ptr(void *p, void *p2, int r)
 {
 	if (p)
+	{
 		free(p);
-	p = NULL;
+		p = NULL;
+	}
+	if (p2)
+	{
+		free(p2);
+		p2 = NULL;
+	}
 	return (r);
 }
 
@@ -41,21 +48,18 @@ int				ft_is_flag(const char *restrict format, int i)
 	t = ft_get_flag(format, i);
 	t2 = ft_get_flag(format, i + 1);
 	if (t[0] || (format[i + 1] == '.' && t2[0]))
-	{
-		free(t);
-		return ((ft_free_ptr(t2, 1)));
-	}
+		return ((ft_free_ptr(t, t2, 1)));
 	free(t2);
 	if (ft_is_attribute(format[i + 1]) || ft_isdigit(format[i + 1]) || format[i + 1] == '.')
 	{
-		ft_free_ptr(ft_parse_attributes(format, &a), 0);
-		ft_free_ptr(ft_parse_width(format, &a), 0);
+		ft_free_ptr(ft_parse_attributes(format, &a), NULL, 0);
+		ft_free_ptr(ft_parse_width(format, &a), NULL, 0);
 		if (format [a] == '.' || format[a + 1] == '.')
-			ft_free_ptr(ft_parse_precision(format, &a), 0);
+			ft_free_ptr(ft_parse_precision(format, &a), NULL, 0);
 		free(t);
 		t = ft_get_flag(format, a);
 		if (t[0])
-			return (ft_free_ptr(t, 1));
+			return (ft_free_ptr(t, NULL, 1));
 	}
-	return (ft_free_ptr(t, 0));
+	return (ft_free_ptr(t, NULL, 0));
 }

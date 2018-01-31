@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:59:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 19:25:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,15 @@ static void		ft_apply_precision_nonnumeric(t_arg **e)
 			free((*e)->data_converted);
 			(*e)->data_converted = ft_strdup("0x");
 		}
-		else
-			if ((int)ft_strlen((*e)->data_converted) - 2 < x)
-			{
-				if (strcmp((*e)->data_converted, "0x0") == 0)
-					(*e)->data_converted = ft_strjoin_free(ft_generate_width(x, '0'), (*e)->data_converted);
-				else
-					(*e)->data_converted = ft_strjoin_free(ft_generate_width(x - (ft_strlen((*e)->data_converted) - 3), '0'), (*e)->data_converted);
-				*(ft_strchr((*e)->data_converted, 'x')) = '0';
-				(*e)->data_converted[1] = 'x';
-			}
+		else if ((int)ft_strlen((*e)->data_converted) - 2 < x)
+		{
+			if (strcmp((*e)->data_converted, "0x0") == 0)
+				(*e)->data_converted = ft_strjoin_free(ft_generate_width(x, '0'), (*e)->data_converted);
+			else
+				(*e)->data_converted = ft_strjoin_free(ft_generate_width(x - (ft_strlen((*e)->data_converted) - 3), '0'), (*e)->data_converted);
+			*(ft_strchr((*e)->data_converted, 'x')) = '0';
+			(*e)->data_converted[1] = 'x';
+		}
 	}
 }
 
