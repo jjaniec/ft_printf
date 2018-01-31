@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:55:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 17:02:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 16:40:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Free the arglist, used in case of an error
 */
 
-static void     *ft_free_arglist(t_arg **l)
+void     *ft_free_arglist(t_arg **l)
 {
     t_arg **o;
 
@@ -24,7 +24,7 @@ static void     *ft_free_arglist(t_arg **l)
     {
         o = l;
         l = &((*l)->next);
-        ft_free_elem((*l));
+        ft_free_elem((*o));
     }
     return (NULL);
 }
@@ -43,6 +43,7 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 
 	i = -1;
     li = NULL;
+    r = NULL;
 	while (format[++i])
 	{
 		if (format[i] == '%' && ft_is_flag(format, i))

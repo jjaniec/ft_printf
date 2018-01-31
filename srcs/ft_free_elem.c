@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 21:18:50 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 14:28:53 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 16:37:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	*ft_free_elem(t_arg *e)
 	if (e->attributes)
 		free(e->attributes);
 	free(e);
+    e = NULL;
     return (NULL);
 }

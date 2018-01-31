@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 16:43:59 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/29 18:54:56 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 14:48:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void    ft_printf_percent(const char *restrict format, int *pos, int *r)
         while (format[*pos] != format[a])
             *pos += 1;
         *pos += 1;
+        ft_free_elem(e);
     }
 }
