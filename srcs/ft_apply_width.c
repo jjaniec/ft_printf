@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/30 16:34:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 13:41:35 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void		   ft_verify_string(t_arg **e)
         x = ft_strchr((*e)->data_converted, 'x');
         ft_byte_swap(x, &((*e)->data_converted[1]));
     }
+    if (*(*e)->flag == 'x' && (*e)->attributes && ft_strchr((*e)->attributes, '-') && ft_strchr((*e)->attributes, '#'))
+        (*e)->data_converted = ft_strsub((*e)->data_converted, 0, ft_strlen((*e)->data_converted) - 2);
 }
 
 /*
