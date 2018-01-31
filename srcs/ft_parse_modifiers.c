@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 14:13:12 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:25 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 14:28:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	*ft_parse_modifiers(const char *restrict format, int *pos)
 	char	*s;
 
 	i = ft_count_modifiers_len(format, (*pos + 1), 0);
+    if (i == 0)
+        return (NULL);
 	s = malloc(sizeof(char) * i + sizeof(char));
 	s[i] = '\0';
 	while (--i > -1)
