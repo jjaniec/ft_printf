@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 16:02:40 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/27 15:56:04 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:26:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ char			*ft_imax_toa(intmax_t n)
 	intmax_t	i;
 	char		*s;
 
-    if (n == LONG_MIN)
-        return (ft_strdup("-9223372036854775808"));
+	if (n == LONG_MIN)
+		return (ft_strdup("-9223372036854775808"));
 	i = ft_itoa_slen(n) - 1;
 	if (!(s = (char *)malloc(sizeof(char) * i + 2)))
 		return (NULL);

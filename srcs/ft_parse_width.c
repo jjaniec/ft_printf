@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 18:03:04 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:27 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:34:03 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_parse_width(const char *restrict format, int *pos)
 	int		l;
 	int		x;
 	int		i;
-   
+
 	x = 0;
 	i = 0;
 	if (!(ft_isdigit(*(format + *pos + 1))))

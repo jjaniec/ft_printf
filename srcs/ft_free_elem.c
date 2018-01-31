@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 21:18:50 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 16:37:30 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:26:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	*ft_free_elem(t_arg *e)
 		free(e->data_converted);
 	if (e->flag)
 		free(e->flag);
-    if (e->modifiers)
-        free(e->modifiers);
+	if (e->modifiers)
+		free(e->modifiers);
 	if (e->width)
 		free(e->width);
 	if (e->precision)
@@ -31,6 +31,6 @@ void	*ft_free_elem(t_arg *e)
 	if (e->attributes)
 		free(e->attributes);
 	free(e);
-    e = NULL;
-    return (NULL);
+	e = NULL;
+	return (NULL);
 }
