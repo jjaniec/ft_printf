@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 16:04:35 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 16:14:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:26:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 ** Converts an hexadecimal string to a int
 */
 
-int     ft_atoi_hex(char *s)
+int		ft_atoi_hex(char *s)
 {
-    int     i;
+	int		i;
 
-    i = 0;
-    while ((*s))
-    {
-        i *= 16;
-        if (*s >= 'A' && *s <= 'F')
-            i += (*s - ('A' - 10));
-        else if (*s >= 'a' && *s <= 'f')
-            i += (*s - ('a' - 10));
-        else
-            i += *s - '0';
-        s = s + sizeof(char);
-    }
-    return (i);
+	i = 0;
+	while ((*s))
+	{
+		i *= 16;
+		if (*s >= 'A' && *s <= 'F')
+			i += (*s - ('A' - 10));
+		else if (*s >= 'a' && *s <= 'f')
+			i += (*s - ('a' - 10));
+		else
+			i += *s - '0';
+		s = s + sizeof(char);
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 21:58:27 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 14:41:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:26:18 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 ** Free ptr if ptr != NULL
 */
 
-static int      ft_free_ptr(void *p, int r)
+static int		ft_free_ptr(void *p, int r)
 {
-    if (p)
-        free(p);
-    p = NULL;
-    return (r);
+	if (p)
+		free(p);
+	p = NULL;
+	return (r);
 }
 
 /*
@@ -29,7 +29,7 @@ static int      ft_free_ptr(void *p, int r)
 ** otherwise return 0
 */
 
-int	            ft_is_flag(const char *restrict format, int i)
+int				ft_is_flag(const char *restrict format, int i)
 {
 	int		a;
 	char	*t;
@@ -41,10 +41,10 @@ int	            ft_is_flag(const char *restrict format, int i)
 	t = ft_get_flag(format, i);
 	t2 = ft_get_flag(format, i + 1);
 	if (t[0] || (format[i + 1] == '.' && t2[0]))
-    {
-        free(t);
-        return ((ft_free_ptr(t2, 1)));
-    }
+	{
+		free(t);
+		return ((ft_free_ptr(t2, 1)));
+	}
 	free(t2);
 	if (ft_is_attribute(format[i + 1]) || ft_isdigit(format[i + 1]) || format[i + 1] == '.')
 	{
@@ -55,7 +55,7 @@ int	            ft_is_flag(const char *restrict format, int i)
 		free(t);
 		t = ft_get_flag(format, a);
 		if (t[0])
-            return (ft_free_ptr(t, 1));
+			return (ft_free_ptr(t, 1));
 	}
 	return (ft_free_ptr(t, 0));
 }

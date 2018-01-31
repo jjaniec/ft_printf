@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:55:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 16:40:27 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 18:55:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 ** Free the arglist, used in case of an error
 */
 
-void     *ft_free_arglist(t_arg **l)
+void	*ft_free_arglist(t_arg **l)
 {
-    t_arg **o;
+	t_arg **o;
 
-    while ((*l))
-    {
-        o = l;
-        l = &((*l)->next);
-        ft_free_elem((*o));
-    }
-    return (NULL);
+	while ((*l))
+	{
+		o = l;
+		l = &((*l)->next);
+		ft_free_elem((*o));
+	}
+	return (NULL);
 }
 
 /*
@@ -42,17 +42,16 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 	int		i;
 
 	i = -1;
-    li = NULL;
-    r = NULL;
+	li = NULL;
+	r = NULL;
 	while (format[++i])
-	{
 		if (format[i] == '%' && ft_is_flag(format, i))
 		{
 			if (li != NULL)
 			{
 				li->next = ft_create_elem(va_ptr, format, i);
-                if (!li)
-                    return (ft_free_arglist(&r));
+				if (!li)
+					return (ft_free_arglist(&r));
 				li = li->next;
 			}
 			else
@@ -61,6 +60,5 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 				r = li;
 			}
 		}
-	}
 	return (r);
 }
