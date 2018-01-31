@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:58:20 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 19:57:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int		ft_printf(const char *restrict format, ...)
 		}
 		i++;
 	}
-	ft_free_arglist(&args);
+	ft_free_arglist(args);
 	return (r);
 }

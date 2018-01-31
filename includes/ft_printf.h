@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 16:14:42 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 19:57:43 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ char    *ft_uitoa_base(uintmax_t n, uint8_t b);
 
 void    ft_printf_percent(const char *restrict format, int *pos, int *r);
 
-void    *ft_free_arglist(t_arg **l);
+void    *ft_free_arglist(t_arg *l);
 
 #endif
 
