@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 21:14:15 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 21:53:58 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,19 @@ char	*ft_uitoa_base(uintmax_t n, uint8_t b);
 
 void	ft_printf_percent(const char *restrict format, int *pos, int *r);
 
-void	*ft_free_arglist(t_arg *l, va_list va_ptr);
+char    *ft_convert_arg_mod_l(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_l(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_h(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_ll(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_hh(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_j(va_list va_ptr, char c);
+
+char    *ft_convert_arg_mod_z(va_list va_ptr, char c);
 
 #endif
 
