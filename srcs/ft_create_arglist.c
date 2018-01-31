@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:55:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 19:58:22 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 20:25:02 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 ** Free the arglist, used in case of an error
 */
 
-void	*ft_free_arglist(t_arg *l)
+void	*ft_free_arglist(t_arg *l, va_list va_ptr)
 {
 	t_arg *o;
 
-    o = NULL;
+	o = NULL;
 	while (l)
 	{
 		o = l;
-	   	l = l->next;
-	   	ft_free_elem(o);
+		l = l->next;
+		ft_free_elem(o);
 	}
+	if (va_ptr)
+		va_end(va_ptr);
 	return (NULL);
 }
 
@@ -52,7 +54,7 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 			{
 				li->next = ft_create_elem(va_ptr, format, i);
 				if (!li)
-					return (ft_free_arglist(r));
+					return (ft_free_arglist(r, NULL));
 				li = li->next;
 			}
 			else

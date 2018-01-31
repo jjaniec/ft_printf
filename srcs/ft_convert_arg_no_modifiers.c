@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:26:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 20:28:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ char		*ft_convert_arg_no_modifiers_caps(va_list va_ptr, char fl)
 	if (fl == 'O')
 		return (ft_uitoa_base(va_arg(va_ptr, long int), 8));
 	if (fl == 'X')
-		return (ft_str_capitalize(ft_uitoa_base(va_arg(va_ptr, unsigned int), 16)));
+		return (ft_str_capitalize(\
+		ft_uitoa_base(va_arg(va_ptr, unsigned int), 16)));
 	if (fl == 'U')
 		return (ft_uitoa_base(va_arg(va_ptr, unsigned long int), 10));
 	return (NULL);

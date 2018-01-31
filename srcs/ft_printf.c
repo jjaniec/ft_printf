@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 19:57:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 20:24:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		ft_printf(const char *restrict format, ...)
 
 	va_start(va_ptr, format);
 	args = ft_create_arglist(va_ptr, format);
-	va_end(va_ptr);
 	r = 0;
 	i = 0;
 	l = (int)ft_strlen(format);
@@ -43,6 +42,6 @@ int		ft_printf(const char *restrict format, ...)
 		}
 		i++;
 	}
-	ft_free_arglist(args);
+	ft_free_arglist(args, va_ptr);
 	return (r);
 }

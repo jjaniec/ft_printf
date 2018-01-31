@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 19:25:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 20:45:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static void		ft_apply_precision_nonnumeric(t_arg **e)
 			(*e)->data_converted, 0, x);
 	if (*((*e)->flag) == 'p')
 	{
-		if (*(*e)->precision == '.' && strcmp((*e)->data_converted, "0x0") == 0)
+		if (*(*e)->precision == '.' && ft_strcmp((*e)->data_converted, "0x0") == 0)
 		{
 			free((*e)->data_converted);
 			(*e)->data_converted = ft_strdup("0x");
 		}
 		else if ((int)ft_strlen((*e)->data_converted) - 2 < x)
 		{
-			if (strcmp((*e)->data_converted, "0x0") == 0)
+			if (ft_strcmp((*e)->data_converted, "0x0") == 0)
 				(*e)->data_converted = ft_strjoin_free(ft_generate_width(x, '0'), (*e)->data_converted);
 			else
 				(*e)->data_converted = ft_strjoin_free(ft_generate_width(x - (ft_strlen((*e)->data_converted) - 3), '0'), (*e)->data_converted);
