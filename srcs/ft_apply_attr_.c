@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/25 19:28:47 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/29 21:22:34 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	 ft_apply_attr_space(t_arg **e)
 	char	*s;
 	char	*a;
 
-    if (ft_is_conv_numeric(e) && !(ft_atoi((*e)->data_converted) < 0 && ft_strchr((*e)->data_converted, '-')))
+    if (ft_is_conv_numeric(e) && *(*e)->flag != 'u' && \
+        !(ft_atoi((*e)->data_converted) < 0 && ft_strchr((*e)->data_converted, '-')))
 	{
 		a = malloc(sizeof(char) * 2);
 		a[1] = '\0';
