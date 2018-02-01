@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/31 21:54:23 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/01 12:30:38 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_atoi_hex.c \
 		   ft_char_to_str.c \
 		   ft_convert_arg_mod_.c \
+		   ft_convert_arg_mod_2.c \
 		   ft_convert_arg_modifiers.c \
 		   ft_convert_arg_no_modifiers.c \
 		   ft_count_args.c \

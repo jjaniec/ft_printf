@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 21:40:46 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 22:57:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:27:27 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 char	*ft_convert_arg_mod_l(va_list va_ptr, char c)
 {
+	char	*s;
+
 	if (c == 'u')
 		return (ft_uitoa_base(va_arg(va_ptr, unsigned long int), 10));
 	if (c == 'o')
@@ -25,8 +27,10 @@ char	*ft_convert_arg_mod_l(va_list va_ptr, char c)
 	if (c == 'x')
 		return (ft_uitoa_base(va_arg(va_ptr, unsigned long int), 16));
 	if (c == 'X')
-		return (ft_str_capitalize(\
-			ft_uitoa_base(va_arg(va_ptr, unsigned long int), 16)));
+	{
+		s = ft_uitoa_base(va_arg(va_ptr, unsigned long int), 16);
+		return (ft_str_capitalize(s));
+	}
 	if (c == 'c')
 		return (ft_wchar_t_to_str(va_arg(va_ptr, wint_t)));
 	if (c == 's')
@@ -38,6 +42,8 @@ char	*ft_convert_arg_mod_l(va_list va_ptr, char c)
 
 char	*ft_convert_arg_mod_h(va_list va_ptr, char c)
 {
+	char	*s;
+
 	if (c == 'u')
 		return (ft_uitoa_base((unsigned short int)va_arg(va_ptr, int), 10));
 	if (c == 'o')
@@ -45,7 +51,10 @@ char	*ft_convert_arg_mod_h(va_list va_ptr, char c)
 	if (c == 'x')
 		return (ft_uitoa_base((unsigned short int)va_arg(va_ptr, int), 16));
 	if (c == 'X')
-		return (ft_str_capitalize(ft_uitoa_base((unsigned short int)va_arg(va_ptr, int), 16)));
+	{
+		s = ft_uitoa_base((unsigned short int)va_arg(va_ptr, int), 16);
+		return (ft_str_capitalize(s));
+	}
 	if (c == 'd' || c == 'i')
 		return (ft_imax_toa((short int)va_arg(va_ptr, int)));
 	return (ft_convert_arg_no_modifiers(va_ptr, c));
@@ -53,6 +62,8 @@ char	*ft_convert_arg_mod_h(va_list va_ptr, char c)
 
 char	*ft_convert_arg_mod_ll(va_list va_ptr, char c)
 {
+	char	*s;
+
 	if (c == 'u')
 		return (ft_uitoa_base(va_arg(va_ptr, unsigned long long int), 10));
 	if (c == 'o')
@@ -60,7 +71,10 @@ char	*ft_convert_arg_mod_ll(va_list va_ptr, char c)
 	if (c == 'x')
 		return (ft_uitoa_base(va_arg(va_ptr, unsigned long long int), 16));
 	if (c == 'X')
-		return (ft_str_capitalize(ft_uitoa_base(va_arg(va_ptr, unsigned long long int), 16)));
+	{
+		s = ft_uitoa_base(va_arg(va_ptr, unsigned long long int), 16);
+		return (ft_str_capitalize(s));
+	}
 	if (c == 'd' || c == 'i')
 		return (ft_imax_toa(va_arg(va_ptr, long long int)));
 	return (ft_convert_arg_no_modifiers(va_ptr, c));
@@ -68,6 +82,8 @@ char	*ft_convert_arg_mod_ll(va_list va_ptr, char c)
 
 char	*ft_convert_arg_mod_hh(va_list va_ptr, char c)
 {
+	char	*s;
+
 	if (c == 'u')
 		return (ft_uitoa_base((unsigned char)va_arg(va_ptr, int), 10));
 	if (c == 'o')
@@ -75,7 +91,10 @@ char	*ft_convert_arg_mod_hh(va_list va_ptr, char c)
 	if (c == 'x')
 		return (ft_uitoa_base((unsigned char)va_arg(va_ptr, int), 16));
 	if (c == 'X')
-		return (ft_str_capitalize(ft_uitoa_base((unsigned char)va_arg(va_ptr, int), 16)));
+	{
+		s = ft_uitoa_base((unsigned char)va_arg(va_ptr, int), 16);
+		return (ft_str_capitalize(s));
+	}
 	if (c == 'd' || c == 'i')
 		return (ft_imax_toa((signed char)va_arg(va_ptr, int)));
 	return (ft_convert_arg_no_modifiers(va_ptr, c));
@@ -83,6 +102,8 @@ char	*ft_convert_arg_mod_hh(va_list va_ptr, char c)
 
 char	*ft_convert_arg_mod_j(va_list va_ptr, char c)
 {
+	char	*s;
+
 	if (c == 'u')
 		return (ft_uitoa_base(va_arg(va_ptr, uintmax_t), 10));
 	if (c == 'o')
@@ -90,23 +111,11 @@ char	*ft_convert_arg_mod_j(va_list va_ptr, char c)
 	if (c == 'x')
 		return (ft_uitoa_base(va_arg(va_ptr, uintmax_t), 16));
 	if (c == 'X')
-		return (ft_str_capitalize(ft_uitoa_base(va_arg(va_ptr, uintmax_t), 16)));
+	{
+		s = ft_uitoa_base(va_arg(va_ptr, uintmax_t), 16);
+		return (ft_str_capitalize(s));
+	}
 	if (c == 'd' || c == 'i')
 		return (ft_imax_toa(va_arg(va_ptr, intmax_t)));
-	return (ft_convert_arg_no_modifiers(va_ptr, c));
-}
-
-char	*ft_convert_arg_mod_z(va_list va_ptr, char c)
-{
-	if (c == 'u')
-		return (ft_uitoa_base(va_arg(va_ptr, size_t), 10));
-	if (c == 'o')
-		return (ft_uitoa_base(va_arg(va_ptr, size_t), 8));
-	if (c == 'x')
-		return (ft_uitoa_base(va_arg(va_ptr, size_t), 16));
-	if (c == 'X')
-		return (ft_str_capitalize(ft_uitoa_base(va_arg(va_ptr, size_t), 16)));
-	if (c == 'd' || c == 'i')
-		return (ft_imax_toa(va_arg(va_ptr, size_t)));
 	return (ft_convert_arg_no_modifiers(va_ptr, c));
 }

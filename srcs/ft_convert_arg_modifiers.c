@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 15:08:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 22:57:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:28:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e)
 		if (ft_strcmp("hh", (*e)->modifiers) == 0)
 			return (ft_convert_arg_mod_hh(va_ptr, c));
 		if (ft_strcmp("j", (*e)->modifiers) == 0)
-		    return (ft_convert_arg_mod_j(va_ptr, c));
+			return (ft_convert_arg_mod_j(va_ptr, c));
 		if (ft_strcmp("z", (*e)->modifiers) == 0)
 			return (ft_convert_arg_mod_z(va_ptr, c));
 	}
