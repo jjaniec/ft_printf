@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 19:00:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/31 21:02:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Apply attribute space on content of arg $e
 */
 
-void	ft_apply_attr_space(t_arg **e)
+void			ft_apply_attr_space(t_arg **e)
 {
 	char	*s;
 	char	*a;
@@ -40,7 +40,7 @@ void	ft_apply_attr_space(t_arg **e)
 ** Apply plus attribute on content of arg $e
 */
 
-void	ft_apply_attr_plus(t_arg **e)
+void			ft_apply_attr_plus(t_arg **e)
 {
 	char	*s;
 	char	*a;
@@ -61,31 +61,35 @@ void	ft_apply_attr_plus(t_arg **e)
 ** Apply hashtag attribute on content of arg $e
 */
 
-void	ft_apply_attr_hashtag(t_arg **e)
+static void		ft_apply_attr_hashtag_hexconv(char **s, char f)
+{
+	*s = ft_strjoin_free(ft_strdup("0x"), *s);
+	(*s)[1] = f;
+}
+
+void			ft_apply_attr_hashtag(t_arg **e)
 {
 	char	*c;
-	char	*t;
+	char	f;
+	char	**d;
 
-	if ((*((*e)->flag) == 'o' || *((*e)->flag) == 'O') && \
-		ft_atoi((*e)->data_converted) != 0)
-		(*e)->data_converted = ft_strjoin_free(ft_strdup("0"), (*e)->data_converted);
-	else if ((*((*e)->flag) == 'x' || *((*e)->flag) == 'X') && ft_atoi_hex((*e)->data_converted) != 0)
+	f = *((*e)->flag);
+	d = &((*e)->data_converted);
+	if ((f == 'o' || f == 'O') && ft_atoi(*d) != 0)
+		*d = ft_strjoin_free(ft_strdup("0"), *d);
+	else if ((f == 'x' || f == 'X') && ft_atoi_hex(*d) != 0)
 	{
-		if (*((*e)->data_converted) == ' ')
+		if (*(*d) == ' ')
 		{
-			c = ft_strnotchr((*e)->data_converted, ' ');
-			if (c && (unsigned int)c > (unsigned int)(*e)->data_converted)
-				*(c - 1) = *((*e)->flag);
-			if (c && (unsigned int)c >= (unsigned int)(*e)->data_converted)
+			c = ft_strnotchr(*d, ' ');
+			if (c && (unsigned int)c > (unsigned int)*d)
+				*(c - 1) = f;
+			if (c && (unsigned int)c >= (unsigned int)*d)
 				*(c - 2) = '0';
 		}
-		else if (*((*e)->data_converted) == '0' && (*e)->data_converted[1] == '0' && !(*e)->precision)
-			(*e)->data_converted[1] = *((*e)->flag);
+		else if (*(*d) == '0' && (*d)[1] == '0' && !(*e)->precision)
+			(*d)[1] = f;
 		else
-		{
-			t = ft_strdup("0x");
-			t[1] = *((*e)->flag);
-			(*e)->data_converted = ft_strjoin_free(t, (*e)->data_converted);
-		}
+			ft_apply_attr_hashtag_hexconv(d, f);
 	}
 }
