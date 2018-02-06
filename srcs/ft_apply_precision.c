@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 21:28:57 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/06 20:57:22 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		ft_apply_precision_nonnumeric(t_arg **e)
 
 	d = &((*e)->data_converted);
 	x = ft_atoi((*e)->precision);
-	if (*((*e)->flag) == 's')
+	if (*((*e)->flag) == 's' || *((*e)->flag) == 'S')
 		*d = ft_strsub_free(*d, 0, x);
 	if (*((*e)->flag) == 'p' && *(*e)->precision == '.' && \
 		ft_strcmp(*d, "0x0") == 0)
