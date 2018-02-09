@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/09 21:25:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 21:44:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		ft_printf(const char *restrict format, ...)
             if (args && args->flag && *(args->flag) != '!')
                 ft_print_next_arg(&args, format, &i, &r);
             else
-                return ((!ft_free_arglist(args, va_ptr)) ? (-1) : (-1));
-		if (format[i])
+                return ((-1));
+		if (format[i] && !(args && args->flag && *(args->flag) == '!'))
 		{
 			if (format[i] == '%')
 				ft_printf_percent(format, &i, &r);
