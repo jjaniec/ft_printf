@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:55:13 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 20:25:02 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 20:39:51 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
 			if (li != NULL)
 			{
 				li->next = ft_create_elem(va_ptr, format, i);
-				if (!li)
+				if (!(li->next))
 					return (ft_free_arglist(r, NULL));
 				li = li->next;
 			}
