@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 18:49:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 20:26:46 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 16:05:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_debug_args(const char *restrict format, t_arg *args)
 	{
 		while (li->next || li)
 		{
-			ft_printf("Arg[%d]:\n\
+			printf("Arg[%d]:\n\
 					\tdata_converted: [%s]\n\
 					\tflag: [%s]\n\
 					\ttmodifiers :[%s]\n\
