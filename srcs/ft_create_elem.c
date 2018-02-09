@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:26:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 17:54:36 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 		e->data_converted = ft_convert_arg_modifiers(va_ptr, &e);
 	else
 		e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag[0]);
-	ft_apply_options(&e);
 	if (!e->data_converted)
 		return (ft_free_elem(e));
+	ft_apply_options(&e);
 	e->next = NULL;
 	return (e);
 }
