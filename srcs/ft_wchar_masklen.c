@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:31:03 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 20:06:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 int		ft_wchar_masklen(wint_t c)
 {
+    if (c < 255 && !ft_isprint(c))
+        return (1);
 	if (c < 0x0 || (c >= 0xD800 && c < 0xE000) || \
-		(c >= 0xAC00 && c <= 0xD7AF))
+        (c >= 0x7F && MB_CUR_MAX == 1) || c >= 0x110000)
 		return (-1);
-	if (c <= 254)
+	if (c <= 0x7F)
 		return (1);
 	if (c <= 0x7FF)
 		return (2);

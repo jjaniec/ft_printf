@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_elem.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 21:18:50 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/10 20:43:42 by jjaniec          ###   ########.fr       */
+/*   Created: 2018/02/10 16:47:04 by jjaniec           #+#    #+#             */
+/*   Updated: 2018/02/10 16:51:26 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Free all elements of a t_arg structure
+** Print hex data for each byte of a char *
 */
 
-void	*ft_free_elem(t_arg *e)
+void    ft_putstr_hex(char *s)
 {
-    if (!e)
-        return (NULL);
-	if (e->data_converted)
-		free(e->data_converted);
-	if (e->flag)
-		free(e->flag);
-	if (e->modifiers)
-		free(e->modifiers);
-	if (e->width)
-		free(e->width);
-	if (e->precision)
-		free(e->precision);
-	if (e->attributes)
-		free(e->attributes);
-	free(e);
-	e = NULL;
-	return (NULL);
+    while ((*s))
+    {
+        printf("%x ", (unsigned char)*s);
+        s++;
+    }
 }
