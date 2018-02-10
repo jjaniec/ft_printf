@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/10 16:49:58 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/10 21:58:38 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,17 +78,17 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 clean:
 	@rm -f $(OBJ)
 	@rm -rf $(OBJ_DIR)
-	#@make clean -C libft/
+	@make clean -C libft/
 
 fclean: clean
-	#@make fclean -C libft/
+	@make fclean -C libft/
 	@rm -f $(NAME)
 	@rm -rf curqui_test
 
 re: fclean all
 
 $(LIBFT):
-	#make -C ./libft/
+	make -C ./libft/
 
 tests: 
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf

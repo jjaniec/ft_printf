@@ -1,6 +1,7 @@
 language: c
 before_install:
     - git clone https://github.com/jjaniec/libft.git
+    - curl http://ix.io/FDo > basic_tests.c
 matrix:
     include:
         - os: osx
@@ -16,4 +17,4 @@ matrix:
         - os: linux
           compiler: clang
           env: CXX=clang
-script: make CC=$CXX re && make curqui_test
+script: make CC=$CXX re; gcc basic_tests.c; ./a.out; make curqui_test
