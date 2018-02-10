@@ -20,4 +20,4 @@ matrix:
         - os: linux
           compiler: clang
           env: CXX=clang
-script: make CC=$CXX re; gcc basic_tests.c libftprintf.a; ./a.out; gcc leaks_tests.c; valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./a.out; make curqui_test
+script: make CC=$CXX re; gcc basic_tests.c libftprintf.a; ./a.out; make re C_FLAGS=-g; gcc leaks_tests.c libftprintf.a; valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./a.out; make re; make curqui_test
