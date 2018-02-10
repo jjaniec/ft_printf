@@ -6,11 +6,40 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/06 20:57:22 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/10 16:18:21 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Remove last unicode if made invalid by precision
+*/
+
+static char     *ft_cut_last_unicode(char *s, t_arg **e)
+{
+    int     i;
+    int     l;
+
+    i = 0;
+    l = -1;
+    if (e && !((*e)->modifiers && ft_strcmp((*e)->modifiers, "l") == 0) && \
+        !((*e)->flag && *((*e)->flag) == 'S'))
+        return (s);
+    while (s[i] && s[i + 1])
+        i++;
+    while ((s[i] >> 6) << 6 == 0x80)
+        i--;
+    if ((unsigned char)((s[i] >> 5) << 5) == 0xC0)
+        l = 1;
+    else if ((unsigned char)((s[i] >> 4) << 4) == 0xE0)
+        l = 2;
+    else if ((unsigned char)((s[i] >> 3) << 3) == 0xF0)
+        l = 3;
+    if (l > 0 && (int)ft_strlen(s) < i + l)
+       s[i] = '\0';
+    return (s);
+}
 
 /*
 ** Handle exceptions cases for o/O w/ # attribute
@@ -37,7 +66,7 @@ static void		ft_apply_precision_nonnumeric(t_arg **e)
 	d = &((*e)->data_converted);
 	x = ft_atoi((*e)->precision);
 	if (*((*e)->flag) == 's' || *((*e)->flag) == 'S')
-		*d = ft_strsub_free(*d, 0, x);
+		*d = ft_cut_last_unicode(ft_strsub_free(*d, 0, x), e);
 	if (*((*e)->flag) == 'p' && *(*e)->precision == '.' && \
 		ft_strcmp(*d, "0x0") == 0)
 	{
