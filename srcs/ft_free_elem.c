@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 21:18:50 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:26:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/10 20:43:42 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 void	*ft_free_elem(t_arg *e)
 {
+    if (!e)
+        return (NULL);
 	if (e->data_converted)
 		free(e->data_converted);
 	if (e->flag)
