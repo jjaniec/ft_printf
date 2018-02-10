@@ -6,17 +6,40 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/09 17:54:36 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/09 20:49:14 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Create and return an element of type t_arg to store data of an argument
+** Handle unicode error cases in strings, when a defective unicode is found,
+** return an element with data as 'err' (non possible in C/lc conversions)
+** and his conversion as "!" to
+** let know ft_print_next_arg to stop at previous element & return -1,
+** otherwise, free the element and return -1
 */
 
-t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
+static t_arg   *ft_handle_error(t_arg *e)
+{
+    if (*(e->flag) == 'C' || \
+        (*(e->flag) == 'c' && (e->modifiers) && *(e->modifiers) == 'l'))
+    {
+        free(e->data_converted);
+        free(e->flag);
+        e->data_converted = ft_strdup("err");
+        e->flag = ft_strdup("!");
+        return (e);
+    }
+	return (ft_free_elem(e));
+}
+
+/*
+** Create and return an element of type t_arg to store data of an argument
+** and all of it's options (precision / width / modifiers / flags)
+*/
+
+t_arg	        *ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 {
 	t_arg	*e;
 
@@ -38,7 +61,7 @@ t_arg	*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
 	else
 		e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag[0]);
 	if (!e->data_converted)
-		return (ft_free_elem(e));
+		return (ft_handle_error(e));
 	ft_apply_options(&e);
 	e->next = NULL;
 	return (e);

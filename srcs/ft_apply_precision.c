@@ -6,11 +6,46 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/06 20:57:22 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/10 18:24:00 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Remove last unicode if made invalid by precision
+*/
+
+static char     *ft_cut_last_unicode(char *s, t_arg **e)
+{
+    int     i;
+    int     l;
+
+    i = 0;
+    l = -1;
+    if ((e && !((*e)->modifiers && ft_strcmp((*e)->modifiers, "l") == 0) && \
+        !((*e)->flag && *((*e)->flag) == 'S')) || MB_CUR_MAX == 1)
+        return (s);
+    while (s[i])
+        i++;
+    while (l == -1 && i > 0)
+    {
+        i--;/*
+    printf("\ni %d s[i] %d l %d- %d - %d - %d \n", i, (unsigned char)s[i], l, (unsigned char)(s[i] & 0xC0), (unsigned char)(s[i] & 0xE0), (unsigned char)(s[i] & 0xF0));*/
+        if ((unsigned char)(s[i] & 0xC0) == 0xC0)
+            l = 1;
+        if ((unsigned char)(s[i] & 0xE0) == 0xE0)
+            l = 2;
+        if ((unsigned char)(s[i] & 0xF0) == 0xF0)
+            l = 3;
+    }/*
+    printf("\ni %d s[i] %d l %d - %d - %d - %d \n", i, (unsigned char)s[1], l, (unsigned char)(s[1] & 0xC0), (unsigned char)(s[1] & 0xE0), (unsigned char)(s[1] & 0xF0));
+    ft_putstr_hex(s);
+    printf("\n l : %d - i %d - len %d\n", l, i, (int)ft_strlen(s));*/
+    if (l > 0 && (int)ft_strlen(s) <= i + l)
+        s[i] = '\0';
+    return (s);
+}
 
 /*
 ** Handle exceptions cases for o/O w/ # attribute
@@ -37,7 +72,7 @@ static void		ft_apply_precision_nonnumeric(t_arg **e)
 	d = &((*e)->data_converted);
 	x = ft_atoi((*e)->precision);
 	if (*((*e)->flag) == 's' || *((*e)->flag) == 'S')
-		*d = ft_strsub_free(*d, 0, x);
+		*d = ft_cut_last_unicode(ft_strsub_free(*d, 0, x), e);
 	if (*((*e)->flag) == 'p' && *(*e)->precision == '.' && \
 		ft_strcmp(*d, "0x0") == 0)
 	{
