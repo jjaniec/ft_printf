@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 14:05:23 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/10 17:43:18 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/10 18:24:00 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static char     *ft_cut_last_unicode(char *s, t_arg **e)
 
     i = 0;
     l = -1;
-    if (e && !((*e)->modifiers && ft_strcmp((*e)->modifiers, "l") == 0) && \
-        !((*e)->flag && *((*e)->flag) == 'S'))
+    if ((e && !((*e)->modifiers && ft_strcmp((*e)->modifiers, "l") == 0) && \
+        !((*e)->flag && *((*e)->flag) == 'S')) || MB_CUR_MAX == 1)
         return (s);
     while (s[i])
         i++;
