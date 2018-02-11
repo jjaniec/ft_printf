@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 21:04:21 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 21:10:43 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@
 ** not be printed, apply the precision, otherwise free the element & return -1
 */
 
-static t_arg	*ft_handle_S_error(t_arg *e)
+static t_arg	*ft_handle_ls_error(t_arg *e)
 {
-	int		Sprec;
+	int		sprec;
 	int		errpos;
 
-	Sprec = 0;
+	sprec = 0;
 	errpos = -1;
 	if (e->precision)
 	{
-		Sprec = ft_atoi(e->precision);
+		sprec = ft_atoi(e->precision);
 		if (e->data_converted)
 		{
 			while (e->data_converted[++errpos] != '!')
 				;
-			if (Sprec <= errpos)
+			if (sprec <= errpos)
 			{
-				e->data_converted[Sprec] = '\0';
+				e->data_converted[sprec] = '\0';
 				ft_apply_options(&e);
 				e->next = NULL;
 				return (e);
@@ -54,7 +54,7 @@ static t_arg	*ft_handle_S_error(t_arg *e)
 ** otherwise, free the element and return -1
 */
 
-static t_arg   *ft_handle_C_error(t_arg *e)
+static t_arg	*ft_handle_lc_error(t_arg *e)
 {
 	if (*(e->flag) == 'C' || \
 		(*(e->flag) == 'c' && (e->modifiers) && *(e->modifiers) == 'l'))
@@ -78,10 +78,10 @@ static t_arg   *ft_handle_C_error(t_arg *e)
 static t_arg	*ft_handle_errors(t_arg *e)
 {
 	if (!e->data_converted)
-		return (ft_handle_C_error(e));
-	if (e->flag && e->data_converted && ft_strchr(e->data_converted, '!') && \
-		(*(e->flag) == 'S' || (*(e->flag) == 's' && e->modifiers && *(e->modifiers) == 'l')))
-		return (ft_handle_S_error(e));
+		return (ft_handle_lc_error(e));
+	if (e->flag && ft_strchr(e->data_converted, '!') && (*(e->flag) == 'S' || \
+		(*(e->flag) == 's' && e->modifiers && *(e->modifiers) == 'l')))
+		return (ft_handle_ls_error(e));
 	ft_apply_options(&e);
 	e->next = NULL;
 	return (e);
@@ -92,7 +92,8 @@ static t_arg	*ft_handle_errors(t_arg *e)
 ** and all of it's options (precision / width / modifiers / flags)
 */
 
-t_arg			*ft_create_elem(va_list va_ptr, const char *restrict format, int pos)
+t_arg			*ft_create_elem(va_list va_ptr, const char *restrict format, \
+	int pos)
 {
 	t_arg	*e;
 
