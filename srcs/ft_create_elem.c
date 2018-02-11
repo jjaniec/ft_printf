@@ -6,11 +6,36 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/09 20:49:14 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 15:59:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** 
+*/
+
+static t_arg    *ft_handle_S_error(t_arg *e)
+{
+    int     Sprec;
+    int     errpos;
+
+    errpos = -1;
+    if (e->precision)
+    {
+        Sprec = ft_atoi(e->precision);
+        while (e->data_converted[++errpos] != '!')
+            ;/*
+        printf("errpos : %d - sprec: %d\n", errpos, Sprec);*/
+        if (Sprec <= errpos)
+        {
+            e->data_converted = ft_strsub_free(e->data_converted, 0, Sprec);
+            return (e);
+        }
+    }
+    return (ft_free_elem(e));
+}
 
 /*
 ** Handle unicode error cases in strings, when a defective unicode is found,
@@ -22,6 +47,8 @@
 
 static t_arg   *ft_handle_error(t_arg *e)
 {
+    if ((e->flag) && (*(e->flag) == 'S' || (*(e->flag) == 's' && e->modifiers && *(e->modifiers) == 'l')))
+        return (ft_handle_S_error(e));
     if (*(e->flag) == 'C' || \
         (*(e->flag) == 'c' && (e->modifiers) && *(e->modifiers) == 'l'))
     {
@@ -60,7 +87,7 @@ t_arg	        *ft_create_elem(va_list va_ptr, const char *restrict format, int p
 		e->data_converted = ft_convert_arg_modifiers(va_ptr, &e);
 	else
 		e->data_converted = ft_convert_arg_no_modifiers(va_ptr, e->flag[0]);
-	if (!e->data_converted)
+	if (!e->data_converted || (e->data_converted && ft_strchr(e->data_converted, '!')))
 		return (ft_handle_error(e));
 	ft_apply_options(&e);
 	e->next = NULL;
