@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 16:04:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 16:42:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ static t_arg    *ft_handle_S_error(t_arg *e)
     if (e->precision)
     {
         Sprec = ft_atoi(e->precision);
-        while (e->data_converted[++errpos] != '!')
-            ;
-        if (Sprec <= errpos)
+        if (e->data_converted)
         {
-            e->data_converted = ft_strsub_free(e->data_converted, 0, Sprec);
-            return (e);
+            while (e->data_converted[++errpos] != '!')
+                ;
+            if (Sprec <= errpos)
+            {
+                e->data_converted[Sprec] = '\0';
+                return (e);
+            }
         }
     }
     return (ft_free_elem(e));
