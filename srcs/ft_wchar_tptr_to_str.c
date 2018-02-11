@@ -6,14 +6,17 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 15:59:16 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 16:06:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** Convert a string of unicode characters to a char pointer
+** Convert a string of unicode characters to a char pointer,
+** if an invalid unicode is found during the conversion, place a '!' char
+** to let know ft_handle_S_error if the string should be printed 
+** depending of it's precision
 */
 
 char	*ft_wchar_tptr_to_str(wchar_t *ws)
@@ -35,7 +38,6 @@ char	*ft_wchar_tptr_to_str(wchar_t *ws)
         if (!t)
             t = ft_strdup("!");
         r = ft_strjoin_free(r, t);
-    }/*
-    printf("r: %s\n", r);*/
+    }
 	return (r);
 }

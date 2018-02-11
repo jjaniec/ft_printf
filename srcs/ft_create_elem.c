@@ -6,14 +6,17 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 15:59:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 16:04:06 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-** 
+** Handle invalid unicodes in S/ls conversions, when converting the wchar_t *
+** into a char *, ft_wchar_tptr_to_str will place a '!' where the invalid
+** unicode would be, if the precision specified tell the invalid unicode to
+** not be printed, apply the precision, otherwise free the element
 */
 
 static t_arg    *ft_handle_S_error(t_arg *e)
@@ -26,8 +29,7 @@ static t_arg    *ft_handle_S_error(t_arg *e)
     {
         Sprec = ft_atoi(e->precision);
         while (e->data_converted[++errpos] != '!')
-            ;/*
-        printf("errpos : %d - sprec: %d\n", errpos, Sprec);*/
+            ;
         if (Sprec <= errpos)
         {
             e->data_converted = ft_strsub_free(e->data_converted, 0, Sprec);
