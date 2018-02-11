@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 14:42:31 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 16:42:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 16:53:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static t_arg    *ft_handle_S_error(t_arg *e)
     int     Sprec;
     int     errpos;
 
+    Sprec = 0;
     errpos = -1;
     if (e->precision)
     {
