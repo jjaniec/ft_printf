@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:11:07 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/11 16:06:06 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/12 21:02:08 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ char	*ft_wchar_tptr_to_str(wchar_t *ws)
 	j = 1;
     t = NULL;
     r = ft_wchar_t_to_str((wint_t)(*ws));
-	while (*ws++)
+	while (r && *ws++)
     {
         t = ft_wchar_t_to_str((wint_t)(*ws));
-        if (!t)
+        if (!t && r)
             t = ft_strdup("!");
         r = ft_strjoin_free(r, t);
     }
