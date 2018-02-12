@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/12 15:49:16 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/12 19:48:15 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf(const char *restrict format, ...)
             if (args && args->flag && *(args->flag) != '!')
                 ft_print_next_arg(&args, format, &i, &r);
             else
-                return ((ft_print_until_validconv(format, i)));
+                return ((ft_print_until_validconv(format, i, args)));
 		if (format[i] && !(args && args->flag && *(args->flag) == '!'))
 		{
 			if (format[i] == '%')
