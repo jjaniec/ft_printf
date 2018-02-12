@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 16:25:24 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 21:02:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/11 17:10:13 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			ft_apply_attr_plus(t_arg **e)
 	char	*a;
 
 	if (((*e)->flag[0] == 'd' || \
-		(*e)->flag[0] == 'i') && \
+		(*e)->flag[0] == 'i' || (*e)->flag[0] == 'D') && \
 		((ft_atoi((*e)->data_converted) >= 0)))
 	{
 		a = malloc(sizeof(char) * 2);
