@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 21:39:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:26:18 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/12 15:50:56 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_is_modifier(char c, char c2)
 }
 
 /*
-** Return 1 if $c, if a flag or the begin of a flag of printf
+** Return 1 if $c, is a conversion flag of printf
 ** returns 0
 */
 
