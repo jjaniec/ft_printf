@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/09 21:44:16 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/12 15:49:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_printf(const char *restrict format, ...)
 	t_arg	*args;
 
 	va_start(va_ptr, format);
-    //printf("MB_CUR_MAX : %u\n", MB_CUR_MAX);
 	args = ft_create_arglist(va_ptr, format);
     //ft_debug_args(format, args);
 	r = 0;
@@ -38,7 +37,7 @@ int		ft_printf(const char *restrict format, ...)
             if (args && args->flag && *(args->flag) != '!')
                 ft_print_next_arg(&args, format, &i, &r);
             else
-                return ((-1));
+                return ((ft_print_until_validconv(format, i)));
 		if (format[i] && !(args && args->flag && *(args->flag) == '!'))
 		{
 			if (format[i] == '%')
