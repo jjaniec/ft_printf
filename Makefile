@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/12 18:20:49 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/12 21:57:38 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,9 @@ tests:
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
 
 curqui_test: $(NAME)
-	git clone https://github.com/jobailla/curqui_test.git
+	git clone https://github.com/curquiza/curqui_test.git
 	cp $(NAME) curqui_test
+	sed -i.bak 's#ft_load_test(&test, \"all_02\", &bigs_all_02);##g' curqui_test/conv_bigs/a00_launcher.c
 	make -C curqui_test
 	./curqui_test/ft_printf_tests
 
