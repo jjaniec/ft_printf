@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 13:15:20 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 18:29:56 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/12 21:11:08 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ char	*ft_uitoa_base(uintmax_t n, uint8_t b)
 	char	*sr;
 	int		t;
 
+	if (n == 0)
+		return (ft_strdup("0"));
 	t = ft_get_slen(n, b);
 	s = ft_strnew(t + 1);
 	sr = s;
 	s += (sizeof(char) * (t));
-	if (n == 0)
-		return (ft_strdup("0"));
 	while (n != 0)
 	{
 		t = n % b;
