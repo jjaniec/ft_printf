@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/12 19:27:11 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/13 16:55:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ char			*ft_convert_arg_mod_z(va_list va_ptr, char c);
 
 void			*ft_free_arglist(t_arg *l, va_list va_ptr);
 
-int             ft_print_until_validconv(const char *restrict format, int i, \
-    t_arg *args);
+int				ft_print_until_validconv(const char *restrict format, int i, \
+	t_arg *args);
 
 #endif
