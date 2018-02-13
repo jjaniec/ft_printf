@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 21:51:21 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/12 19:48:03 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/13 16:25:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	ft_print_percent_convs(const char *restrict format, int i, int j, \
 */
 
 int			ft_print_until_validconv(const char *restrict format, int i, \
-    t_arg *args)
+	t_arg *args)
 {
 	int		j;
 	int		r;
@@ -85,15 +85,15 @@ int			ft_print_until_validconv(const char *restrict format, int i, \
 		!(format[j] == '%' && format[j + 1] != '%' && ft_is_flag(format, j)))
 		j--;
 	if (j == 0 || !ft_invalid_conv_present(format, j + 2))
-    {
-        ft_free_arglist(args, NULL);
+	{
+		ft_free_arglist(args, NULL);
 		return (-1);
-    }
+	}
 	if (ft_is_flag(format, j))
 		while (format[j] && !ft_is_flag_c(format[j]))
 			j++;
 	j++;
 	ft_print_percent_convs(format, i, j, &r);
-    ft_free_arglist(args, NULL);
+	ft_free_arglist(args, NULL);
 	return (-1);
 }

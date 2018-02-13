@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/12 19:48:15 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/13 16:46:50 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,22 @@ int		ft_printf(const char *restrict format, ...)
 
 	va_start(va_ptr, format);
 	args = ft_create_arglist(va_ptr, format);
-    //ft_debug_args(format, args);
 	r = 0;
-	i = 0;
+	i = -1;
 	l = (int)ft_strlen(format);
-	while (format[i] && i < l)
+	while (format[++i] && i < l)
 	{
 		while (format[i] == '%' && ft_is_flag(format, i))
-            if (args && args->flag && *(args->flag) != '!')
-                ft_print_next_arg(&args, format, &i, &r);
-            else
-                return ((ft_print_until_validconv(format, i, args)));
+			if (args && args->flag && *(args->flag) != '!')
+				ft_print_next_arg(&args, format, &i, &r);
+			else
+				return ((ft_print_until_validconv(format, i, args)));
 		if (format[i] && !(args && args->flag && *(args->flag) == '!'))
 		{
 			if (format[i] == '%')
 				ft_printf_percent(format, &i, &r);
 			ft_putchar_printf(format[i], &r);
 		}
-		i++;
 	}
 	ft_free_arglist(args, va_ptr);
 	return (r);
