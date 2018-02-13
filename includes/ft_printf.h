@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/13 16:55:32 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/13 22:51:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,45 @@
 # include <wchar.h>
 # include <locale.h>
 # include <limits.h>
+
+# ifndef CL_FT_PRINTF
+#  define CL_FT_PRINTF
+#  define CL_FG_DEFAULT        "\e[39m"
+#  define CL_FG_BLACK          "\e[30m"
+#  define CL_FG_RED            "\e[31m"
+#  define CL_FG_GREEN          "\e[32m"
+#  define CL_FG_YELLOW         "\e[33m"
+#  define CL_FG_BLUE           "\e[34m"
+#  define CL_FG_MAGENTA        "\e[35m"
+#  define CL_FG_CYAN           "\e[36m"
+#  define CL_FG_LIGHT_GREY     "\e[37m"
+#  define CL_FG_DARK_GRAY      "\e[90m"
+#  define CL_FG_LIGHT_RED      "\e[91m"
+#  define CL_FG_LIGHT_GREEN    "\e[92m"
+#  define CL_FG_LIGHT_YELLOW   "\e[93m"
+#  define CL_FG_LIGHT_BLUE     "\e[94m"
+#  define CL_FG_LIGHT_MAGENTA  "\e[95m"
+#  define CL_FG_LIGHT_CYAN     "\e[96m"
+#  define CL_FG_WHITE          "\e[97m"
+
+#  define CL_BG_DEFAULT        "\e[49m"
+#  define CL_BG_BLACK          "\e[40m"
+#  define CL_BG_RED            "\e[41m"
+#  define CL_BG_GREEN          "\e[42m"
+#  define CL_BG_YELLOW         "\e[43m"
+#  define CL_BG_BLUE           "\e[44m"
+#  define CL_BG_MAGENTA        "\e[45m"
+#  define CL_BG_CYAN           "\e[46m"
+#  define CL_BG_LIGHT_GREY     "\e[47m"
+#  define CL_BG_DARK_GREY      "\e[100m"
+#  define CL_BG_LIGHT_RED      "\e[101m"
+#  define CL_BG_LIGHT_GREEN    "\e[102m"
+#  define CL_BG_LIGHT_YELLOW   "\e[103m"
+#  define CL_BG_LIGHT_BLUE     "\e[104m"
+#  define CL_BG_LIGHT_MAGENTA  "\e[105m"
+#  define CL_BG_LIGHT_CYAN     "\e[106m"
+#  define CL_BG_WHITE          "\e[107m"
+# endif
 
 typedef struct	s_arg
 {
@@ -45,8 +84,7 @@ void			ft_debug_args(const char *restrict format, t_arg *li);
 void			ft_print_next_arg(t_arg **li, const char *restrict format, \
 	int *i, int *r);
 
-void			ft_print_color(const char *restrict format, va_list va_ptr, \
-	int *i);
+int 			ft_print_color(const char *restrict format, int *i);
 
 int				ft_is_flag_c(char c);
 
@@ -151,5 +189,7 @@ void			*ft_free_arglist(t_arg *l, va_list va_ptr);
 
 int				ft_print_until_validconv(const char *restrict format, int i, \
 	t_arg *args);
+
+char            *ft_is_color(char *cl);
 
 #endif
