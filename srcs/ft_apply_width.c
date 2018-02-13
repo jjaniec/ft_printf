@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:45:52 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/31 21:36:52 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/13 16:14:42 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void			ft_verify_string(t_arg **e)
 }
 
 /*
-**  Return char to fill width with
+** Return char to fill width with
 */
 
 static char			ft_get_fill_char(t_arg **e)
@@ -80,7 +80,6 @@ void				ft_apply_width(t_arg **e)
 {
 	char	c;
 	char	cx;
-	char	*s;
 	int		l;
 
 	cx = 0;
@@ -93,10 +92,11 @@ void				ft_apply_width(t_arg **e)
 			(*e)->data_converted[0] == '+') && c == '0')
 			cx = (*e)->data_converted[0];
 		if ((*e)->attributes && ft_strchr((*e)->attributes, '-'))
-			s = ft_strjoin_free((*e)->data_converted, ft_generate_width(l, c));
+			(*e)->data_converted = \
+			ft_strjoin_free((*e)->data_converted, ft_generate_width(l, c));
 		else
-			s = ft_strjoin_free(ft_generate_width(l, c), (*e)->data_converted);
-		(*e)->data_converted = s;
+			(*e)->data_converted = \
+			ft_strjoin_free(ft_generate_width(l, c), (*e)->data_converted);
 		if (cx && (*e)->attributes && ft_strchr((*e)->attributes, '0'))
 			ft_byte_swap(ft_strchr((*e)->data_converted, cx), \
 				&(*e)->data_converted[0]);
