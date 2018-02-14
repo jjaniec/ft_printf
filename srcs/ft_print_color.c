@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:42:58 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/13 22:49:49 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 15:05:37 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,17 @@ static char    *ft_parse_specifier(const char *restrict format, int *pos)
 int 	ft_print_color(const char *restrict format, int *pos)
 {
     char    *cl;
+    int     *tab;
 
+    tab = NULL;
     cl = ft_parse_specifier(format, pos);
     if (!cl)
         return (0);
     printf("\nparsed color : |%s|\n", cl);
+    tab = ft_is_color(cl);
+    if (!tab)
+        return (0);
+    ft_print_color_id(cl, tab);
     *pos += ft_strlen(cl) + 2;
     return (1);
 }
