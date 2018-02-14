@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 22:49:56 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/14 17:47:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 18:46:10 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	ft_parse_prefixes(char *cl)
 
 static int	ft_parse_cl_attribute(char *cl)
 {
-	if (strncmp(cl, "LIGHT_", 6) == 0)
+	if (ft_strncmp(cl, "LIGHT_", 6) == 0)
 		return (2);
-	if (strncmp(cl, "DARK_", 5) == 0)
+	if (ft_strncmp(cl, "DARK_", 5) == 0)
 		return (1);
 	return (0);
 }
