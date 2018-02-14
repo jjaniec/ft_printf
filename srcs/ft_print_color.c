@@ -47,9 +47,13 @@ int				ft_print_color(const char *restrict format, int *pos)
 		return (0);
 	tab = ft_is_color(cl);
 	if (!tab)
+  {
+    free(cl);
 		return (0);
-	printf("\nparsed color : |%s|\n", cl + 3);
-	ft_print_color_id(cl + 3, tab);
+	}
+  ft_print_color_id(cl + 3, tab);
 	*pos += ft_strlen(cl) + 2;
+  free(cl);
+  free(tab);
 	return (1);
 }

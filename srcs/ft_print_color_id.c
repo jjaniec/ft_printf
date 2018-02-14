@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:27:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/14 17:13:53 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 17:15:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static void		ft_print_color_id_fg(char *cl, int attr)
 
 void			ft_print_color_id(char *cl, int *tab)
 {
-  printf("printing : %s\n", cl + ((tab[1] == 2) ? (6) : (0)));
 	if (tab[0] == 0 || tab[0] == 1)
 		ft_print_color_id_fg(cl + ((tab[1] == 2) ? (6) : (0)), tab[1]);
 	if (tab[0] == 2)
 		ft_print_color_id_bg(cl + ((tab[1] == 2) ? (6) : (0)), tab[1]);
+
 }

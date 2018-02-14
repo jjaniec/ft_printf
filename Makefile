@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/14 14:51:52 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/14 17:19:21 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_parse_precision.c \
 		   ft_parse_width.c \
 		   ft_print_color.c \
-			 ft_print_color_id.c \
+		   ft_print_color_id.c \
 		   ft_print_next_arg.c \
 		   ft_print_until_validconv.c \
 		   ft_printf.c \
