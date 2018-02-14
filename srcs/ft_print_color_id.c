@@ -18,7 +18,30 @@
 ** Print defined color ID to enable terminal color
 */
 
-void  ft_print_color_id_fg(char *cl, int attr)
+static void   ft_print_color_id_bg(char *cl, int attr)
+{
+  if (attr == 2 && !ft_strcmp(cl, "DARK_GREY"))
+      ft_putstr(BG_DARK_GREY);
+  if (attr == 1 || attr == 0)
+      if (!ft_strcmp(cl, "DEFAULT"))
+          ft_putstr((BG_DEFAULT));
+      if (ft_strstr(cl, "BLACK"))
+          ft_putstr((BG_BLACK));
+      if (ft_strstr(cl, "RED"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_RED) : (BG_RED));
+      if (ft_strstr(cl, "GREEN"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_GREEN) : (BG_GREEN));
+      if (ft_strstr(cl, "YELLOW"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_YELLOW) : (BG_YELLOW));
+      if (ft_strstr(cl, "BLUE"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_BLUE) : (BG_BLUE));
+      if (ft_strstr(cl, "MAGENTA"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_MAGENTA) : (BG_MAGENTA));
+      if (ft_strstr(cl, "CYAN"))
+          ft_putstr((attr == 1) ? (BG_LIGHT_CYAN) : (BG_CYAN));
+}
+
+static void   ft_print_color_id_fg(char *cl, int attr)
 {
     if (attr == 2 && !ft_strcmp(cl, "DARK_GREY"))
         ft_putstr(FG_DARK_GREY);
@@ -39,14 +62,12 @@ void  ft_print_color_id_fg(char *cl, int attr)
             ft_putstr((attr == 1) ? (FG_LIGHT_MAGENTA) : (FG_MAGENTA));
         if (ft_strstr(cl, "CYAN"))
             ft_putstr((attr == 1) ? (FG_LIGHT_CYAN) : (FG_CYAN));
-
 }
 
 void  ft_print_color_id(char *cl, int *tab)
 {
-    printf("printing color : cl%s\n", cl + 3);
     if (tab[0] == 0 || tab[0] == 1)
         ft_print_color_id_fg(cl + 3, tab[1]);
-    /*if (tab[0] == 2)
-        ft_print_color_id_bg(cl + 3, tab[1]);*/
+    if (tab[0] == 2)
+        ft_print_color_id_bg(cl + 3, tab[1]);
 }

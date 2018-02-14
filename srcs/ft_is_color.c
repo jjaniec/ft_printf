@@ -32,7 +32,6 @@ static int  ft_parse_prefixes(char *cl)
 
 static int  ft_parse_cl_attribute(char *cl)
 {
-    printf("input parse prefix: %s\n", cl);
     if (strncmp(cl, "LIGHT_", 6) == 0)
         return (2);
     if (strncmp(cl, "DARK_", 5) == 0)

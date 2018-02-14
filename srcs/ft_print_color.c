@@ -45,10 +45,10 @@ int 	ft_print_color(const char *restrict format, int *pos)
     cl = ft_parse_specifier(format, pos);
     if (!cl)
         return (0);
-    printf("\nparsed color : |%s|\n", cl);
     tab = ft_is_color(cl);
     if (!tab)
         return (0);
+    printf("\nparsed color : |%s|\n", cl + 3);
     ft_print_color_id(cl, tab);
     *pos += ft_strlen(cl) + 2;
     return (1);
