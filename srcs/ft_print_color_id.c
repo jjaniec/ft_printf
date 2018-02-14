@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:27:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/14 17:15:32 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 18:32:00 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void		ft_print_color_id_bg(char *cl, int attr)
 	if (attr == 1 && !ft_strcmp(cl, "DARK_GREY"))
 		ft_putstr(BG_DARK_GREY);
 	if (attr == 2 || attr == 0)
+	{
 		if (!ft_strcmp(cl, "DEFAULT"))
 			ft_putstr((BG_DEFAULT));
 		if (!ft_strcmp(cl, "BLACK"))
@@ -37,6 +38,7 @@ static void		ft_print_color_id_bg(char *cl, int attr)
 			ft_putstr((attr == 1) ? (BG_LIGHT_MAGENTA) : (BG_MAGENTA));
 		if (!ft_strcmp(cl, "CYAN"))
 			ft_putstr((attr == 1) ? (BG_LIGHT_CYAN) : (BG_CYAN));
+	}
 }
 
 static void		ft_print_color_id_fg(char *cl, int attr)
@@ -44,6 +46,7 @@ static void		ft_print_color_id_fg(char *cl, int attr)
 	if (attr == 1 && !ft_strcmp(cl, "DARK_GREY"))
 		ft_putstr(FG_DARK_GREY);
 	if (attr == 2 || attr == 0)
+	{
 		if (!ft_strcmp(cl, "DEFAULT"))
 			ft_putstr((FG_DEFAULT));
 		if (!ft_strcmp(cl, "BLACK"))
@@ -60,6 +63,7 @@ static void		ft_print_color_id_fg(char *cl, int attr)
 			ft_putstr((attr == 1) ? (FG_LIGHT_MAGENTA) : (FG_MAGENTA));
 		if (!ft_strcmp(cl, "CYAN"))
 			ft_putstr((attr == 1) ? (FG_LIGHT_CYAN) : (FG_CYAN));
+	}
 }
 
 void			ft_print_color_id(char *cl, int *tab)
@@ -68,5 +72,4 @@ void			ft_print_color_id(char *cl, int *tab)
 		ft_print_color_id_fg(cl + ((tab[1] == 2) ? (6) : (0)), tab[1]);
 	if (tab[0] == 2)
 		ft_print_color_id_bg(cl + ((tab[1] == 2) ? (6) : (0)), tab[1]);
-
 }
