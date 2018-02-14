@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/13 16:55:32 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 17:13:07 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,45 @@
 # include <wchar.h>
 # include <locale.h>
 # include <limits.h>
+
+# ifndef CL_FT_PRINTF
+#  define CL_FT_PRINTF
+#  define FG_DEFAULT		"\e[39m"
+#  define FG_BLACK			"\e[30m"
+#  define FG_RED			"\e[31m"
+#  define FG_GREEN			"\e[32m"
+#  define FG_YELLOW			"\e[33m"
+#  define FG_BLUE			"\e[34m"
+#  define FG_MAGENTA		"\e[35m"
+#  define FG_CYAN			"\e[36m"
+#  define FG_LIGHT_GREY		"\e[37m"
+#  define FG_DARK_GREY		"\e[90m"
+#  define FG_LIGHT_RED		"\e[91m"
+#  define FG_LIGHT_GREEN	"\e[92m"
+#  define FG_LIGHT_YELLOW	"\e[93m"
+#  define FG_LIGHT_BLUE		"\e[94m"
+#  define FG_LIGHT_MAGENTA	"\e[95m"
+#  define FG_LIGHT_CYAN		"\e[96m"
+#  define FG_WHITE			"\e[97m"
+
+#  define BG_DEFAULT		"\e[49m"
+#  define BG_BLACK			"\e[40m"
+#  define BG_RED			"\e[41m"
+#  define BG_GREEN			"\e[42m"
+#  define BG_YELLOW			"\e[43m"
+#  define BG_BLUE			"\e[44m"
+#  define BG_MAGENTA		"\e[45m"
+#  define BG_CYAN			"\e[46m"
+#  define BG_LIGHT_GREY		"\e[47m"
+#  define BG_DARK_GREY		"\e[100m"
+#  define BG_LIGHT_RED		"\e[101m"
+#  define BG_LIGHT_GREEN	"\e[102m"
+#  define BG_LIGHT_YELLOW	"\e[103m"
+#  define BG_LIGHT_BLUE		"\e[104m"
+#  define BG_LIGHT_MAGENTA	"\e[105m"
+#  define BG_LIGHT_CYAN		"\e[106m"
+#  define BG_WHITE			"\e[107m"
+# endif
 
 typedef struct	s_arg
 {
@@ -45,8 +84,7 @@ void			ft_debug_args(const char *restrict format, t_arg *li);
 void			ft_print_next_arg(t_arg **li, const char *restrict format, \
 	int *i, int *r);
 
-void			ft_print_color(const char *restrict format, va_list va_ptr, \
-	int *i);
+int				ft_print_color(const char *restrict format, int *i);
 
 int				ft_is_flag_c(char c);
 
@@ -151,5 +189,9 @@ void			*ft_free_arglist(t_arg *l, va_list va_ptr);
 
 int				ft_print_until_validconv(const char *restrict format, int i, \
 	t_arg *args);
+
+int				*ft_is_color(char *cl);
+
+void			ft_print_color_id(char *cl, int *tab);
 
 #endif

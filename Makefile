@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/12 21:57:38 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/14 17:19:21 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_free_elem.c \
 		   ft_generate_width.c \
 		   ft_get_flag.c \
+		   ft_is_color.c \
 		   ft_imax_toa.c \
 		   ft_is_conv_numeric.c \
 		   ft_is_flag.c \
@@ -35,6 +36,8 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_parse_modifiers.c \
 		   ft_parse_precision.c \
 		   ft_parse_width.c \
+		   ft_print_color.c \
+		   ft_print_color_id.c \
 		   ft_print_next_arg.c \
 		   ft_print_until_validconv.c \
 		   ft_printf.c \
@@ -69,7 +72,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS) 
+$(NAME) : $(LIBFT) $(OBJS)
 	@ar rcs $(NAME) $(OBJS) libft/objs/*.o
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
@@ -91,7 +94,7 @@ re: fclean all
 $(LIBFT):
 	make -C ./libft/
 
-tests: 
+tests:
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
 
 curqui_test: $(NAME)
