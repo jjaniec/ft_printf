@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 20:42:58 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/14 17:12:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/14 18:30:30 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int				ft_print_color(const char *restrict format, int *pos)
 		return (0);
 	tab = ft_is_color(cl);
 	if (!tab)
-  {
-    free(cl);
+	{
+		free(cl);
 		return (0);
 	}
-  ft_print_color_id(cl + 3, tab);
+	ft_print_color_id(cl + 3, tab);
 	*pos += ft_strlen(cl) + 2;
-  free(cl);
-  free(tab);
+	free(cl);
+	free(tab);
 	return (1);
 }
