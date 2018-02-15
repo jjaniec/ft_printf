@@ -58,6 +58,8 @@ SRC_NAME = ft_apply_attr_.c \
 		   ft_wchar_tptr_to_str.c
 
 OBJS_NAMES = $(OBJS_NAMES:.c=.o)
+LIBFT_SRCS = $(shell cat libft/Makefile | grep -E '(ft_[a-z_]{1,}.c)' | cut -d '=' -f 2 | tr -d '\n' | tr -d '\t' | tr -d '\\')
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 NAME = libftprintf.a
 LIBFT = libft/libft.a
 CC = gcc
@@ -73,7 +75,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
-	@ar rcs $(NAME) $(OBJS) libft/objs/*.o
+	@ar rcs $(NAME) $(OBJS) $(addprefix libft/objs/,$(LIBFT_OBJS))
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR) 2> /dev/null || true
