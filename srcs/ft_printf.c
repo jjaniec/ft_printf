@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:44:01 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/15 16:05:01 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/16 17:03:44 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,20 @@
 
 static void		ft_printf_not_conv(const char *restrict format, int *i, int *r)
 {
-	if (format[*i] == '%')
-		ft_printf_percent(format, i, r);
-	if (format[*i] == '{')
-		ft_print_color(format, i);
-	if (!ft_is_flag(format, *i))
-		ft_putchar_printf(format[*i], r);
+	if (format[*i] == '%' && format[*i + 1] == '%')
+	{
+		ft_putchar_printf('%', r);
+		*i += 1;
+	}
+	else
+	{
+		if (format[*i] == '%')
+			ft_printf_percent(format, i, r);
+		if (format[*i] == '{')
+			ft_print_color(format, i);
+		if (!ft_is_flag(format, *i))
+			ft_putchar_printf(format[*i], r);
+	}
 }
 
 /*
