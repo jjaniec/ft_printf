@@ -49,6 +49,8 @@ And specify width and precision to adapt your output
 
 ### Bonus
 
+#### Colors
+
 Output can be colored with the following tags:
 ```text
 {FG_COLOR}: to specify a foreground color
@@ -71,6 +73,12 @@ DARK_GREY
 
 An invalid color specifier will cause it to be skipped
 
+#### Added conversions
+
+```c
+b: int to binary output
+```
+
 ## Trying it
 
 First, install the project and it's dependencies
@@ -82,6 +90,6 @@ git clone https://github.com/jjaniec/libft
 
 `make` the project and compile your files with the generated ```libftprintf.a``` and by adding
 ```c
-#include <ft_printf.h>
+#include "ft_printf.h"
 ```
 then use it like the real printf function
