@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:25:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/13 16:25:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/16 16:28:20 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ char		*ft_convert_arg_no_modifiers(va_list va_ptr, char fl)
 		return (ft_uitoa_base((size_t)va_arg(va_ptr, unsigned int), 10));
 	if (fl == 'o')
 		return (ft_uitoa_base((size_t)va_arg(va_ptr, unsigned int), 8));
+	if (fl == 'b')
+		return (ft_uitoa_base(va_arg(va_ptr, uintmax_t), 2));
 	if (fl == 'p')
 		return ((*f[fl - 'A'])((void *)va_arg(va_ptr, void *)));
 	if (fl >= 'A' && fl <= 'Z')
