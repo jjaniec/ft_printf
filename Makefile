@@ -94,6 +94,7 @@ fclean: clean
 re: fclean all
 
 $(LIBFT):
+	git clone https://github.com/jjaniec/libft || true
 	make -C ./libft/
 
 tests:

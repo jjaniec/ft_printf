@@ -81,15 +81,14 @@ b: int to binary output
 
 ## Trying it
 
-First, install the project and it's dependencies
+First, clone the project,
 ```sh
 git clone https://github.com/jjaniec/ft_printf
 cd ft_printf
-git clone https://github.com/jjaniec/libft
 ```
 
-`make` the project and compile your files with the generated ```libftprintf.a``` and by adding
+then `make` the project and compile your files with the generated ```libftprintf.a``` and by adding
 ```c
 #include "ft_printf.h"
 ```
-then use it like the real printf function
+and use it like the real printf function
