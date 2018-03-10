@@ -36,7 +36,7 @@ static int		ft_free_ptr(void *p, void *p2, int r)
 ** otherwise return 0
 */
 
-int				ft_is_flag(const char *restrict format, int i)
+int				ft_is_flag(const char *format, int i)
 {
 	int		a;
 	char	*t;

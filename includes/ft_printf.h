@@ -19,6 +19,7 @@
 # include <wchar.h>
 # include <locale.h>
 # include <limits.h>
+# include <stdint.h>
 
 # ifndef CL_FT_PRINTF
 #  define CL_FT_PRINTF
@@ -70,27 +71,27 @@ typedef struct	s_arg
 	struct s_arg	*next;
 }				t_arg;
 
-int				ft_printf(const char *restrict format, ...);
+int				ft_printf(const char *format, ...);
 
-int				ft_count_args(const char *restrict format);
+int				ft_count_args(const char *format);
 
-t_arg			*ft_create_arglist(va_list va_ptr, const char *restrict format);
+t_arg			*ft_create_arglist(va_list va_ptr, const char *format);
 
-t_arg			*ft_create_elem(va_list va_ptr, const char *restrict format, \
+t_arg			*ft_create_elem(va_list va_ptr, const char *format, \
 	int pos);
 
-void			ft_debug_args(const char *restrict format, t_arg *li);
+void			ft_debug_args(const char *format, t_arg *li);
 
-void			ft_print_next_arg(t_arg **li, const char *restrict format, \
+void			ft_print_next_arg(t_arg **li, const char *format, \
 	int *i, int *r);
 
-int				ft_print_color(const char *restrict format, int *i);
+int				ft_print_color(const char *format, int *i);
 
 int				ft_is_flag_c(char c);
 
 int				ft_is_modifier(char c, char c2);
 
-char			*ft_get_flag(const char *restrict format, int pos);
+char			*ft_get_flag(const char *format, int pos);
 
 char			*ft_convert_arg_no_modifiers(va_list va_arg, char flag);
 
@@ -110,21 +111,21 @@ char			*ft_wchar_tptr_to_str(wchar_t *ws);
 
 char			*ft_wchar_t_to_str(wint_t c);
 
-int				ft_is_flag(const char *restrict format, int i);
+int				ft_is_flag(const char *format, int i);
 
-int				ft_printf_no_args(const char *restrict format);
+int				ft_printf_no_args(const char *format);
 
-char			*ft_parse_attributes(const char *restrict format, int *pos);
+char			*ft_parse_attributes(const char *format, int *pos);
 
 int				ft_is_attribute(char c);
 
-int				ft_get_attributes_len(const char *restrict format, int pos);
+int				ft_get_attributes_len(const char *format, int pos);
 
-char			*ft_parse_width(const char *restrict format, int *pos);
+char			*ft_parse_width(const char *format, int *pos);
 
-int				ft_get_width_len(const char *restrict format);
+int				ft_get_width_len(const char *format);
 
-char			*ft_parse_precision(const char *restrict format, int *pos);
+char			*ft_parse_precision(const char *format, int *pos);
 
 void			ft_apply_options(t_arg **e);
 
@@ -152,7 +153,7 @@ void			ft_apply_precision(t_arg **e);
 
 int				ft_is_conv_numeric(t_arg **e);
 
-char			*ft_parse_modifiers(const char *restrict format, int *pos);
+char			*ft_parse_modifiers(const char *format, int *pos);
 
 char			*ft_convert_arg_modifiers(va_list va_ptr, t_arg **e);
 
@@ -168,7 +169,7 @@ char			*ft_strnotchr(const char *s, char c);
 
 char			*ft_uitoa_base(uintmax_t n, uint8_t b);
 
-void			ft_printf_percent(const char *restrict format, int *pos, \
+void			ft_printf_percent(const char *format, int *pos, \
 	int *r);
 
 char			*ft_convert_arg_mod_l(va_list va_ptr, char c);
@@ -187,7 +188,7 @@ char			*ft_convert_arg_mod_z(va_list va_ptr, char c);
 
 void			*ft_free_arglist(t_arg *l, va_list va_ptr);
 
-int				ft_print_until_validconv(const char *restrict format, int i, \
+int				ft_print_until_validconv(const char *format, int i, \
 	t_arg *args);
 
 int				*ft_is_color(char *cl);

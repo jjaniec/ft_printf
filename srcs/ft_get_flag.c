@@ -60,7 +60,7 @@ int		ft_is_flag_c(char c)
 ** Check if letters behind '%' in format[*pos] is a flag of printf
 */
 
-char	*ft_get_flag(const char *restrict format, int pos)
+char	*ft_get_flag(const char *format, int pos)
 {
 	char	*flag;
 	int		mod_len;

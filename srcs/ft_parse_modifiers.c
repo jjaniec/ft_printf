@@ -16,7 +16,7 @@
 ** Count length of modifiers to store these in a char pointer
 */
 
-int			ft_count_modifiers_len(const char *restrict format, int pos, int m)
+int			ft_count_modifiers_len(const char *format, int pos, int m)
 {
 	int		r;
 
@@ -38,7 +38,7 @@ int			ft_count_modifiers_len(const char *restrict format, int pos, int m)
 ** Return a malloced string containing modifiers (h hh l ll j z)
 */
 
-char		*ft_parse_modifiers(const char *restrict format, int *pos)
+char		*ft_parse_modifiers(const char *format, int *pos)
 {
 	int		i;
 	char	*s;

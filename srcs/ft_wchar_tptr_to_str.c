@@ -23,13 +23,9 @@ char	*ft_wchar_tptr_to_str(wchar_t *ws)
 {
 	char				*r;
 	char				*t;
-	unsigned int		i;
-	unsigned int		j;
 
 	if (!ws)
 		return (ft_strdup("(null)"));
-	i = 0;
-	j = 1;
 	t = NULL;
 	r = ft_wchar_t_to_str((wint_t)(*ws));
 	while (r && *ws++)

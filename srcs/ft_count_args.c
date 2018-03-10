@@ -16,7 +16,7 @@
 ** Counts args passed in printf function by counting number of '%'
 */
 
-int		ft_count_args(const char *restrict format)
+int		ft_count_args(const char *format)
 {
 	int		i;
 	int		t;

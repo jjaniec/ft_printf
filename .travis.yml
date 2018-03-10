@@ -1,7 +1,8 @@
 language: c
+sudo: true
 before_install:
-    - brew update
-    - brew install valgrind
+    - brew update || sudo apt-get update -yqq
+    - brew install valgrind || sudo apt-get install -yqq valgrind
     - git clone https://github.com/jjaniec/libft.git
     - git clone https://github.com/yyang42/moulitest.git
     - cat moulitest/config.ini.template | tr '\n' '^' | sed "s#/absolute/path/to/project#$TRAVIS_BUILD_DIR#3" | tr '^' '\n' > moulitest/config.ini
@@ -13,6 +14,12 @@ matrix:
           compiler: gcc
           env: CXX=gcc
         - os: osx
+          compiler: clang
+          env: CXX=clang
+        - os: linux
+          compiler: gcc
+          env: CXX=gcc
+        - os: linux
           compiler: clang
           env: CXX=clang
     allow_failures:
