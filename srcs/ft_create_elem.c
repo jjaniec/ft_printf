@@ -92,7 +92,7 @@ static t_arg	*ft_handle_errors(t_arg *e)
 ** and all of it's options (precision / width / modifiers / flags)
 */
 
-t_arg			*ft_create_elem(va_list va_ptr, const char *restrict format, \
+t_arg			*ft_create_elem(va_list va_ptr, const char *format, \
 	int pos)
 {
 	t_arg	*e;

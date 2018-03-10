@@ -17,7 +17,7 @@
 ** to apply options on it with ft_print_percent, otherwise print format[*i]
 */
 
-static void		ft_printf_not_conv(const char *restrict format, int *i, int *r)
+static void		ft_printf_not_conv(const char *format, int *i, int *r)
 {
 	if (format[*i] == '%' && format[*i + 1] == '%')
 	{
@@ -41,7 +41,7 @@ static void		ft_printf_not_conv(const char *restrict format, int *i, int *r)
 ** otherwise return the lenght of printed string
 */
 
-int				ft_printf(const char *restrict format, ...)
+int				ft_printf(const char *format, ...)
 {
 	int		i;
 	int		l;

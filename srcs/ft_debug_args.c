@@ -16,7 +16,7 @@
 ** Cycle through arg structures to print their content
 */
 
-void	ft_debug_args(const char *restrict format, t_arg *args)
+void	ft_debug_args(const char *format, t_arg *args)
 {
 	int		i;
 	t_arg	*li;

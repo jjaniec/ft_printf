@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static int		ft_skip_to_char(const char *restrict format, int *pos)
+static int		ft_skip_to_char(const char *format, int *pos)
 {
 	int		a;
 
@@ -28,7 +28,7 @@ static int		ft_skip_to_char(const char *restrict format, int *pos)
 	return (a);
 }
 
-static t_arg	*ft_create_temp_elem(const char *restrict format, int *pos)
+static t_arg	*ft_create_temp_elem(const char *format, int *pos)
 {
 	t_arg *e;
 
@@ -52,7 +52,7 @@ static t_arg	*ft_create_temp_elem(const char *restrict format, int *pos)
 	return (e);
 }
 
-void			ft_printf_percent(const char *restrict format, int *pos, int *r)
+void			ft_printf_percent(const char *format, int *pos, int *r)
 {
 	t_arg	*e;
 	int		a;

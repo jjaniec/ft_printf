@@ -61,7 +61,7 @@ static void		ft_format_string_no_args(char **s, int *x)
 ** Handle return value and %% when no arguments are specified in printf
 */
 
-int				ft_printf_no_args(const char *restrict format)
+int				ft_printf_no_args(const char *format)
 {
 	char	*s;
 	int		x;

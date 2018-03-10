@@ -27,7 +27,7 @@ int		ft_is_attribute(char c)
 ** Return lenght of attributes before flag
 */
 
-int		ft_get_attributes_len(const char *restrict format, int pos)
+int		ft_get_attributes_len(const char *format, int pos)
 {
 	int		i;
 
@@ -41,7 +41,7 @@ int		ft_get_attributes_len(const char *restrict format, int pos)
 ** Return attributes before flag (#0+-[escape])
 */
 
-char	*ft_parse_attributes(const char *restrict format, int *pos)
+char	*ft_parse_attributes(const char *format, int *pos)
 {
 	char	*s;
 	int		i;

@@ -66,11 +66,13 @@ CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
 LFLAGS = -L./libft/ -lft
+LINUX_FLAGS = -fPIC -std=c99 -Wno-pointer-arith -Wno-pointer-to-int-cast -Wno-type-limits
 SRC_DIR = ./srcs/
 OBJ_DIR = ./obj/
 INCLUDES_DIR = ./includes/
 SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
+UNAME_S := $(shell uname -s)
 
 all : $(NAME)
 
@@ -79,7 +81,13 @@ $(NAME) : $(LIBFT) $(OBJS)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR) 2> /dev/null || true
+ifeq ($(UNAME_S),Linux)
+	$(CC) $(C_FLAGS) $(LINUX_FLAGS) $(IFLAGS) -c $^ -o $@
+endif
+ifeq ($(UNAME_S),Darwin)
 	$(CC) $(C_FLAGS) $(IFLAGS) -c $^ -o $@
+endif
+
 
 clean:
 	@rm -f $(OBJ)

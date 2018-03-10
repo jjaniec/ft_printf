@@ -55,5 +55,5 @@ int			*ft_is_color(char *cl)
 	ret = malloc(sizeof(int) * 2);
 	ret[0] = prefx_id;
 	ret[1] = attr_id;
-	return (&(ret[0]));
+	return (ret);
 }

@@ -4,7 +4,7 @@
 
 The goal of this project was to recode the famous printf C function to learn variadic functions and to improve my algorithmic methodology
 ```c
-int printf(const char * restrict format, ...);
+int printf(const char * (restrict) format, ...);
 ```
 
 You can print content of a passed parameter by using the following syntax:

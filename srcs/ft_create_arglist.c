@@ -38,7 +38,7 @@ void	*ft_free_arglist(t_arg *l, va_list va_ptr)
 ** argument flag in e.flag and precision of argument to print in e.precision
 */
 
-t_arg	*ft_create_arglist(va_list va_ptr, const char *restrict format)
+t_arg	*ft_create_arglist(va_list va_ptr, const char *format)
 {
 	t_arg	*li;
 	t_arg	*r;

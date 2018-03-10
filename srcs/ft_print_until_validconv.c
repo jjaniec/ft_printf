@@ -17,7 +17,7 @@
 ** return 0
 */
 
-static int	ft_invalid_conv_present(const char *restrict format, int i)
+static int	ft_invalid_conv_present(const char *format, int i)
 {
 	int		a;
 
@@ -41,7 +41,7 @@ static int	ft_invalid_conv_present(const char *restrict format, int i)
 ** are found, break and return -1 w/ ft_print_until_validconv
 */
 
-static void	ft_print_percent_convs(const char *restrict format, int i, int j, \
+static void	ft_print_percent_convs(const char *format, int i, int j, \
 	int *r)
 {
 	while (j < i)
@@ -73,7 +73,7 @@ static void	ft_print_percent_convs(const char *restrict format, int i, int j, \
 ** until a valid conversion is found
 */
 
-int			ft_print_until_validconv(const char *restrict format, int i, \
+int			ft_print_until_validconv(const char *format, int i, \
 	t_arg *args)
 {
 	int		j;

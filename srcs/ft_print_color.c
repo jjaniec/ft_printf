@@ -17,7 +17,7 @@
 ** return NULL
 */
 
-static char		*ft_parse_specifier(const char *restrict format, int *pos)
+static char		*ft_parse_specifier(const char *format, int *pos)
 {
 	int		i;
 
@@ -36,7 +36,7 @@ static char		*ft_parse_specifier(const char *restrict format, int *pos)
 ** the function print the color and increment *pos to skip it in format
 */
 
-int				ft_print_color(const char *restrict format, int *pos)
+int				ft_print_color(const char *format, int *pos)
 {
 	char	*cl;
 	int		*tab;

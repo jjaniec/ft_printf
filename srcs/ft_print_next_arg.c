@@ -16,7 +16,7 @@
 ** Move forward in format until flag is skiped
 */
 
-static void		ft_skip_flag(const char *restrict format, int *i, char *flag)
+static void		ft_skip_flag(const char *format, int *i, char *flag)
 {
 	int j;
 
@@ -56,7 +56,7 @@ static void		ft_print_0(int *r)
 ** Print data as a string of current argument and move on to the next one
 */
 
-void			ft_print_next_arg(t_arg **li, const char *restrict format, \
+void			ft_print_next_arg(t_arg **li, const char *format, \
 	int *i, int *r)
 {
 	t_arg	*arg;

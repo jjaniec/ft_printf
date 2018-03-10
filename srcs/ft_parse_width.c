@@ -16,7 +16,7 @@
 ** Return the len required for a char * to store width parameter
 */
 
-int		ft_get_width_len(const char *restrict format)
+int		ft_get_width_len(const char *format)
 {
 	int		i;
 
@@ -31,7 +31,7 @@ int		ft_get_width_len(const char *restrict format)
 ** found, return NULL
 */
 
-char	*ft_parse_width(const char *restrict format, int *pos)
+char	*ft_parse_width(const char *format, int *pos)
 {
 	char	*s;
 	int		l;

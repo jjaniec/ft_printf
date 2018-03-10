@@ -17,7 +17,7 @@
 ** if none are found return NULL
 */
 
-char	*ft_parse_precision(const char *restrict format, int *pos)
+char	*ft_parse_precision(const char *format, int *pos)
 {
 	int		x;
 	char	*s;
