@@ -3,12 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/14 17:19:21 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/03/18 20:06:37 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = libftprintf.a
 
 SRC_NAME = ft_apply_attr_.c \
 		   ft_apply_attributes.c \
@@ -60,34 +62,42 @@ SRC_NAME = ft_apply_attr_.c \
 OBJS_NAMES = $(OBJS_NAMES:.c=.o)
 LIBFT_SRCS = $(shell cat libft/Makefile | grep -E '(ft_[a-z_]{1,}.c)' | cut -d '=' -f 2 | tr -d '\n' | tr -d '\t' | tr -d '\\')
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
-NAME = libftprintf.a
-LIBFT = libft/libft.a
+
+SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
+OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
+
 CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
 LFLAGS = -L./libft/ -lft
 LINUX_FLAGS = -fPIC -std=c99 -Wno-pointer-arith -Wno-pointer-to-int-cast -Wno-type-limits
 SRC_DIR = ./srcs/
-OBJ_DIR = ./obj/
+OBJ_DIR = ./objs/
 INCLUDES_DIR = ./includes/
-SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
-OBJS = $(addprefix $(OBJ_DIR), $(SRC_NAME:.c=.o))
+
+LIBFT_DIR = ./libft
+LIBFT = $(addprefix $(LIBFT_DIR),"/libft.a")
+
+MAKEFILE_STATUS = $(addprefix $(LIBFT_DIR),"/.makefile_status")
+
 UNAME_S := $(shell uname -s)
+
+define ui_line
+	$(MAKEFILE_STATUS) $(1) $(2) || true
+endef
 
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(addprefix libft/objs/,$(LIBFT_OBJS))
-
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR) 2> /dev/null || true
 ifeq ($(UNAME_S),Linux)
-	$(CC) $(C_FLAGS) $(LINUX_FLAGS) $(IFLAGS) -c $^ -o $@
+	@$(CC) $(C_FLAGS) $(LINUX_FLAGS) $(IFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(NAME))
 endif
 ifeq ($(UNAME_S),Darwin)
-	$(CC) $(C_FLAGS) $(IFLAGS) -c $^ -o $@
+	@$(CC) $(C_FLAGS) $(IFLAGS) -c $^ -o $@ && $(call ui_line, $@ $(NAME))
 endif
-
 
 clean:
 	@rm -f $(OBJ)
@@ -99,10 +109,10 @@ fclean: clean
 	@rm -f $(NAME)
 	@rm -rf curqui_test
 
-re: fclean all
-
-$(LIBFT):
+$(LIBFT_DIR):
 	git clone https://github.com/jjaniec/libft || true
+
+$(LIBFT): $(LIBFT_DIR)
 	make -C ./libft/
 
 tests:
@@ -114,5 +124,7 @@ curqui_test: $(NAME)
 	sed -i.bak 's#ft_load_test(&test, \"all_02\", &bigs_all_02);##g' curqui_test/conv_bigs/a00_launcher.c
 	make -C curqui_test
 	./curqui_test/ft_printf_tests
+
+re: fclean all
 
 .PHONY : all clean re tests libft curqui_test
