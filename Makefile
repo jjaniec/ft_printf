@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/03/18 20:06:37 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/06/11 16:54:47 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,10 +110,10 @@ fclean: clean
 	@rm -rf curqui_test
 
 $(LIBFT_DIR):
-	git clone https://github.com/jjaniec/libft || true
+	git clone https://github.com/jjaniec/libft $(LIBFT_DIR) || true
 
 $(LIBFT): $(LIBFT_DIR)
-	make -C ./libft/
+	@make -C ./libft/
 
 tests:
 	@gcc $(addprefix $(SRC_DIR),main.c) libftprintf.a -o ./ft_printf
@@ -127,4 +127,4 @@ curqui_test: $(NAME)
 
 re: fclean all
 
-.PHONY : all clean re tests libft curqui_test
+.PHONY : clean re tests curqui_test all
