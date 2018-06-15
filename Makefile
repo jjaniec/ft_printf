@@ -70,7 +70,7 @@ CC = gcc
 C_FLAGS = -Wall -Wextra -Werror
 IFLAGS = -I./libft -I./$(INCLUDES_DIR)
 LFLAGS = -L./libft/ -lft
-LINUX_FLAGS = -fPIC -std=c99 -Wno-pointer-arith -Wno-pointer-to-int-cast -Wno-type-limits
+LINUX_FLAGS = -fPIC -std=c99 -Wno-pointer-arith -Wno-pointer-to-int-cast -Wno-type-limits -Wno-cast-function-type
 SRC_DIR = ./srcs/
 OBJ_DIR = ./objs/
 INCLUDES_DIR = ./includes/
