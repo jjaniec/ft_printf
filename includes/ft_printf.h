@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 13:41:09 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/14 17:13:07 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:00:40 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,6 @@ int				ft_print_until_validconv(const char *format, int i, \
 
 int				*ft_is_color(char *cl);
 
-void			ft_print_color_id(char *cl, int *tab);
+void			ft_print_color_id(char *cl, int *tab_);
 
 #endif
