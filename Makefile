@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 18:15:37 by jjaniec           #+#    #+#              #
-#    Updated: 2018/06/11 16:54:47 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/09/23 20:25:12 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ INCLUDES_DIR = ./includes/
 LIBFT_DIR = ./libft
 LIBFT = $(addprefix $(LIBFT_DIR),"/libft.a")
 
-MAKEFILE_STATUS = $(addprefix $(LIBFT_DIR),"/.makefile_status")
+MAKEFILE_STATUS = $(addprefix $(LIBFT_DIR),"/.makefile_status.sh")
 
 UNAME_S := $(shell uname -s)
 
