@@ -87,9 +87,14 @@ endef
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS)
+ifeq ($(UNAME_S),Linux)
+	@ar rcs $(NAME) $(OBJS) $(LIBFT_DIR)/objs/*.o
+endif
+ifeq ($(UNAME_S),Darwin)
 	@ar rcs $(NAME)_ $(OBJS)
 	@libtool -static -o $(NAME) $(NAME)_ $(LIBFT)
 	@rm -f $(NAME)_
+endif
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR) 2> /dev/null || true
